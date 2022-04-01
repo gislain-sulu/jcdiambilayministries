@@ -1,0 +1,28 @@
+@import "../../../styles/sass/base/variables.scss";
+@import "../../../styles/sass/mixins/_responsive";
+.citation {
+  &__mobile {
+    display: none;
+
+    @include responsive(md) {
+      display: flex;
+      flex-direction: column !important;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+  &__desktop {
+    @include responsive(md) {
+      display: none;
+    }
+  }
+  &__slider {
+    display: flex !important;
+    justify-content: center;
+    gap: 7rem;
+
+    & > * {
+      flex: 0 0 100%/3;
+    }
+  }
+}

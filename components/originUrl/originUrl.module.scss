@@ -1,0 +1,47 @@
+@import "../../styles/sass/base/variables.scss";
+@import "../../styles/sass/mixins/_responsive";
+
+.list {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+
+  svg {
+    font-size: 1.5rem;
+    margin: 0 0.3rem;
+
+    @include responsive(md) {
+      font-size: 1.4rem;
+      margin: 0 0.1rem;
+    }
+  }
+  a {
+    color: $color-gray !important;
+
+    &:hover {
+      color: $color-primary;
+    }
+  }
+  &__item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: $color-black;
+
+    @include responsive(md) {
+      font-size: 1.4rem;
+    }
+
+    &__span {
+      a {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        @include responsive(md) {
+          font-size: 1.4rem;
+        }
+      }
+    }
+  }
+}

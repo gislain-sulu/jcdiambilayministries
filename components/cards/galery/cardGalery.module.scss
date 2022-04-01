@@ -1,0 +1,49 @@
+@import "../../../styles/sass/base/variables.scss";
+@import "../../../styles/sass/mixins/_responsive";
+.cardGalery {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  overflow: hidden;
+
+  @include responsive(sm) {
+    gap: 1px;
+  }
+
+  &__picturePrevieuw {
+    background: $color-secondary;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__albumName {
+    margin-top: 0.5rem;
+    font-size: 2rem;
+    font-weight: 400;
+    line-height: 1;
+    color: $color-black;
+
+    @include responsive(sm) {
+      color: $color-black;
+    }
+
+    &::first-letter {
+      text-transform: uppercase;
+    }
+  }
+
+  &__datePublication {
+    color: #808080;
+    & > :last-child {
+      font-weight: 700;
+    }
+  }
+
+  &:hover {
+    cursor: pointer;
+    h4 {
+      color: $color-primary;
+    }
+  }
+}

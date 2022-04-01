@@ -1,0 +1,166 @@
+@import "../../styles/sass/base/variables.scss";
+@import "../../styles/sass/mixins/_responsive";
+
+.biographie {
+  display: flex;
+  flex-direction: column;
+  gap: 7rem;
+
+  @include responsive(sm) {
+    gap: 0.001px;
+  }
+
+  &__titleBox {
+    padding: 5rem;
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(rgba(97, 56, 24, 0.9), rgba(97, 56, 24, 0.8)),
+      url("../../public/assets/images/backgrounds/bapteme-section-bgc.jpg");
+    background-size: cover;
+    overflow: hidden;
+    background-position: center center;
+    min-height: 50px;
+    height: 50px;
+    max-height: 50px;
+
+    &__title {
+      text-transform: uppercase;
+
+      font-size: 4rem;
+      color: $color-white;
+      position: relative;
+      font-weight: 600;
+
+      &:before {
+        content: "";
+        width: 0.5rem;
+        height: 30px;
+        background: $color-primary;
+        position: absolute;
+        left: -1rem;
+        top: 11px;
+      }
+
+      @include responsive(sm) {
+        font-size: 2.5rem;
+        &:before {
+          height: 20px;
+
+          position: absolute;
+
+          top: 3px;
+        }
+      }
+
+      @include responsive(md) {
+        font-size: 2.5rem;
+      }
+    }
+  }
+  &__content {
+    display: flex;
+    flex-direction: column;
+    max-width: 667px;
+    margin: 0 auto;
+
+    &__wrapper {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 2rem;
+
+      @include responsive(sm) {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        max-width: 100%;
+        gap: 0.0001rem;
+      }
+
+      @include responsive(md) {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        max-width: 100%;
+      }
+    }
+
+    &__pictureBox {
+      background: $color-white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 0.5rem 0;
+    }
+    &__titleBox {
+      line-height: 1;
+      align-self: flex-start;
+      display: flex;
+      flex-direction: column;
+
+      @include responsive(md) {
+        padding-left: 0px;
+      }
+      @include responsive(sm) {
+        padding: 2rem;
+
+        background: $color-primary;
+      }
+
+      &__libele {
+        font-size: 5rem;
+        color: $color-black;
+        font-weight: 600;
+        margin-bottom: -2rem;
+
+        @include responsive(md) {
+          font-size: 2.5rem;
+        }
+      }
+      &__name {
+        font-size: 4rem;
+        font-weight: 900;
+        color: #808080;
+
+        @include responsive(md) {
+          font-size: 2.5rem;
+        }
+        @include responsive(sm) {
+          color: $color-white;
+        }
+      }
+    }
+    &__main {
+      line-height: 1.5;
+      text-align: justify;
+      color: $color-black;
+      font-size: 1.6rem;
+
+      @include responsive(md) {
+        font-size: 1.3rem;
+      }
+
+      @include responsive(sm) {
+        font-size: 1.6rem;
+        padding: 2rem;
+      }
+    }
+    &__socialsMedias {
+      margin-bottom: 7rem;
+      display: flex;
+      align-self: flex-end;
+
+      @include responsive(sm) {
+        padding-right: 2rem;
+      }
+
+      svg {
+        color: $color-black;
+        gap: 0.5rem;
+      }
+    }
+  }
+}

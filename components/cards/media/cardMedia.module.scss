@@ -1,0 +1,30 @@
+@import "../../../styles/sass/base/variables.scss";
+
+.cardMedia {
+  background: rgba(97, 56, 24, 0.164);
+
+  box-sizing: border-box;
+  padding: 6rem;
+  display: flex;
+  gap: 1rem;
+  flex-direction: column;
+  justify-content: center;
+
+  &__pictureBox {
+    overflow: hidden;
+  }
+  &__nameMediaBox {
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #e42727;
+
+    &__name {
+      text-transform: uppercase;
+      font-weight: 900;
+      color: $color-white;
+      padding: 1rem 0;
+    }
+  }
+}

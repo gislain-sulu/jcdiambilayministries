@@ -1,0 +1,28 @@
+@import "../../../styles/sass/base/variables.scss";
+@import "../../../styles/sass/mixins/_responsive";
+.navbar {
+  background: $color-secondary;
+  padding: 1rem 0;
+
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+
+  @include responsive(md) {
+    display: none;
+  }
+
+  &__wrapper {
+    display: flex;
+    gap: 1rem;
+  }
+  &__navlinks {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &:only-child {
+      margin-left: auto;
+    }
+  }
+}

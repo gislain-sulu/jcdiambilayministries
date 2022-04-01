@@ -1,0 +1,136 @@
+@import "../../../styles/sass/base/variables.scss";
+@import "../../../styles/sass/mixins/_responsive";
+
+.footer {
+  background: linear-gradient(rgba(97, 56, 24, 0.9), rgba(97, 56, 24, 0.9)),
+    url("../../../public/assets/images/backgrounds/bg_footer.jpg");
+  background-size: cover;
+  padding: 5rem 0 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+
+  &__wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 5rem;
+    color: $color-black;
+  }
+
+  &__sectionsLinksGroup {
+    display: flex;
+    color: #ffffff;
+    gap: 1rem;
+
+    @include responsive(md) {
+      flex-direction: column;
+      gap: 2rem;
+    }
+
+    & > * {
+      flex: 1;
+    }
+  }
+
+  &__sectionsNewsLetterGroup {
+    display: flex;
+    gap: 1rem;
+
+    @include responsive(md) {
+      flex-direction: column;
+      gap: 2rem;
+    }
+
+    &__socialsMediasBox {
+      margin-top: 1rem;
+
+      display: flex;
+      gap: 0.5rem;
+
+      &__item {
+        svg {
+          color: $color-white;
+        }
+      }
+    }
+
+    &__newLetterBox {
+      max-width: 500px;
+      margin-left: auto;
+
+      @include responsive(md) {
+        order: -1;
+        margin-left: 0;
+      }
+      @include responsive(sm) {
+        order: -1;
+        margin-left: 0;
+      }
+
+      &__text {
+        color: $color-white;
+        margin-bottom: 1rem;
+        display: inline-block;
+        font-size: 1.5rem;
+      }
+      &__form {
+        form {
+          display: flex;
+          flex-wrap: wrap;
+
+          input {
+            outline: none;
+            border: none;
+            border-left: solid 1px $color-white;
+            border-top: solid 1px $color-white;
+            border-bottom: solid 1px $color-white;
+            font-size: 1.8rem;
+            color: $color-white;
+            padding: 0 1rem;
+
+            @include responsive(md) {
+              font-size: 1.4rem;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  &__button {
+    min-height: 50px;
+    padding: 0 3rem;
+    overflow: hidden;
+    font-weight: 900;
+    background: $color-white;
+    border: 2px solid $color-white;
+
+    a {
+      color: $color-secondary !important;
+      font-variant: small-caps;
+    }
+  }
+  &__button:hover {
+    background: $color-primary;
+    border: 2px solid $color-primary;
+    a {
+      color: $color-white !important;
+      font-weight: 600;
+    }
+  }
+
+  &__copyrightBox {
+    background: transparentize($color-primary, 0.5);
+    padding: 2rem 0;
+
+    p {
+      text-align: center;
+      color: $color-white;
+
+      @include responsive(md) {
+        font-size: 1.3rem;
+        line-height: 1.3;
+      }
+    }
+  }
+}

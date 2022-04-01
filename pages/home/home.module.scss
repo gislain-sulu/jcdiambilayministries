@@ -1,0 +1,260 @@
+@import "../../styles/sass/base/variables.scss";
+@import "../../styles/sass/mixins/_responsive";
+
+.home {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+
+  &__headerBox {
+    height: 100%;
+    max-height: 100vh;
+    min-height: 700px;
+    overflow: hidden;
+    position: relative;
+
+    @include responsive(sm) {
+      height: 100%;
+
+      background: linear-gradient(
+          to bottom,
+          rgba(97, 56, 24, 0.5),
+          rgba(97, 56, 24, 0.5),
+          rgba(97, 56, 24, 0.9)
+        ),
+        url("../../public/assets/images/backgrounds/apotre_jean_clement_diambilay_v1.png")
+          no-repeat,
+        url("../../public/assets/images/backgrounds/bg_footer.jpg") no-repeat;
+      background-size: cover;
+    }
+
+    &__hello {
+      display: flex;
+
+      height: 100%;
+      min-height: 100% !important;
+
+      max-height: 100%;
+      background: linear-gradient(
+          to left,
+          rgba(97, 56, 24, 0.8),
+          rgba(97, 56, 24, 0.9)
+        ),
+        url("../../public/assets/images/backgrounds/bg_footer.jpg") repeat;
+
+      background-size: cover;
+
+      @include responsive(sm) {
+        height: 90vh;
+
+        // background: blue;
+        display: flex;
+      }
+
+      &__wrapper {
+        display: flex;
+
+        @include responsive(sm) {
+          // background: red;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          height: 100%;
+        }
+      }
+
+      &__content {
+        width: 100%;
+        align-self: flex-end;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        @include responsive(sm) {
+          // background: rgb(30, 255, 0);
+          display: grid;
+          grid-template-columns: 1fr;
+          grid-template-rows: 1fr 1fr;
+          align-items: center;
+          justify-items: center;
+          align-content: center;
+          justify-content: center;
+          height: 100%;
+          position: relative;
+        }
+
+        & > div {
+          flex: 1;
+          @include responsive(sm) {
+            grid-column-start: 1;
+            grid-column-end: 1;
+          }
+        }
+
+        &__textBox {
+          display: flex;
+          justify-content: center;
+
+          @include responsive(sm) {
+            z-index: 2;
+            background: transparentize($color-secondary, 0.3);
+
+            grid-row-start: 2;
+          }
+        }
+        &__pictureBox {
+          display: flex;
+          grid-row-start: 1;
+          grid-row-end: -1;
+
+          @include responsive(sm) {
+            transform: scale(1.6) translateY(2rem);
+          }
+        }
+      }
+    }
+
+    &__slider {
+      min-height: 100vh;
+      height: 100%;
+      max-height: 100vh;
+
+      overflow: hidden;
+      display: grid !important;
+      grid-template-rows: 1fr;
+      grid-auto-columns: 1fr;
+      position: relative;
+      line-height: 1.2;
+
+      &__textBox,
+      &__image {
+        grid-row-start: 1;
+        grid-row-start: 2;
+        grid-column-start: 1;
+        grid-column-start: -1;
+      }
+
+      &__textBox {
+        z-index: 2;
+        display: flex;
+
+        &__wrapper {
+          display: flex;
+          justify-content: center;
+
+          & > div {
+            flex: 1;
+          }
+        }
+
+        &__content {
+          margin-top: -25rem;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          gap: 1px;
+
+          &__title {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            line-height: 1;
+            color: $color-white;
+
+            &__strong:first-of-type {
+              text-transform: uppercase;
+              font-weight: 900 !important;
+              font-size: 4rem;
+            }
+            &__strong:last-of-type {
+              font-size: 3rem;
+              color: #c0c0c0;
+              // color: darken($color-white, 0.7) !important;
+            }
+          }
+          &__subtitle {
+            font-size: 2rem;
+            white-space: nowrap;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 1.2rem;
+            color: #c0c0c0;
+            & > span:last-of-type {
+              display: flex;
+              justify-content: center;
+              align-items: center;
+            }
+          }
+          &__btnBox {
+            &__btn {
+              background: #f0d210;
+              padding: 1rem;
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              svg {
+                font-size: 3rem;
+              }
+
+              a {
+                color: $color-black !important;
+                text-transform: uppercase;
+                font-weight: 400;
+              }
+            }
+          }
+        }
+      }
+      &__image {
+        z-index: 1;
+        transform: scale(1.1) translateY(-9rem);
+      }
+    }
+  }
+
+  &__hello {
+    &__title {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+
+      &__hello {
+        text-transform: uppercase;
+        font-weight: 900;
+        color: $color-white;
+        font-size: 5rem;
+
+        @include responsive(sm) {
+          font-size: 3rem;
+          padding: 1rem;
+        }
+      }
+
+      &__nameSite {
+        background: $color-primary;
+        padding: 0 1rem;
+        color: $color-white;
+
+        @include responsive(sm) {
+          font-size: 2rem;
+          padding-top: 1rem;
+          padding-bottom: 1rem;
+        }
+      }
+    }
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    gap: 7rem;
+    padding-bottom: 5rem;
+
+    @include responsive(sm) {
+      gap: 1rem;
+    }
+  }
+}

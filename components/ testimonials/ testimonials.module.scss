@@ -1,0 +1,47 @@
+@import "../../styles/sass/base/variables.scss";
+@import "../../styles/sass/mixins/_responsive";
+
+.testimonial {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  color: $color_white;
+
+  @include responsive(md) {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  &__header {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    align-items: center;
+
+    min-width: 120px;
+
+    &__picture {
+      max-width: 60px;
+      width: 60px;
+      height: 60px;
+      max-height: 60px;
+      border-radius: 100%;
+      overflow: hidden;
+      border: 3px solid #ffffff;
+    }
+    &__cite {
+      text-align: center;
+      font-size: 1.5rem;
+      line-height: 1;
+      font-variant: small-caps;
+      font-weight: 600;
+      color: $color-primary;
+    }
+  }
+  &__content {
+    text-align: center;
+    line-height: 1.2;
+    font-size: 1.5rem;
+  }
+}

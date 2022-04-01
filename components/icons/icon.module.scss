@@ -1,0 +1,9 @@
+@import "../../styles/sass/base/variables.scss";
+.svg {
+  font-size: 3.5rem;
+  transition: background-color cubic-bezier(0.645, 0.045, 0.355, 1);
+  &:hover {
+    cursor: pointer;
+    color: $color-primary;
+  }
+}

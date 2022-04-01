@@ -1,0 +1,57 @@
+@import "../../../styles/sass/base/variables.scss";
+@import "../../../styles/sass/mixins/_responsive";
+.CardBlog {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  max-width: 300px;
+  width: 300px;
+  border: none !important;
+
+  @include responsive(sm) {
+    gap: 0.5rem;
+  }
+
+  &__header {
+    min-height: 250px;
+    background: $color-primary;
+  }
+
+  &__title {
+    font-size: 1.5rem;
+    font-weight: 700;
+  }
+  &__subtitle {
+    color: gray;
+    font-size: 1.1rem;
+  }
+  &__content {
+    font-size: 1.3rem;
+    line-height: 1.4;
+    text-align: left;
+    word-break: keep-all;
+    letter-spacing: normal;
+  }
+  &__footer {
+    display: flex;
+    &__button {
+      margin-left: auto;
+      background: $color-primary;
+      text-transform: uppercase;
+      font-weight: 600;
+      color: $color-white;
+      padding: 4px 15px;
+      a {
+        font-size: 1rem;
+        letter-spacing: 0rem;
+        color: $color-white;
+      }
+      svg {
+        font-size: 1rem;
+      }
+      &:hover {
+        background: $color-secondary;
+      }
+    }
+  }
+}

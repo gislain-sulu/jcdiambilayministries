@@ -1,0 +1,54 @@
+@import "../../../styles/sass/base/variables.scss";
+@import "../../../styles/sass/mixins/_responsive";
+
+.cardCitation {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+
+  @include responsive(sm) {
+    width: 150px;
+    gap: 5px;
+  }
+
+  &__iconBox {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: $color-secondary;
+    padding: 4rem 0;
+
+    @include responsive(sm) {
+      font-size: 5rem;
+      padding: 2rem 2rem;
+    }
+    svg {
+      font-size: 10rem;
+      color: $color-white;
+
+      @include responsive(sm) {
+        font-size: 5rem;
+      }
+    }
+  }
+  &__title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: $color-black;
+    font-weight: 400;
+
+    @include responsive(sm) {
+      font-size: 1.6rem !important;
+      font-weight: 400 !important;
+      text-align: center;
+    }
+  }
+  &:hover {
+    cursor: pointer;
+    svg,
+    h4 {
+      color: $color-primary;
+    }
+  }
+}

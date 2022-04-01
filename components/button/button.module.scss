@@ -1,0 +1,21 @@
+.btn {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  justify-content: center;
+  align-items: center;
+  transition: background-color cubic-bezier(0.645, 0.045, 0.355, 1) 0.02s;
+  overflow: hidden;
+
+  &__icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &:focus,
+  &:visited {
+    outline: none;
+    border: none;
+  }
+}

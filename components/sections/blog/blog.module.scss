@@ -1,0 +1,29 @@
+@import "../../../styles/sass/base/variables.scss";
+@import "../../../styles/sass/mixins/_responsive";
+.blog {
+  display: flex !important;
+  justify-content: center;
+  gap: 7rem;
+
+  & > * {
+    flex: 0 0 100%/3;
+  }
+
+  &__mobile {
+    display: none;
+
+    @include responsive(sm) {
+      display: block;
+    }
+  }
+
+  &__desktop {
+    &__slider {
+      display: block !important;
+      gap: 2rem;
+    }
+    @include responsive(sm) {
+      display: none;
+    }
+  }
+}

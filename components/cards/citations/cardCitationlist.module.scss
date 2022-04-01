@@ -1,0 +1,66 @@
+@import "../../../styles/sass/base/variables.scss";
+@import url("https://fonts.googleapis.com/css2?family=Satisfy&display=swap");
+.cardCitationlist {
+  display: grid;
+
+  position: relative;
+  overflow: hidden;
+
+  &__pictureBox {
+    grid-area: 1/1;
+    position: relative;
+    z-index: 1;
+  }
+  &__modal {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    padding: 2rem;
+    grid-row-start: 1;
+    grid-column-start: 1;
+    max-width: 300px;
+    max-height: 300px;
+    box-sizing: border-box;
+
+    position: relative;
+    z-index: 2;
+    background: transparentize($color-secondary, 0.2);
+    color: $color-white;
+    transform: translateY(200px);
+    opacity: 0;
+    transition: 0.2s ease-in-out;
+
+    &__textBox {
+      &__text {
+        font-size: 1.5rem;
+        text-align: center;
+        line-height: 1.1;
+      }
+    }
+
+    &__author {
+      font-family: "Satisfy", cursive;
+    }
+
+    &__socialsMedias {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.6rem;
+
+      &__label {
+        font-weight: bold;
+        text-transform: uppercase;
+        font-size: 1.3rem;
+      }
+    }
+  }
+
+  &:hover &__modal {
+    transform: translateY(0px);
+    cursor: pointer;
+    opacity: 1;
+  }
+}

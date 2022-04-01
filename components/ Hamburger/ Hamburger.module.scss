@@ -1,0 +1,92 @@
+@import "../../styles/sass/base/variables.scss";
+
+.hamburger {
+  display: inline-block;
+  overflow: visible;
+  margin: 0;
+  padding: 15px;
+  cursor: pointer;
+  transition-timing-function: linear;
+  transition-duration: 0.15s;
+  transition-property: opacity, filter;
+  text-transform: none;
+  color: inherit;
+  border: 0;
+  border-radius: 5px;
+  background: transparentize($color-secondary, 0.6);
+
+  &__box {
+    position: relative;
+    display: inline-block;
+    width: 40px;
+    height: 24px;
+
+    &__inner {
+      top: 2px;
+      transition-timing-function: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+      transition-duration: 0.275s;
+      display: block;
+      margin-top: -2px;
+
+      &,
+      &::before,
+      &::after {
+        position: absolute;
+        width: 40px;
+        height: 4px;
+        transition-timing-function: ease;
+        transition-duration: 0.15s;
+        transition-property: transform;
+        border-radius: 4px;
+        background-color: #fff;
+      }
+
+      &::before,
+      &::after {
+        display: block;
+        content: "";
+      }
+
+      &::after {
+        top: 20px;
+        bottom: -10px;
+        transition: transform 0.275s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+      }
+      &::before {
+        top: 10px;
+        transition: opacity 0.125s ease 0.275s;
+      }
+    }
+  }
+}
+
+.hamburgerActive {
+  display: inline-block;
+  overflow: visible;
+  margin: 0;
+  padding: 15px;
+  cursor: pointer;
+  transition-property: opacity, filter;
+  text-transform: none;
+  color: inherit;
+  border: 0;
+  top: 2px;
+  transition-timing-function: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  transition-duration: 0.275s;
+
+  .hamburger__box {
+    &__inner {
+      transition-delay: 75ms;
+      transform: translate3d(0, 10px, 0) rotate(135deg);
+
+      &::after {
+        transition-delay: 75ms;
+        transform: translate3d(0, -20px, 0) rotate(-270deg);
+      }
+      &::before {
+        transition-delay: 0s;
+        opacity: 0;
+      }
+    }
+  }
+}

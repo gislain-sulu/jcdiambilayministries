@@ -1,0 +1,198 @@
+@import "../../styles/sass/base/variables.scss";
+@import "../../styles/sass/mixins/_responsive";
+
+.blog {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  padding-bottom: 3rem;
+  background: #fdf6e3;
+
+  @include responsive(sm) {
+    gap: 2rem;
+    padding-bottom: 2rem;
+  }
+
+  &__section {
+    padding: 5rem;
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+    justify-content: center;
+
+    background: linear-gradient(rgba(97, 56, 24, 0.9), rgba(97, 56, 24, 0.8)),
+      url("../../public/assets/images/backgrounds/bapteme-section-bgc.jpg");
+    background-size: cover;
+    overflow: hidden;
+    background-position: center center;
+
+    @include responsive(sm) {
+      padding: 4rem;
+    }
+
+    &__header {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+
+      @include responsive(sm) {
+        gap: 0.5rem;
+      }
+
+      &__title {
+        color: white;
+        font-size: 4rem;
+        font-weight: 600;
+        text-align: center;
+        line-height: 1;
+
+        @include responsive(sm) {
+          font-size: 2rem;
+        }
+      }
+      &__textHelper {
+        color: $color-white;
+        font-size: 1.5rem;
+
+        &__strong {
+          font-weight: 600;
+        }
+      }
+    }
+  }
+
+  &__form {
+    display: flex;
+
+    & > div {
+      display: flex;
+      input,
+      select {
+        border: none;
+        font-size: 1.6rem;
+        background: $color-white;
+        padding: 1rem 0;
+      }
+    }
+
+    &__fielSearchBox {
+      &__input {
+        padding: 2rem !important;
+        color: $color-gray;
+        white-space: nowrap;
+        outline: none;
+        width: 300px;
+        border-top-left-radius: 15px;
+        border-bottom-left-radius: 15px;
+
+        @include responsive(sm) {
+          width: 250px;
+        }
+
+        &:hover {
+          outline: none;
+        }
+      }
+    }
+
+    &__btnBox {
+      &__btn {
+        background: $color-primary;
+        color: $color-white;
+        border-top-right-radius: 15px;
+        border-bottom-right-radius: 15px;
+        outline: none;
+
+        &:hover {
+          outline: none;
+          background: $color-secondary;
+
+          svg {
+            color: $color-white;
+          }
+        }
+
+        a {
+          color: $color-white;
+          font-size: 1.5rem;
+          font-weight: 700;
+          text-transform: uppercase;
+        }
+      }
+    }
+  }
+  &__content {
+    &__wrapper {
+      display: flex;
+      flex-direction: column;
+    }
+    &__filterBox {
+      display: flex;
+      gap: 2rem;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      align-self: flex-start;
+
+      &__label {
+        letter-spacing: 1rem;
+        font-size: 1.2rem;
+
+        @include responsive(sm) {
+          letter-spacing: 1px;
+        }
+      }
+      &__list {
+        display: flex;
+        gap: 1rem;
+        justify-content: center;
+        align-items: center;
+
+        &__item {
+          padding: 1.5rem;
+          white-space: nowrap;
+
+          a {
+            color: $color-black !important;
+          }
+          &:hover {
+            background: $color-secondary;
+            padding: 1.5rem;
+            cursor: pointer;
+            a {
+              color: $color-white !important;
+            }
+          }
+        }
+      }
+    }
+    &__list {
+      display: flex;
+      position: relative;
+
+      ul {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+      }
+      &::after {
+        content: " ";
+        width: 100%;
+        height: 2px;
+        display: block;
+        background-color: $color-secondary;
+        position: absolute;
+        left: 0;
+        top: -0.2rem;
+      }
+
+      @include responsive(sm) {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+    }
+  }
+}

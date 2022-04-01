@@ -1,0 +1,72 @@
+@import "../../styles/sass/base/variables.scss";
+.sectionPage {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+
+  &__header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    margin-bottom: 1rem;
+    &__title {
+      text-transform: uppercase;
+      color: $color-black;
+      position: relative;
+      padding-left: 1rem;
+      font-size: 2rem !important;
+
+      &:before {
+        content: "";
+        width: 3px;
+        height: 90%;
+        background: $color-primary;
+        position: absolute;
+        left: 0;
+      }
+    }
+    &__btnBox {
+      margin-left: auto;
+      box-sizing: border-box;
+
+      &__button {
+        text-transform: uppercase;
+        letter-spacing: 0.2rem;
+        color: gray;
+        // background: $color-primary;
+        padding: 0.5rem;
+        a {
+          color: $color-black !important;
+
+          font-size: 1rem;
+        }
+
+        svg {
+          font-size: 1.4rem;
+          color: $color-black;
+        }
+
+        &:hover {
+          a,
+          svg {
+            color: $color-primary !important;
+            font-weight: 600;
+          }
+        }
+      }
+    }
+    &::after {
+      content: "";
+      width: 100%;
+      height: 1px;
+      background: $color-gray;
+      position: absolute;
+      left: 0;
+      bottom: -1rem;
+    }
+  }
+  &__content {
+    padding: 4rem 0 0;
+  }
+}

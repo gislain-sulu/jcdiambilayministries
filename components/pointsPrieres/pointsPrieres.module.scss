@@ -1,0 +1,22 @@
+.pointsPrieres {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  &__header {
+    &__title {
+      &::first-letter {
+        text-transform: uppercase;
+      }
+    }
+  }
+  &__list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+
+    &__item {
+      display: flex;
+      gap: 1rem;
+    }
+  }
+}
