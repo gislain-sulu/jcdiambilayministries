@@ -1,0 +1,32 @@
+.listLinks {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+
+  &__item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &__link {
+      display: flex;
+      align-items: center;
+
+      &__icon {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        svg {
+          font-size: 1em;
+        }
+      }
+
+      &__text {
+        &::first-letter {
+          text-transform: uppercase;
+        }
+      }
+    }
+  }
+}

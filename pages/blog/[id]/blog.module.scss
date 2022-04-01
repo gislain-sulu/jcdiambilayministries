@@ -38,13 +38,17 @@
       @include responsive(md) {
         font-size: 2rem;
       }
+      @include responsive(sm) {
+        font-size: 4rem;
+        word-break: keep-all;
+      }
     }
     &__subtitle {
       font-size: 2rem;
       color: gray;
 
       align-self: flex-start;
-      line-height: 1.4;
+      line-height: 1.2;
 
       @include responsive(md) {
         font-size: 1.3rem;
@@ -70,6 +74,7 @@
         display: flex;
         justify-content: center;
         align-items: center;
+        line-height: 1;
       }
 
       &__icon {

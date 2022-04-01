@@ -78,9 +78,15 @@
           display: flex;
           flex-wrap: wrap;
 
+          @include responsive(sm) {
+            & > * {
+              flex: 1 !important;
+            }
+          }
+
           input {
             outline: none;
-            border: none;
+
             border-left: solid 1px $color-white;
             border-top: solid 1px $color-white;
             border-bottom: solid 1px $color-white;
@@ -90,6 +96,13 @@
 
             @include responsive(md) {
               font-size: 1.4rem;
+            }
+            @include responsive(sm) {
+              font-size: 2rem !important;
+              min-width: 220px;
+
+              outline: none;
+              border: 0.5px solid $color-white;
             }
           }
         }
@@ -105,9 +118,20 @@
     background: $color-white;
     border: 2px solid $color-white;
 
+    @include responsive(sm) {
+      box-sizing: border-box;
+    }
+    svg {
+      color: $color-secondary;
+    }
+
     a {
       color: $color-secondary !important;
       font-variant: small-caps;
+
+      @include responsive(sm) {
+        display: none;
+      }
     }
   }
   &__button:hover {

@@ -6,6 +6,7 @@ import Copyright from "../../copyright/copyright";
 import SearchForm from "../../forms/search/search";
 import {
   Facebook,
+  IconSuscribe,
   Instagram,
   Linkedin,
   Twitter,
@@ -91,7 +92,7 @@ const Footer = () => {
                 <input type="email" placeholder="votre email..." />
                 <Button
                   textBtn="s'abonner"
-                  icon="none"
+                  icon={<IconSuscribe />}
                   type="submit"
                   className={styles.footer__button}
                 />
