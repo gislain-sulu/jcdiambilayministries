@@ -5,9 +5,37 @@
   &__box {
     display: flex;
     flex-direction: row !important;
-    gap: 2rem;
+    gap: 4rem;
     margin-bottom: 0;
     position: relative;
+
+    @include responsive(sm) {
+      gap: 2rem;
+    }
+
+    &__item {
+      display: flex;
+      align-items: center;
+      flex: 1;
+
+      &__link {
+        display: flex;
+        align-items: center;
+        flex: 1;
+        margin-left: -1.5rem;
+        white-space: nowrap;
+        &::first-letter {
+          text-transform: uppercase !important;
+        }
+        span {
+          svg {
+            font-size: 2.5rem;
+          }
+          display: flex;
+          align-items: center;
+        }
+      }
+    }
 
     &__item__link {
       position: relative;

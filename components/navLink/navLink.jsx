@@ -17,7 +17,7 @@ const NavLink = ({ tabLinkList /* tabLinkList is a array  */, isIconNext }) => {
               >
                 {isIconNext ? (
                   <span>
-                    {IconNext}
+                    {<IconNext />}
                     {link.textLink}
                   </span>
                 ) : (
