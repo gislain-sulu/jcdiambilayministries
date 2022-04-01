@@ -2,8 +2,7 @@ import React from "react";
 import Button from "../../button/button";
 import styles from "./bapteme.module.scss";
 
-const Bapteme = ({ posts }) => {
-  console.log(posts);
+const Bapteme = () => {
   return (
     <section className={styles.bapteme}>
       <div className={`${styles.bapteme__wrapper} wrapper`}>
@@ -24,13 +23,5 @@ const Bapteme = ({ posts }) => {
     </section>
   );
 };
-
-export async function getStaticProps() {
-  const res = await fetch("https://jsonplaceholder.typicode.com/posts");
-  const posts = await res.json();
-  return {
-    props: { posts },
-  };
-}
 
 export default Bapteme;

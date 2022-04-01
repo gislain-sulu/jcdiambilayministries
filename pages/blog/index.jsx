@@ -9,8 +9,6 @@ import CardBlog from "../../components/cards/blog/cardBlog";
 import MOCK_BLOG from "../../models/MOCK_BLOG";
 
 const Blog = () => {
-  console.log(posts);
-
   return (
     <div className={styles.blog}>
       <section className={styles.blog__section}>
