@@ -9,8 +9,7 @@ import Button from "../../components/button/button";
 import { IconAmazone, IconLinkExternal } from "../../components/icons/icon";
 import { Mycarousel } from "../../components/carousel/carousel";
 
-const Accuiel = ({ posts }) => {
-  console.log(posts);
+const Accuiel = () => {
   return (
     <div className={styles.home}>
       <section className={styles.home__headerBox}>
@@ -192,13 +191,5 @@ const Accuiel = ({ posts }) => {
     </div>
   );
 };
-
-export async function getStaticProps() {
-  const res = await fetch("https://jsonplaceholder.typicode.com/posts");
-  const posts = await res.json();
-  return {
-    props: { posts },
-  };
-}
 
 export default Accuiel;

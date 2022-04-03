@@ -44,7 +44,7 @@ const MyCarouselMobile = ({ children }) => {
         pagination={{
           type: "fraction",
         }}
-        navigation={false}
+        navigation={true}
         modules={[Pagination, Navigation]}
         className="mySwiperMobile"
       >
@@ -65,7 +65,7 @@ const MyCarouselMobileBlogSection = ({ children }) => {
         pagination={{
           type: "fraction",
         }}
-        navigation={false}
+        navigation={true}
         modules={[Pagination, Navigation]}
         className="mySwiperMobileBlogSection"
       >

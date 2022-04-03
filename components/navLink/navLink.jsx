@@ -16,12 +16,14 @@ const NavLink = ({ tabLinkList /* tabLinkList is a array  */, isIconNext }) => {
                 title={link.textLink}
               >
                 {isIconNext ? (
-                  <span>
+                  <span className={styles.navlink__box__item__link__icon}>
                     {<IconNext />}
                     {link.textLink}
                   </span>
                 ) : (
-                  <span>{link.textLink}</span>
+                  <span className={styles.navlink__box__item__link__text}>
+                    {link.textLink}
+                  </span>
                 )}
               </a>
             </Link>

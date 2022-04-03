@@ -6,22 +6,22 @@ const HEADER_DATA = [
   },
   {
     id: 2,
-    textLink: "événements",
+    textLink: "Evénements",
     link: "/evenements",
   },
   {
     id: 3,
-    textLink: "livres",
+    textLink: "Livres",
     link: "/books",
   },
   {
     id: 4,
-    textLink: "messages textes",
+    textLink: "Messages textes",
     link: "/blog",
   },
   {
     id: 5,
-    textLink: "prédication",
+    textLink: "Prédication",
     link: "/predications",
   },
 ];

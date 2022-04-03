@@ -142,6 +142,10 @@ a {
   font-family: "Montserrat", sans-serif;
   font-size: 1.5rem;
   color: #ffffff !important;
+  transition: all 0.2s ease-out;
+  &:hover {
+    color: $color-primary !important;
+  }
 }
 button {
   background: #ffffff;

@@ -98,7 +98,7 @@ const Books = () => {
                 <tr>
                   <th>Villes/Pays</th>
                   <th>Points de vente</th>
-                  <th>Noms</th>
+                  <th>Localisation</th>
                   <th>Contact</th>
                 </tr>
               </thead>
@@ -118,7 +118,7 @@ const Books = () => {
                   <td>+243 000 000 000</td>
                 </tr>
                 <tr>
-                  <td>Abijan / Cote d’Ivoire</td>
+                  <td>Abidjan / Cote d’Ivoire</td>
                   <td>Librairie Paulas</td>
                   <td>Lubumbashi / RD Congo</td>
                   <td>+243 000 000 000</td>
