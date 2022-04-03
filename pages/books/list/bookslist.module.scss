@@ -83,9 +83,7 @@
         color: $color-gray;
         white-space: nowrap;
         outline: none;
-        width: 300px;
-        border-top-left-radius: 15px;
-        border-bottom-left-radius: 15px;
+        width: 500px;
 
         @include responsive(sm) {
           width: 250px;
@@ -101,8 +99,7 @@
       &__btn {
         background: $color-primary;
         color: $color-white;
-        border-top-right-radius: 15px;
-        border-bottom-right-radius: 15px;
+
         outline: none;
 
         &:hover {

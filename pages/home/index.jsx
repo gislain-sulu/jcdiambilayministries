@@ -7,46 +7,83 @@ import SectionCitation from "../../components/sections/citation/citation";
 import Image from "next/image";
 import Button from "../../components/button/button";
 import { IconAmazone, IconLinkExternal } from "../../components/icons/icon";
-import { Mycarousel } from "../../components/carousel/carousel";
+import { MyCarousel } from "../../components/carousel/carousel";
 
 const Accuiel = () => {
   return (
     <div className={styles.home}>
-      <section className={styles.home__headerBox}>
-        {/* <Mycarousel> */}
-        <div className={styles.home__headerBox__hello}>
-          <div className={`${styles.home__headerBox__hello__wrapper} wrapper`}>
-            <div className={styles.home__headerBox__hello__content}>
-              <div className={styles.home__headerBox__hello__content__textBox}>
-                <div className={styles.home__hello}>
-                  <h1 className={`${styles.home__hello__title} h1`}>
-                    <span className={styles.home__hello__title__hello}>
-                      {" "}
-                      bienvenu(e) a
-                    </span>
-                    <span className={styles.home__hello__title__nameSite}>
-                      www.jcdiambilayministries.org
-                    </span>
-                  </h1>
-                </div>
+      <section className={styles.home__mobile}>
+        <MyCarousel>
+          <div className={styles.home__mobile__hello}>
+            <div className={styles.home__mobile__hello__textBox}>
+              <div className="wrapper">
+                <h1 className={styles.home__mobile__hello__textBox__title}>
+                  <span>bienvenu(e) a</span>
+                  <span>www.jcdiambilayministries.org</span>
+                </h1>
               </div>
-              <div
-                className={styles.home__headerBox__hello__content__pictureBox}
-              >
-                <Image
-                  src="/assets/images/backgrounds/apotre_jean_clement_diambilay_v1.png"
-                  width="652"
-                  height="829"
-                  alt=" Apotre jean clément diambilay"
-                  loading="lazy"
-                  quality="full"
-                  className={styles.home__pictureBox__picture}
-                />
+            </div>
+
+            <div className={styles.home__mobile__hello__pictureBox}></div>
+          </div>
+          <div className={styles.home__mobile__slider}>
+            <div className={styles.home__mobile__slider__pictureBox}>
+              <Image
+                src="/assets/images/mobile/slider_mobile_3.jpg"
+                layout="fill"
+                alt=" Apotre jean clément diambilay"
+                loading="lazy"
+                quality="full"
+                className={styles.home__pictureBox__picture}
+              />
+            </div>
+            <div className={styles.home__mobile__slider__textBox}></div>
+          </div>
+          <div className={styles.home__mobile__slider}>
+            <div className={styles.home__mobile__slider__pictureBox}>
+              <Image
+                src="/assets/images/mobile/slider_mobile_2.jpg"
+                width="1000%"
+                height="1000%"
+                alt=" Apotre jean clément diambilay"
+                loading="lazy"
+                quality="full"
+                className={styles.home__pictureBox__picture}
+              />
+            </div>
+            <div className={styles.home__mobile__slider__textBox}></div>
+          </div>
+        </MyCarousel>
+      </section>
+      <section className={styles.home__headerBox}>
+        <MyCarousel>
+          <div className={styles.home__headerBox__hello}>
+            <div
+              className={`${styles.home__headerBox__hello__wrapper} wrapper`}
+            >
+              <div className={styles.home__headerBox__hello__content}>
+                <div
+                  className={styles.home__headerBox__hello__content__textBox}
+                >
+                  <div className={styles.home__hello}>
+                    <h1 className={`${styles.home__hello__title} h1`}>
+                      <span className={styles.home__hello__title__hello}>
+                        {" "}
+                        bienvenu(e) a
+                      </span>
+                      <span className={styles.home__hello__title__nameSite}>
+                        www.jcdiambilayministries.org
+                      </span>
+                    </h1>
+                  </div>
+                </div>
+                <div
+                  className={styles.home__headerBox__hello__content__pictureBox}
+                ></div>
               </div>
             </div>
           </div>
-        </div>
-        {/* 
+
           <div className={styles.home__headerBox__slider}>
             <div className={styles.home__headerBox__slider__textBox}>
               <div
@@ -99,7 +136,6 @@ const Accuiel = () => {
                     />
                   </div>
                 </div>
-                <div></div>
               </div>
             </div>
             <div className={styles.home__headerBox__slider__image}>
@@ -113,7 +149,6 @@ const Accuiel = () => {
               />
             </div>
           </div>
-
           <div className={styles.home__headerBox__slider}>
             <div className={styles.home__headerBox__slider__textBox}>
               <div
@@ -179,8 +214,8 @@ const Accuiel = () => {
                 className={styles.home__headerBox__slider__pub__picture}
               />
             </div>
-          </div>*/}
-        {/* </Mycarousel> */}
+          </div>
+        </MyCarousel>
       </section>
       <section className={styles.home__content}>
         <Blog />

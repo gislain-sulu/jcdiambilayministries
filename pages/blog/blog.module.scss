@@ -8,9 +8,19 @@
   padding-bottom: 3rem;
   background: #fdf6e3;
 
+  &__desktop {
+    div {
+      display: flex;
+    }
+  }
+
   @include responsive(sm) {
     gap: 2rem;
     padding-bottom: 2rem;
+
+    &__desktop {
+      display: none !important;
+    }
   }
 
   &__section {
@@ -83,9 +93,7 @@
         color: $color-gray;
         white-space: nowrap;
         outline: none;
-        width: 300px;
-        border-top-left-radius: 15px;
-        border-bottom-left-radius: 15px;
+        width: 500px;
 
         @include responsive(sm) {
           width: 250px;
@@ -101,8 +109,7 @@
       &__btn {
         background: $color-primary;
         color: $color-white;
-        border-top-right-radius: 15px;
-        border-bottom-right-radius: 15px;
+
         outline: none;
 
         &:hover {
