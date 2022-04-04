@@ -66,20 +66,82 @@
         display: grid;
         grid-template-rows: 95vh;
         grid-template-columns: 1fr;
+        position: relative;
 
         &__pictureBox {
           grid-column-start: 1;
           grid-column-end: -1;
           display: flex;
+          z-index: 1;
+          position: relative;
+        }
+        &__textBox {
+          position: absolute;
+          top: 60%;
+
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          z-index: 2;
+
+          &__content {
+            background: transparentize($color-secondary, 0.5);
+            padding: 2rem 1rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.5rem;
+
+            &__title {
+              display: flex;
+              flex-direction: column;
+              line-height: 2.5rem;
+              text-align: center;
+              color: $color-white;
+
+              &__strong:first-of-type {
+                text-transform: uppercase;
+                font-weight: 900 !important;
+              }
+              &__strong:last-of-type {
+                font-size: 1.6rem;
+                color: $color-primary;
+              }
+            }
+            &__subtitle {
+              text-align: center;
+              line-height: 1;
+              color: $color-white;
+              span {
+                svg {
+                  font-size: 1rem;
+                }
+              }
+            }
+            &__btnBox {
+              &__btn {
+                background: $color-primary !important;
+                padding: 1rem;
+
+                a {
+                  text-transform: uppercase;
+                }
+                svg {
+                  color: $color-white;
+                  font-size: 2rem;
+                }
+              }
+            }
+          }
         }
       }
     }
   }
 
   &__headerBox {
-    height: 100%;
-    max-height: 100vh;
-    min-height: 700px;
+    height: 95vh;
+    max-height: 95vh;
+
     // overflow: hidden;
     position: relative;
 
@@ -92,16 +154,13 @@
       width: 100%;
       height: 100%;
 
-      min-height: 700px;
-
-      max-height: 100vh;
       background: linear-gradient(
           to right,
           rgba(97, 56, 24, 0.8),
           rgba(97, 56, 24, 0.1)
         ),
         url("../../public/assets/images/backgrounds/jcdiambilay_bgc_web.jpg")
-          repeat;
+          no-repeat;
 
       background-size: cover;
 
@@ -126,110 +185,100 @@
           justify-content: center;
           background: transparentize($color-secondary, 0.5);
         }
-        // &__pictureBox {
-        //   display: flex;
-        //   grid-row-start: 1;
-        //   grid-row-end: -1;
-        //   transform: scale(1.2);
-        // }
       }
     }
 
     &__slider {
-      min-height: 100vh;
+      width: 100%;
       height: 100%;
-      max-height: 100vh;
+      display: flex;
 
-      overflow: hidden;
-      display: grid !important;
+      display: grid;
       grid-template-rows: 1fr;
-      grid-auto-columns: 1fr;
-      position: relative;
-      line-height: 1.2;
-
-      &__textBox,
-      &__image {
-        grid-row-start: 1;
-        grid-row-start: 2;
-        grid-column-start: 1;
-        grid-column-start: -1;
-      }
+      grid-template-columns: 1fr 1fr;
 
       &__textBox {
+        grid-row-start: 1;
+        grid-row-end: 2;
+        grid-column-start: 1;
+        grid-column-end: 2;
         z-index: 2;
         display: flex;
+        justify-content: center;
+        align-items: center;
 
         &__wrapper {
           display: flex;
           justify-content: center;
-
-          & > div {
-            flex: 1;
-          }
+          align-items: center;
         }
 
         &__content {
+          background: transparentize($color-secondary, 0.5);
+          padding: 2rem;
           display: flex;
           flex-direction: column;
-          align-items: center;
           justify-content: center;
-          gap: 1px;
+          align-items: center;
 
           &__title {
+            text-align: center;
             display: flex;
             flex-direction: column;
-            align-items: center;
-            line-height: 1;
-            color: $color-white;
+            gap: 5px;
+            line-height: 2rem;
 
             &__strong:first-of-type {
               text-transform: uppercase;
-              font-weight: 900 !important;
-              font-size: 4rem;
+              font-weight: 900;
+              color: $color-white;
+              font-size: 3rem !important;
             }
             &__strong:last-of-type {
-              font-size: 3rem;
-              color: #c0c0c0;
-              // color: darken($color-white, 0.7) !important;
+              color: $color-primary;
             }
           }
+
           &__subtitle {
-            font-size: 2rem;
-            white-space: nowrap;
             display: flex;
             justify-content: center;
             align-items: center;
-            gap: 1.2rem;
-            color: #c0c0c0;
-            & > span:last-of-type {
-              display: flex;
-              justify-content: center;
-              align-items: center;
-            }
+            gap: 1rem;
+            white-space: nowrap;
+            color: $color-white;
+            font-size: 1.3rem;
           }
+
           &__btnBox {
             &__btn {
-              background: #f0d210;
-              padding: 1rem;
-              display: flex;
-              justify-content: center;
-              align-items: center;
-              svg {
-                font-size: 3rem;
-              }
-
-              a {
-                color: $color-black !important;
-                text-transform: uppercase;
-                font-weight: 400;
-              }
+              background: $color-primary;
+            }
+            a {
+              text-transform: uppercase;
+              font-weight: 600;
+              color: $color-white !important;
+            }
+            svg {
+              color: $color-white !important;
             }
           }
         }
       }
+
       &__image {
+        width: 100%;
+        height: 100%;
+        display: flex;
+
+        grid-row-start: 1;
+        grid-row-end: 2;
+        grid-column-start: 1;
+        grid-column-end: -1;
         z-index: 1;
-        transform: scale(1.1) translateY(-9rem);
+
+        &__picture {
+          width: 100vw;
+        }
       }
     }
   }

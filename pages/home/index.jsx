@@ -42,6 +42,126 @@ const Accuiel = () => {
           <div className={styles.home__mobile__slider}>
             <div className={styles.home__mobile__slider__pictureBox}>
               <Image
+                src="/assets/images/mobile/slide_acceleratioon_divine_mobile_v.jpg"
+                layout="fill"
+                alt=" Apotre jean clément diambilay"
+                loading="lazy"
+                quality="full"
+                className={styles.home__pictureBox__picture}
+              />
+            </div>
+
+            <div className={styles.home__mobile__slider__textBox}>
+              <div
+                className={`${styles.home__mobile__slider__textBox__wrapper} wrapper`}
+              >
+                <div className={styles.home__mobile__slider__textBox__content}>
+                  <h2
+                    className={`${styles.home__mobile__slider__textBox__content__title} h2`}
+                  >
+                    <strong
+                      className={
+                        styles.home__mobile__slider__textBox__content__title__strong
+                      }
+                    >
+                      nouveau livre
+                    </strong>
+                    <strong
+                      className={
+                        styles.home__mobile__slider__textBox__content__title__strong
+                      }
+                    >
+                      de l'apôtre jean clement diambilay
+                    </strong>
+                  </h2>
+                  <p
+                    className={`${styles.home__mobile__slider__textBox__content__subtitle} p`}
+                  >
+                    disponible en vente dans <strong>les librairies </strong> et
+                    sur toutes les plateformes <strong>amazone</strong>
+                  </p>
+
+                  <div
+                    className={`${styles.home__mobile__slider__textBox__content__btnBox} btnBox`}
+                  >
+                    <Button
+                      hrefUrl={`/blog/`}
+                      textBtn="passez votre commande"
+                      className={
+                        styles.home__mobile__slider__textBox__content__btnBox__btn
+                      }
+                      icon={<IconLinkExternal />}
+                      positionIcon="right"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div className={styles.home__mobile__slider}>
+            <div className={styles.home__mobile__slider__pictureBox}>
+              <Image
+                src="/assets/images/mobile/slide_benediction_independance_financiere_v1.jpg"
+                layout="fill"
+                alt=" Apotre jean clément diambilay"
+                loading="lazy"
+                quality="full"
+                className={styles.home__pictureBox__picture}
+              />
+            </div>
+
+            <div className={styles.home__mobile__slider__textBox}>
+              <div
+                className={`${styles.home__mobile__slider__textBox__wrapper} wrapper`}
+              >
+                <div className={styles.home__mobile__slider__textBox__content}>
+                  <h2
+                    className={`${styles.home__mobile__slider__textBox__content__title} h2`}
+                  >
+                    <strong
+                      className={
+                        styles.home__mobile__slider__textBox__content__title__strong
+                      }
+                    >
+                      nouveau livre
+                    </strong>
+                    <strong
+                      className={
+                        styles.home__mobile__slider__textBox__content__title__strong
+                      }
+                    >
+                      de l'apôtre jean clement diambilay
+                    </strong>
+                  </h2>
+                  <p
+                    className={`${styles.home__mobile__slider__textBox__content__subtitle} p`}
+                  >
+                    disponible en vente dans <strong>les librairies </strong> et
+                    sur toutes les plateformes <strong>amazone</strong>
+                  </p>
+
+                  <div
+                    className={`${styles.home__mobile__slider__textBox__content__btnBox} btnBox`}
+                  >
+                    <Button
+                      hrefUrl={`/blog/`}
+                      textBtn="passez votre commande"
+                      className={
+                        styles.home__mobile__slider__textBox__content__btnBox__btn
+                      }
+                      icon={<IconLinkExternal />}
+                      positionIcon="right"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div className={styles.home__mobile__slider}>
+            <div className={styles.home__mobile__slider__pictureBox}>
+              <Image
                 src="/assets/images/mobile/slider_mobile_2.jpg"
                 width="1000%"
                 height="1000%"
@@ -83,135 +203,141 @@ const Accuiel = () => {
               </div>
             </div>
           </div>
-
           <div className={styles.home__headerBox__slider}>
             <div className={styles.home__headerBox__slider__textBox}>
               <div
                 className={`${styles.home__headerBox__slider__textBox__wrapper} wrapper`}
               >
-                <div
-                  className={styles.home__headerBox__slider__textBox__content}
-                >
-                  <h2
-                    className={`${styles.home__headerBox__slider__textBox__content__title} h2`}
-                  >
-                    <strong
-                      className={
-                        styles.home__headerBox__slider__textBox__content__title__strong
-                      }
-                    >
-                      nouveau livre
-                    </strong>
-                    <strong
-                      className={
-                        styles.home__headerBox__slider__textBox__content__title__strong
-                      }
-                    >
-                      de l'apotre jean clement diambilay
-                    </strong>
-                  </h2>
-                  <p
-                    className={`${styles.home__headerBox__slider__textBox__content__subtitle} p`}
-                  >
-                    <span>disponible en vente</span>
-                    <span>
-                      dans les librairies et sur toutes les plateformes
-                    </span>
-                    <span>
-                      <IconAmazone />
-                    </span>
-                  </p>
-
+                <div className="wrapper">
                   <div
-                    className={`${styles.home__headerBox__slider__textBox__content__btnBox} btnBox`}
+                    className={styles.home__headerBox__slider__textBox__content}
                   >
-                    <Button
-                      hrefUrl={`/blog/`}
-                      textBtn="passez votre commande"
-                      className={
-                        styles.home__headerBox__slider__textBox__content__btnBox__btn
-                      }
-                      icon={<IconLinkExternal />}
-                      positionIcon="right"
-                    />
+                    <h2
+                      className={`${styles.home__headerBox__slider__textBox__content__title} h2`}
+                    >
+                      <strong
+                        className={
+                          styles.home__headerBox__slider__textBox__content__title__strong
+                        }
+                      >
+                        nouveau livre
+                      </strong>
+                      <strong
+                        className={
+                          styles.home__headerBox__slider__textBox__content__title__strong
+                        }
+                      >
+                        de l'apôtre jean clement diambilay
+                      </strong>
+                    </h2>
+                    <p
+                      className={`${styles.home__headerBox__slider__textBox__content__subtitle} p`}
+                    >
+                      <span>disponible en vente</span>
+                      <span>
+                        dans les librairies et sur toutes les plateformes
+                      </span>
+                      <span>
+                        <IconAmazone />
+                      </span>
+                    </p>
+
+                    <div
+                      className={`${styles.home__headerBox__slider__textBox__content__btnBox} btnBox`}
+                    >
+                      <Button
+                        hrefUrl={`/blog/`}
+                        textBtn="passez votre commande"
+                        className={
+                          styles.home__headerBox__slider__textBox__content__btnBox__btn
+                        }
+                        icon={<IconLinkExternal />}
+                        positionIcon="right"
+                      />
+                    </div>
                   </div>
+                  <div></div>
                 </div>
               </div>
             </div>
             <div className={styles.home__headerBox__slider__image}>
               <Image
-                src="/assets/images/backgrounds/slider/Slider_0.jpg"
-                width="2000"
-                height="1200"
+                src="/assets/images/sliders/slide__acceleration_divine_web.jpg"
+                width="1600"
+                height="900"
                 quality="full"
                 loading="lazy"
-                className={styles.home__headerBox__slider__pub__picture}
+                className={styles.home__headerBox__slider__image__picture}
               />
             </div>
           </div>
+
           <div className={styles.home__headerBox__slider}>
             <div className={styles.home__headerBox__slider__textBox}>
               <div
                 className={`${styles.home__headerBox__slider__textBox__wrapper} wrapper`}
               >
-                <div
-                  className={styles.home__headerBox__slider__textBox__content}
-                >
-                  <h2
-                    className={`${styles.home__headerBox__slider__textBox__content__title} h2`}
-                  >
-                    <strong
-                      className={
-                        styles.home__headerBox__slider__textBox__content__title__strong
-                      }
-                    >
-                      nouveau livre
-                    </strong>
-                    <strong
-                      className={
-                        styles.home__headerBox__slider__textBox__content__title__strong
-                      }
-                    >
-                      de l'apotre jean clement diambilay
-                    </strong>
-                  </h2>
-                  <p
-                    className={`${styles.home__headerBox__slider__textBox__content__subtitle} p`}
-                  >
-                    <span>disponible en vente</span>
-                    <span>
-                      dans les librairies et sur toutes les plateformes
-                    </span>
-                    <span>
-                      <IconAmazone />
-                    </span>
-                  </p>
-
+                <div className="wrapper">
                   <div
-                    className={`${styles.home__headerBox__slider__textBox__content__btnBox} btnBox`}
+                    className={styles.home__headerBox__slider__textBox__content}
                   >
-                    <Button
-                      hrefUrl={`/blog/`}
-                      textBtn="passez votre commande"
-                      className={
-                        styles.home__headerBox__slider__textBox__content__btnBox__btn
-                      }
-                      icon={<IconLinkExternal />}
-                      positionIcon="right"
-                    />
+                    <h2
+                      className={`${styles.home__headerBox__slider__textBox__content__title} h2`}
+                    >
+                      <strong
+                        className={
+                          styles.home__headerBox__slider__textBox__content__title__strong
+                        }
+                      >
+                        nouveau livre
+                      </strong>
+                      <strong
+                        className={
+                          styles.home__headerBox__slider__textBox__content__title__strong
+                        }
+                      >
+                        de l'apôtre jean clement diambilay
+                      </strong>
+                    </h2>
+                    <p
+                      className={`${styles.home__headerBox__slider__textBox__content__subtitle} p`}
+                    >
+                      <span>disponible en vente</span>
+                      <span>
+                        dans les librairies et sur toutes les plateformes
+                      </span>
+                      <span>
+                        <IconAmazone />
+                      </span>
+                    </p>
+
+                    <div
+                      className={`${styles.home__headerBox__slider__textBox__content__btnBox} btnBox`}
+                    >
+                      <Button
+                        hrefUrl={`/blog/`}
+                        textBtn="passez votre commande"
+                        className={
+                          styles.home__headerBox__slider__textBox__content__btnBox__btn
+                        }
+                        icon={<IconLinkExternal />}
+                        positionIcon="right"
+                      />
+                    </div>
                   </div>
+                  <div></div>
                 </div>
-                <div></div>
               </div>
             </div>
+
             <div className={styles.home__headerBox__slider__image}>
               <Image
-                src="/assets/images/backgrounds/slider/Slider_1_b.jpg"
-                width="2000"
-                height="1200"
+                src="/assets/images/sliders/slide__benediction_independance_financiere_web.jpg"
+                width="1600"
+                height="900"
                 quality="full"
                 loading="lazy"
-                className={styles.home__headerBox__slider__pub__picture}
+                className={styles.home__headerBox__slider__image__picture}
               />
             </div>
           </div>
