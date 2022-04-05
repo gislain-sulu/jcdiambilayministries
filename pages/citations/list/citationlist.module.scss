@@ -44,7 +44,7 @@
       &__title {
         color: white;
         font-size: 4rem;
-        font-weight: 600;
+        font-weight: 100;
         text-align: center;
         line-height: 1;
 
@@ -68,6 +68,7 @@
 
     & > div {
       display: flex;
+
       input,
       select {
         border: none;
@@ -84,6 +85,8 @@
         white-space: nowrap;
         outline: none;
         width: 500px;
+        border-top-left-radius: 0.5rem;
+        border-bottom-left-radius: 0.5rem;
 
         @include responsive(sm) {
           width: 250px;
@@ -101,10 +104,12 @@
         color: $color-white;
 
         outline: none;
+        border-top-right-radius: 0.5rem;
+        border-bottom-right-radius: 0.5rem;
 
         &:hover {
           outline: none;
-          background: $color-secondary;
+          background: transparentize($color-primary, 0.1);
 
           svg {
             color: $color-white;
