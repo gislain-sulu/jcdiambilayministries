@@ -8,6 +8,12 @@ import Image from "next/image";
 import Button from "../../components/button/button";
 import { IconAmazone, IconLinkExternal } from "../../components/icons/icon";
 import { MyCarousel } from "../../components/carousel/carousel";
+import book_acceleration_divine from "../../public/assets/images/sliders/slide__acceleration_divine_web.jpg";
+import book_acceleration_divine__mobile from "../../public/assets/images/mobile/slide_acceleratioon_divine_mobile_v.jpg";
+import book_benediction_independance_financiere from "../../public/assets/images/sliders/slide__benediction_independance_financiere_web.jpg";
+import book_benediction_independance_financiere__mobile from "../../public/assets/images/mobile/slide_benediction_independance_financiere_v1.jpg";
+import mobile_books_promotion from "../../public/assets/images/mobile/slider_mobile_3.jpg";
+import mobile_cover_promotion from "../../public//assets/images/mobile/slider_mobile_2.jpg";
 
 const Accuiel = () => {
   return (
@@ -29,12 +35,12 @@ const Accuiel = () => {
           <div className={styles.home__mobile__slider}>
             <div className={styles.home__mobile__slider__pictureBox}>
               <Image
-                src="/assets/images/mobile/slider_mobile_3.jpg"
-                layout="fill"
+                src={mobile_books_promotion}
                 alt=" Apotre jean clément diambilay"
                 loading="lazy"
                 quality="full"
                 className={styles.home__pictureBox__picture}
+                placeholder="blur"
               />
             </div>
             <div className={styles.home__mobile__slider__textBox}></div>
@@ -42,12 +48,12 @@ const Accuiel = () => {
           <div className={styles.home__mobile__slider}>
             <div className={styles.home__mobile__slider__pictureBox}>
               <Image
-                src="/assets/images/mobile/slide_acceleratioon_divine_mobile_v.jpg"
-                layout="fill"
-                alt=" Apotre jean clément diambilay"
+                src={book_acceleration_divine__mobile}
+                alt="livre accélération divine"
                 loading="lazy"
                 quality="full"
                 className={styles.home__pictureBox__picture}
+                placeholder="blur"
               />
             </div>
 
@@ -102,12 +108,12 @@ const Accuiel = () => {
           <div className={styles.home__mobile__slider}>
             <div className={styles.home__mobile__slider__pictureBox}>
               <Image
-                src="/assets/images/mobile/slide_benediction_independance_financiere_v1.jpg"
-                layout="fill"
-                alt=" Apotre jean clément diambilay"
+                src={book_benediction_independance_financiere__mobile}
+                alt="livre bénédiction de l'indépendance financière"
                 loading="lazy"
                 quality="full"
                 className={styles.home__pictureBox__picture}
+                placeholder="blur"
               />
             </div>
 
@@ -162,13 +168,12 @@ const Accuiel = () => {
           <div className={styles.home__mobile__slider}>
             <div className={styles.home__mobile__slider__pictureBox}>
               <Image
-                src="/assets/images/mobile/slider_mobile_2.jpg"
-                width="1000%"
-                height="1000%"
-                alt=" Apotre jean clément diambilay"
+                src={mobile_cover_promotion}
+                alt="cover sortie officièlle de diambilay books"
                 loading="lazy"
                 quality="full"
                 className={styles.home__pictureBox__picture}
+                placeholder="blur"
               />
             </div>
             <div className={styles.home__mobile__slider__textBox}></div>
@@ -262,12 +267,11 @@ const Accuiel = () => {
             </div>
             <div className={styles.home__headerBox__slider__image}>
               <Image
-                src="/assets/images/sliders/slide__acceleration_divine_web.jpg"
-                width="1600"
-                height="900"
+                src={book_acceleration_divine}
                 quality="full"
                 loading="lazy"
                 className={styles.home__headerBox__slider__image__picture}
+                placeholder="blur"
               />
             </div>
           </div>
@@ -332,12 +336,11 @@ const Accuiel = () => {
 
             <div className={styles.home__headerBox__slider__image}>
               <Image
-                src="/assets/images/sliders/slide__benediction_independance_financiere_web.jpg"
-                width="1600"
-                height="900"
+                src={book_benediction_independance_financiere}
                 quality="full"
                 loading="lazy"
                 className={styles.home__headerBox__slider__image__picture}
+                placeholder="blur"
               />
             </div>
           </div>
