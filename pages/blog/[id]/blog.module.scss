@@ -33,14 +33,13 @@
       font-size: 4rem;
       color: $color-black;
       align-self: flex-start;
-      line-height: 1;
+      line-height: 3.6rem;
 
       @include responsive(md) {
-        font-size: 2rem;
+        font-size: 4rem;
       }
       @include responsive(sm) {
-        font-size: 4rem;
-        word-break: keep-all;
+        font-size: 3rem;
       }
     }
     &__subtitle {
@@ -51,7 +50,7 @@
       line-height: 1.2;
 
       @include responsive(md) {
-        font-size: 1.3rem;
+        font-size: 1.6rem;
       }
 
       &__cite {
