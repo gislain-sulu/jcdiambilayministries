@@ -6,132 +6,15 @@
   flex-direction: column;
   gap: 3rem;
   padding-bottom: 3rem;
-  background: #fdf6e3;
 
-  &__desktop {
-    div {
-      display: flex;
-    }
-  }
-
-  @include responsive(sm) {
-    gap: 2rem;
-    padding-bottom: 2rem;
-
-    &__desktop {
-      display: none !important;
-    }
-  }
-
-  &__section {
-    padding: 5rem;
-    display: flex;
-    flex-direction: row;
-    gap: 1rem;
-    justify-content: center;
-
-    background: linear-gradient(rgba(97, 56, 24, 0.9), rgba(97, 56, 24, 0.8)),
-      url("../../public/assets/images/backgrounds/bapteme-section-bgc.jpg");
-    background-size: cover;
-    overflow: hidden;
-    background-position: center center;
+  h1 {
+    text-transform: lowercase;
 
     @include responsive(sm) {
-      padding: 4rem;
+      font-weight: 100 !important;
     }
-
-    &__header {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      gap: 1rem;
-
-      @include responsive(sm) {
-        gap: 0.5rem;
-      }
-
-      &__title {
-        color: white;
-        font-size: 4rem;
-        font-weight: 100;
-        text-align: center;
-        line-height: 1;
-
-        @include responsive(sm) {
-          font-size: 2rem;
-        }
-      }
-      &__textHelper {
-        color: $color-white;
-        font-size: 1.5rem;
-
-        &__strong {
-          font-weight: 600;
-        }
-      }
-    }
-  }
-  &__form {
-    display: flex;
-
-    & > div {
-      display: flex;
-
-      input,
-      select {
-        border: none;
-        font-size: 1.6rem;
-        background: $color-white;
-        padding: 1rem 0;
-      }
-    }
-
-    &__fielSearchBox {
-      &__input {
-        padding: 1.5rem !important;
-        color: $color-gray;
-        white-space: nowrap;
-        outline: none;
-        width: 500px;
-        border-top-left-radius: 0.5rem;
-        border-bottom-left-radius: 0.5rem;
-
-        @include responsive(sm) {
-          width: 250px;
-        }
-
-        &:hover {
-          outline: none;
-        }
-      }
-    }
-
-    &__btnBox {
-      &__btn {
-        background: $color-primary;
-        color: $color-white;
-
-        outline: none;
-        border-top-right-radius: 0.5rem;
-        border-bottom-right-radius: 0.5rem;
-
-        &:hover {
-          outline: none;
-          background: transparentize($color-primary, 0.1);
-
-          svg {
-            color: $color-white;
-          }
-        }
-
-        a {
-          color: $color-white;
-          font-size: 1.5rem;
-          font-weight: 700;
-          text-transform: uppercase;
-        }
-      }
+    &::first-letter {
+      text-transform: uppercase !important;
     }
   }
 

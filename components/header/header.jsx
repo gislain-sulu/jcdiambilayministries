@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import styles from "./header.module.scss";
 import Image from "next/image";
 import HEADER_BTN_DATA from "../../models/HEADER_BTN_DATA";
@@ -7,11 +7,15 @@ import Link from "next/link";
 import Hamburger from "../ Hamburger/ Hamburger";
 import getLinkIcon from "../../utils/getLinksIcon";
 import AccordeonMenu from "../accordeonMenu/accordeon";
+import AppContext from "../../context/AppContext";
 
 const Header = () => {
-  const [hamburgerOpen, setHamburgerOpen] = useState(false);
+  const value = useContext(AppContext);
 
-  const toggleHamburger = () => setHamburgerOpen(!hamburgerOpen);
+  const { activeHambourgerBtn } = value.state;
+  const { closeHambourgerBtn } = value.state;
+
+  const toggleHamburger = () => closeHambourgerBtn(!activeHambourgerBtn);
 
   return (
     <section className={styles.headerBox}>
@@ -41,7 +45,7 @@ const Header = () => {
             </div>
           </div>
           <div className={styles.header__hamburger} onClick={toggleHamburger}>
-            <Hamburger isActive={hamburgerOpen} />
+            <Hamburger isActive={activeHambourgerBtn} />
           </div>
           <div className={styles.header__buttonsBox}>
             <aside className={styles.header__aside}>
@@ -59,7 +63,7 @@ const Header = () => {
       </header>
       <div
         className={
-          hamburgerOpen
+          activeHambourgerBtn
             ? styles.headerBox__accordeonMenu__active
             : styles.headerBox__accordeonMenu
         }

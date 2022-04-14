@@ -1,16 +1,26 @@
 import React from "react";
 import styles from "./confession.module.scss";
 import Image from "next/image";
+import HeaderPage from "../../components/headerPage/headerPage";
+import OriginUrl from "../../components/originUrl/originUrl";
+import { useRouter } from "next/router";
 
 const Confession = () => {
+  const router = useRouter();
+
+  const pathname = router.pathname;
+
+  const formatPathname = pathname.replace("/", "");
+
+  const listLinks = ["home", formatPathname];
   return (
     <div className={styles.confession}>
-      <div className={styles.confession__titleBox}>
-        <div className={styles.confession__titleBox__decoration}></div>
-        <h2 className={styles.confession__titleBox__title}>
-          confession de foi
-        </h2>
-      </div>
+      <HeaderPage
+        title="Confession de foi"
+        isWithFieldSearch={false}
+        listOriginUrl={<OriginUrl listItem={listLinks} />}
+      />
+
       <div className={styles.confession__content}>
         <div className={`${styles.confession__content__wrapper} wrapper`}>
           <div className={styles.confession__content__pictureBox}>

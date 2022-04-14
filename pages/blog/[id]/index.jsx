@@ -15,6 +15,7 @@ import OriginUrl from "../../../components/originUrl/originUrl";
 import PointsPrieres from "../../../components/pointsPrieres/pointsPrieres";
 import Button from "../../../components/button/button";
 import { useRouter } from "next/router";
+import HeaderPage from "../../../components/headerPage/headerPage";
 
 const BlogItem = () => {
   const router = useRouter();
@@ -35,14 +36,15 @@ const BlogItem = () => {
 
   return (
     <div className={styles.blog}>
+      <HeaderPage
+        title="detail article"
+        isWithFieldSearch={false}
+        // listOriginUrl={<OriginUrl listItem={listLinks} />}
+      />
+
       <div className={`${styles.blog__article__wrapper} wrapper`}>
         <article className={styles.blog__article}>
           <header className={styles.blog__article__header}>
-            <OriginUrl
-              className={styles.blog__article__originUrl}
-              listItem={links}
-            />
-
             <h1 className={styles.blog__article__title} id="titleArticle">
               Garder son coeur pur , c'est aussi pardonner aux autres leurs
               offences

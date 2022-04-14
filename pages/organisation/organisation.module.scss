@@ -10,41 +10,6 @@
     gap: 2rem;
   }
 
-  &__titleBox {
-    padding: 5rem;
-    display: flex;
-    flex-direction: row;
-    gap: 1rem;
-    justify-content: center;
-    background: linear-gradient(rgba(97, 56, 24, 0.9), rgba(97, 56, 24, 0.8)),
-      url("../../public/assets/images/backgrounds/bapteme-section-bgc.jpg");
-    background-size: cover;
-    overflow: hidden;
-    background-position: center center;
-    min-height: 50px;
-    height: 50px;
-    max-height: 50px;
-
-    &__decoration {
-      width: 7px;
-      height: auto;
-      background: $color-primary;
-    }
-    &__title {
-      text-transform: uppercase;
-      font-weight: 700;
-      font-size: 4rem;
-      color: $color-white;
-      line-height: 1;
-
-      @include responsive(md) {
-        font-size: 2.5rem;
-      }
-      @include responsive(sm) {
-        font-size: 2.5rem;
-      }
-    }
-  }
   &__content {
     margin-bottom: 3rem;
 

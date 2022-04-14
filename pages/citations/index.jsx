@@ -1,4 +1,6 @@
 import React from "react";
+import AliceCarousel from "react-alice-carousel";
+import "react-alice-carousel/lib/alice-carousel.css";
 import styles from "./citation.module.scss";
 
 import CardCitation_1 from "../../components/cards/citations/cardCitation_1";
@@ -13,8 +15,24 @@ import CITATION_DATA from "../../models/CITATION_DATA";
 import CITATION_LIVRES_DATA from "../../models/CITATION_LIVRES_DATA";
 import DECLARATIONS from "../../models/DECLARATIONS_DATA";
 import Link from "next/link";
+import { useRouter } from "next/router";
+import HeaderPage from "../../components/headerPage/headerPage";
+import OriginUrl from "../../components/originUrl/originUrl";
 
 const Citation = () => {
+  const responsive = {
+    0: { items: 1 },
+    568: { items: 2 },
+    1024: { items: 3 },
+  };
+  const router = useRouter();
+
+  const pathname = router.pathname;
+
+  const formatPathname = pathname.replace("/", "");
+
+  const listLinks = ["home", formatPathname];
+
   const data = [
     {
       id: 1,
@@ -38,9 +56,12 @@ const Citation = () => {
 
   return (
     <div className={styles.citation}>
-      <div className={styles.citation__titleBox}>
-        <h2 className={styles.citation__titleBox__title}>citations</h2>
-      </div>
+      <HeaderPage
+        title="Citations"
+        listOriginUrl={<OriginUrl listItem={listLinks} />}
+        isWithFieldSearch={false}
+      />
+
       <div className={styles.citation__content}>
         <div className={`${styles.citation__content} wrapper`}>
           <ul className={styles.citation__content__cardsBox}>

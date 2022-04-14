@@ -5,15 +5,18 @@ import SectionPage from "../../../components/sections/section";
 import CardBook_1 from "../../../components/cards/books/cardBook_1";
 import { ArrowNext, IconHome } from "../../../components/icons/icon";
 import Link from "next/link";
+import HeaderPage from "../../../components/headerPage/headerPage";
+import OriginUrl from "../../../components/originUrl/originUrl";
 
 const BookDetail = () => {
+  const listLinks = ["home", "books", "tttttttt"];
   return (
     <div className={styles.bookDetail}>
-      <div className={styles.bookDetail__titleBox}>
-        <h2 className={styles.bookDetail__titleBox__title}>
-          <span>detail</span> <span>livres</span>
-        </h2>
-      </div>
+      <HeaderPage
+        title="detail livre"
+        isWithFieldSearch={false}
+        listOriginUrl={<OriginUrl listItem={listLinks} />}
+      />
       <div className={styles.bookDetail__content}>
         <div className={`${styles.bookDetail__content__wrapper} wrapper`}>
           <div className={styles.bookDetail__content__bookDetailBox}>
@@ -23,12 +26,12 @@ const BookDetail = () => {
       </div>
       <div className={`wrapper`}>
         <SectionPage titleSection="Dernières parutions">
-          <CardBook_1 />
+          {/* <CardBook_1 /> */}
         </SectionPage>
       </div>
       <div className={`wrapper`}>
         <SectionPage titleSection="ces livres peuvent aussi vous interessez">
-          <CardBook_1 />
+          {/* <CardBook_1 /> */}
         </SectionPage>
       </div>
     </div>

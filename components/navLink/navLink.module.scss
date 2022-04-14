@@ -5,7 +5,7 @@
   &__box {
     display: flex;
     flex-direction: row !important;
-    gap: 4rem;
+    gap: 3rem;
     margin-bottom: 0;
     position: relative;
 
@@ -13,17 +13,21 @@
       gap: 2rem;
     }
 
-    &__item {
+    &__item,
+    &__active {
       display: flex;
       align-items: center;
-      flex: 1;
+
+      cursor: pointer;
+      position: relative;
 
       &__link {
         display: flex;
         align-items: center;
         flex: 1;
-        margin-left: -1.5rem;
+
         white-space: nowrap;
+        pointer-events: none;
 
         span {
           svg {
@@ -38,10 +42,6 @@
           }
         }
       }
-    }
-
-    &__item__link {
-      position: relative;
 
       &::after {
         content: "";
@@ -51,18 +51,31 @@
         display: block;
         position: absolute;
         left: 0;
-        top: 5rem;
         border-radius: 50px;
         transition: all 0.2s ease-out;
       }
+
+      &:hover {
+        &::after {
+          content: "";
+
+          top: 2.5rem;
+        }
+      }
     }
-
-    &__item:hover &__item__link {
+    &__item {
       &::after {
-        content: "";
-
-        position: absolute;
-
+        top: 5rem;
+      }
+    }
+    &__active {
+      a {
+        color: $color-primary !important;
+        @include responsive(sm) {
+          color: $color-secondary !important;
+        }
+      }
+      &::after {
         top: 2.5rem;
       }
     }

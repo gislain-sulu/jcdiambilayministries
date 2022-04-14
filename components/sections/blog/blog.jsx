@@ -1,18 +1,19 @@
 import React from "react";
-import CITATION_DATA from "../../../models/CITATION_DATA";
+import AliceCarousel from "react-alice-carousel";
+import "react-alice-carousel/lib/alice-carousel.css";
 import MOCK_BLOG from "../../../models/MOCK_BLOG";
 import CardBlog from "../../cards/blog/cardBlog";
-import CardCitationList from "../../cards/citations/cardCitationlist";
-import {
-  MyCarousel,
-  MyCarouselMobile,
-  MyCarouselMobileBlogSection,
-} from "../../carousel/carousel";
 import SectionPage from "../section";
 import styles from "./blog.module.scss";
 
 const Blog = () => {
   const LAST_BLOG_DATA = MOCK_BLOG.slice(MOCK_BLOG.length - 3);
+
+  const responsive = {
+    0: { items: 1 },
+    568: { items: 2 },
+    1024: { items: 3 },
+  };
 
   return (
     <>
@@ -22,20 +23,20 @@ const Blog = () => {
           classname={styles.blog}
           urlBtn="/blog"
         >
-          <div className={styles.blog__mobile}>
-            <MyCarouselMobileBlogSection>
-              {LAST_BLOG_DATA.map((cardBlogInfos) => (
-                <CardBlog
-                  title={cardBlogInfos.title}
-                  othor={cardBlogInfos.othor}
-                  date={cardBlogInfos.date}
-                  description={cardBlogInfos.description}
-                  urlBtn="/blog"
-                />
-              ))}
-            </MyCarouselMobileBlogSection>
-          </div>
-          <div className={styles.blog__desktop}></div>
+          <AliceCarousel
+            mouseTracking
+            items={LAST_BLOG_DATA.map((cardBlogInfos) => (
+              <CardBlog
+                title={cardBlogInfos.title}
+                othor={cardBlogInfos.othor}
+                date={cardBlogInfos.date}
+                description={cardBlogInfos.description}
+                urlBtn="/blog"
+              />
+            ))}
+            responsive={responsive}
+            controlsStrategy="alternate"
+          />
         </SectionPage>
       </div>
     </>

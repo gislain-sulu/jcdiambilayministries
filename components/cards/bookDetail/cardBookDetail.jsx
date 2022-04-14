@@ -10,13 +10,18 @@ import {
 import styles from "./cardBookDetail.module.scss";
 
 const CardBookDetail = () => {
+  const responsive = {
+    0: { items: 1 },
+    568: { items: 2 },
+    1024: { items: 3 },
+  };
   return (
     <div className={styles.cardBookDetail}>
       <div className={styles.cardBookDetail__pictureBox}>
         <Image
           src="/assets/images/livres/cover/acceleration_divine.jpg"
-          // width="100"
-          // height="100"
+          width="100"
+          height="100"
           loading="lazy"
           layout="fill"
           objectFit="contain"
@@ -28,16 +33,9 @@ const CardBookDetail = () => {
           accélération divine
         </h3>
         <h4 className={styles.cardBookDetail__content__subtitle}>
-          <span className={styles.cardBookDetail__content__subtitle__label}>
-            {/* <Image
-              src="/assets/images/jc_diambilay.png"
-              alt="apotre jean clément diambilay"
-              loading="lazy"
-              width="100px"
-              height="100px"
-              layout="fill"
-            /> */}
-          </span>
+          <span
+            className={styles.cardBookDetail__content__subtitle__label}
+          ></span>
           <span className={styles.cardBookDetail__content__subtitle__author}>
             {" "}
             De jean clément diambilay

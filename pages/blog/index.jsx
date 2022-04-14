@@ -7,50 +7,29 @@ import Link from "next/link";
 import Bloglist from "../../components/bloglist/bloglist";
 import CardBlog from "../../components/cards/blog/cardBlog";
 import MOCK_BLOG from "../../models/MOCK_BLOG";
+import HeaderPage from "../../components/headerPage/headerPage";
+import OriginUrl from "../../components/originUrl/originUrl";
+import { useRouter } from "next/router";
 
 const Blog = () => {
+  const router = useRouter();
+
+  const pathname = router.pathname;
+
+  const formatPathname = pathname.replace("/", "");
+
+  const listLinks = ["home", formatPathname];
+
   return (
     <div className={styles.blog}>
-      <section className={styles.blog__section}>
-        <div className={`${styles.blog__section__wrapper} wrapper`}>
-          <header className={styles.blog__section__header}>
-            <h1 className={styles.blog__section__header__title}>
-              Rechercher un article de l'Apôtre Jean-Clément Diambilay
-            </h1>
-            <div className={styles.blog__section__header__searchBox}>
-              <form className={styles.blog__form}>
-                <div className={styles.blog__form__fielSearchBox}>
-                  <input
-                    type="text"
-                    placeholder="Tapez un titre ..."
-                    className={styles.blog__form__fielSearchBox__input}
-                  />
-                </div>
-                <div className={styles.blog__form__btnBox}>
-                  <Button
-                    hrefUrl={`/`}
-                    textBtn=""
-                    className={styles.blog__form__btnBox__btn}
-                    icon={<IconSearch />}
-                    type="submit"
-                  />
-                </div>
-              </form>
-            </div>
-            <div className={styles.blog__section__header__textHelper}>
-              <small>
-                exemple:
-                <strong
-                  className={styles.blog__section__header__textHelper__strong}
-                >
-                  garder son coeur pur
-                </strong>
-                ...
-              </small>
-            </div>
-          </header>
-        </div>
-      </section>
+      <HeaderPage
+        title="Rechercher un article de l'Apôtre Jean-Clément Diambilay"
+        placeholder="Tapez un titre"
+        textHelper="garder son coeur pur"
+        listOriginUrl={<OriginUrl listItem={listLinks} />}
+        classname={styles.blog__title}
+      />
+
       <section className={styles.blog__content}>
         <div className={`${styles.blog__content__wrapper} wrapper`}>
           <div className={styles.blog__content__filterBox}>

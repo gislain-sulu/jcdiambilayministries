@@ -7,13 +7,27 @@ import {
   Linkedin,
   Twitter,
 } from "../../components/icons/icon";
+import HeaderPage from "../../components/headerPage/headerPage";
+import OriginUrl from "../../components/originUrl/originUrl";
+import { useRouter } from "next/router";
 
 const Biographie = () => {
+  const router = useRouter();
+
+  const pathname = router.pathname;
+
+  const formatPathname = pathname.replace("/", "");
+
+  const listLinks = ["home", formatPathname];
+
   return (
     <div className={styles.biographie}>
-      <div className={styles.biographie__titleBox}>
-        <h2 className={styles.biographie__titleBox__title}>biographie</h2>
-      </div>
+      <HeaderPage
+        title="Biographie"
+        isWithFieldSearch={false}
+        listOriginUrl={<OriginUrl listItem={listLinks} />}
+      />
+
       <div className={styles.biographie__content}>
         <div className={`${styles.biographie__content__wrapper} wrapper`}>
           <div className={styles.biographie__content__pictureBox}>

@@ -3,7 +3,6 @@ import React from "react";
 import Button from "../../button/button";
 import CardSectionsLinksFooter from "../../cards/footer/cardSectionsLinksFooter";
 import Copyright from "../../copyright/copyright";
-import SearchForm from "../../forms/search/search";
 import {
   Facebook,
   IconSuscribe,

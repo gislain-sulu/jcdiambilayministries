@@ -1,17 +1,44 @@
 import Link from "next/link";
-import React from "react";
+import { useRouter } from "next/router";
+import React, { useState, useContext } from "react";
+import AppContext from "../../context/AppContext";
 import { IconNext } from "../icons/icon";
 import styles from "./navLink.module.scss";
 
 const NavLink = ({ tabLinkList /* tabLinkList is a array  */, isIconNext }) => {
+  const [active, setactive] = useState("/home");
+
+  const router = useRouter();
+  const context = useContext(AppContext);
+  const { activeHambourgerBtn } = context.state;
+  const { closeHambourgerBtn } = context.state;
+
+  console.log(activeHambourgerBtn);
+
+  const activeLink = (item) => {
+    setactive(item);
+    closeHambourgerBtn(false);
+    router.push(item);
+  };
+
   return (
     <nav className={styles.navlink} role="navigation">
       <ul className={styles.navlink__box}>
         {tabLinkList.map((link) => (
-          <li className={styles.navlink__box__item} key={link.id}>
+          <li
+            className={`
+          
+          ${
+            active === link.link
+              ? `${styles.navlink__box__active}`
+              : `${styles.navlink__box__item}`
+          }
+          `}
+            key={link.id}
+            onClick={() => activeLink(link.link)}
+          >
             <Link href={link.link}>
               <a
-                href={link.link}
                 className={styles.navlink__box__item__link}
                 title={link.textLink}
               >
@@ -29,11 +56,6 @@ const NavLink = ({ tabLinkList /* tabLinkList is a array  */, isIconNext }) => {
             </Link>
           </li>
         ))}
-        {/* <li className={styles.navlink__Box__item}>
-          <Link href={hrefUrl}>
-            <a className={styles.navlink__Box__item__link}>{textLink}</a>
-          </Link>
-        </li> */}
       </ul>
     </nav>
   );

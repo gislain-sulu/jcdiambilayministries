@@ -6,53 +6,22 @@ import Link from "next/link";
 import Bloglist from "../../../components/bloglist/bloglist";
 import CardBlog from "../../../components/cards/blog/cardBlog";
 import MOCK_BLOG from "../../../models/MOCK_BLOG";
+import HeaderPage from "../../../components/headerPage/headerPage";
+import OriginUrl from "../../../components/originUrl/originUrl";
 
 const Citationlist = () => {
+  const listLinks = ["home", "citations", "list"];
+
   return (
     <div className={styles.citationlist}>
-      <section className={styles.citationlist__section}>
-        <div className={`${styles.citationlist__section__wrapper} wrapper`}>
-          <header className={styles.citationlist__section__header}>
-            <h1 className={styles.citationlist__section__header__title}>
-              Rechercher une citation de l'Apôtre Jean-Clément Diambilay
-            </h1>
-            <div className={styles.citationlist__section__header__searchBox}>
-              <form className={styles.citationlist__form}>
-                <div className={styles.citationlist__form__fielSearchBox}>
-                  <input
-                    type="text"
-                    placeholder="Tapez un mot ..."
-                    className={styles.citationlist__form__fielSearchBox__input}
-                  />
-                </div>
-                <div className={styles.citationlist__form__btnBox}>
-                  <Button
-                    hrefUrl={`/`}
-                    textBtn=""
-                    className={styles.citationlist__form__btnBox__btn}
-                    icon={<IconSearch />}
-                    type="submit"
-                  />
-                </div>
-              </form>
-            </div>
-            <div className={styles.citationlist__section__header__textHelper}>
-              <small>
-                exemple:
-                <strong
-                  className={
-                    styles.citationlist__section__header__textHelper__strong
-                  }
-                >
-                  {" "}
-                  Dieu{" "}
-                </strong>
-                ...
-              </small>
-            </div>
-          </header>
-        </div>
-      </section>
+      <HeaderPage
+        title="Rechercher une citation de l'Apôtre Jean-Clément Diambilay"
+        placeholder="Tapez un mot"
+        textHelper="Dieu"
+        listOriginUrl={<OriginUrl listItem={listLinks} />}
+        classname={styles.blog__title}
+      />
+
       <section className={styles.citationlist__content}>
         <div className={`${styles.citationlist__content__wrapper} wrapper`}>
           <div className={styles.citationlist__content__filterBox}>

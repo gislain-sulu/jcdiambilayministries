@@ -12,6 +12,12 @@
     grid-row-end: 2;
     grid-column-start: 1;
     grid-column-end: 2;
+    &__picture {
+      width: 194px !important ;
+      max-height: 289px !important;
+      max-width: 194px;
+      max-height: 289px;
+    }
   }
 
   &__modal {

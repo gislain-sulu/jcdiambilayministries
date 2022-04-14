@@ -4,8 +4,19 @@ import styles from "./about.module.scss";
 
 import { IconDonation } from "../../components/icons/icon";
 import MEANSOFACTION_DATA from "../../models/MEANSOFACTION_DATA";
+import HeaderPage from "../../components/headerPage/headerPage";
+import { useRouter } from "next/router";
+import OriginUrl from "../../components/originUrl/originUrl";
 
 const About = () => {
+  const router = useRouter();
+
+  const pathname = router.pathname;
+
+  const formatPathname = pathname.replace("/", "");
+
+  const listLinks = ["home", formatPathname];
+
   const data = [
     {
       id: 1,
@@ -48,11 +59,12 @@ const About = () => {
   return (
     <div className="container">
       <div className={styles.aboutMe}>
-        <div className={styles.aboutMe__titleBox}>
-          <h2 className={styles.aboutMe__titleBox__title}>
-            <span>a propos </span> <span> de nous</span>
-          </h2>
-        </div>
+        <HeaderPage
+          title="A propos de nous"
+          isWithFieldSearch={false}
+          listOriginUrl={<OriginUrl listItem={listLinks} />}
+        />
+
         <div className={styles.aboutMe__content}>
           <div className={`${styles.aboutMe__content__wrapper} wrapper`}>
             <p className={styles.aboutMe__content__text}>

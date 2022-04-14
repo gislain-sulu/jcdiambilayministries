@@ -7,52 +7,21 @@ import Link from "next/link";
 import Bloglist from "../../../components/bloglist/bloglist";
 import CardBlog from "../../../components/cards/blog/cardBlog";
 import MOCK_BLOG from "../../../models/MOCK_BLOG";
+import CardBook from "../../../components/cards/books/cardBook";
+import HeaderPage from "../../../components/headerPage/headerPage";
+import OriginUrl from "../../../components/originUrl/originUrl";
 
 const Bookslist = () => {
+  const listLinks = ["home", "books", "list"];
   return (
     <div className={styles.bookslist}>
-      <section className={styles.bookslist__section}>
-        <div className={`${styles.bookslist__section__wrapper} wrapper`}>
-          <header className={styles.bookslist__section__header}>
-            <h1 className={styles.bookslist__section__header__title}>
-              Rechercher un livre de l'Apôtre Jean-Clément Diambilay
-            </h1>
-            <div className={styles.bookslist__section__header__searchBox}>
-              <form className={styles.bookslist__form}>
-                <div className={styles.bookslist__form__fielSearchBox}>
-                  <input
-                    type="text"
-                    placeholder="Tapez un titre du livre ..."
-                    className={styles.bookslist__form__fielSearchBox__input}
-                  />
-                </div>
-                <div className={styles.bookslist__form__btnBox}>
-                  <Button
-                    hrefUrl={`/`}
-                    textBtn=""
-                    className={styles.bookslist__form__btnBox__btn}
-                    icon={<IconSearch />}
-                    type="submit"
-                  />
-                </div>
-              </form>
-            </div>
-            <div className={styles.bookslist__section__header__textHelper}>
-              <small>
-                exemple:
-                <strong
-                  className={
-                    styles.bookslist__section__header__textHelper__strong
-                  }
-                >
-                  accélération divine
-                </strong>
-                ...
-              </small>
-            </div>
-          </header>
-        </div>
-      </section>
+      <HeaderPage
+        title="Rechercher un livre de l'Apôtre Jean Clément Diambilay"
+        placeholder="Tapez un titre du livre"
+        textHelper="accélératon divine"
+        listOriginUrl={<OriginUrl listItem={listLinks} />}
+      />
+
       <section className={styles.bookslist__content}>
         <div className={`${styles.bookslist__content__wrapper} wrapper`}>
           <div className={styles.bookslist__content__filterBox}>
@@ -68,20 +37,12 @@ const Bookslist = () => {
               </li>
             </ul>
           </div>
+          <div className={styles.bookslist__content__separator}> </div>
           <div className={styles.bookslist__content__list}>
-            <Bloglist>
-              {MOCK_BLOG.map((blog) => (
-                <li key={blog.id}>
-                  <CardBlog
-                    id={blog.id}
-                    title={blog.title}
-                    othor={blog.othor}
-                    date={blog.date}
-                    description={blog.description}
-                  />
-                </li>
-              ))}
-            </Bloglist>
+            <CardBook />
+            <CardBook />
+            <CardBook />
+            <CardBook />
           </div>
         </div>
       </section>

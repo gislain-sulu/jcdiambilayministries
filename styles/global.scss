@@ -229,3 +229,34 @@ img {
   -webkit-align-items: center;
   align-items: center;
 }
+.alice-carousel__prev-btn,
+.alice-carousel__next-btn {
+  display: none !important;
+}
+
+.alice-carousel__stage-item {
+  margin-right: 1rem !important;
+  display: flex;
+  padding-left: 5rem !important;
+  margin: auto !important;
+
+  @include responsive(sm) {
+    padding-left: 0rem !important;
+  }
+}
+
+.alice-carousel__dots {
+  display: none !important;
+  @include responsive(sm) {
+    display: block !important;
+  }
+}
+
+.alice-carousel__play-btn-item::before,
+.alice-carousel__play-btn-item::after {
+  border-left-color: $color-primary !important;
+}
+
+.alice-carousel__stage-item.__active.__target {
+  padding-left: 0px !important;
+}

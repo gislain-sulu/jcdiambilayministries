@@ -4,38 +4,43 @@ import { IconHome, IconLineFluent, IconNext } from "../icons/icon";
 import styles from "./originUrl.module.scss";
 
 const OriginUrl = ({ listItem, className }) => {
-  const newListItem = listItem;
+  const lastItem = listItem[listItem.length - 1];
 
-  const lastItem = newListItem.pop();
+  const FirstItemLength = listItem.shift();
+  const LastItemLength = listItem.pop();
+
+  const getLink = (item) => {
+    if (item === "citations") {
+      return "/citations";
+    }
+    if (item === "books") {
+      return "/books";
+    }
+    return item;
+  };
 
   return (
     <ul className={`${styles.list} ${className}`}>
       <li className={styles.list__item}>
         <span className={styles.list__item__span}>
           <Link href="/">
-            <a href="/">
-              <IconHome />
+            <a>
+              <IconHome /> Home
             </a>
           </Link>
         </span>
       </li>
-
-      {newListItem.map((item) => (
-        <>
-          <li className={styles.list__item}>
-            <span className={styles.list__item__span}>
-              <Link href={`${item.pageLink}`}>
-                <a href={`${item.pageLink}`}>{item.page}</a>
-              </Link>
-            </span>
-          </li>
-          <li className={styles.list__item}>
-            <IconNext />
-          </li>
-        </>
+      {listItem.map((item) => (
+        <li className={styles.list__item}>
+          <IconNext />
+          <span className={styles.list__item__span}>
+            <Link href={getLink(item)}>
+              <a>{item}</a>
+            </Link>
+          </span>
+        </li>
       ))}
-
-      <li className={styles.list__item}>{lastItem.page}</li>
+      <IconNext /> <li className={styles.list__item}>{lastItem}</li>
     </ul>
   );
 };

@@ -6,11 +6,6 @@
   flex-direction: column;
   gap: 2rem;
 
-  @include responsive(sm) {
-    width: 150px;
-    gap: 5px;
-  }
-
   &__iconBox {
     display: flex;
     justify-content: center;

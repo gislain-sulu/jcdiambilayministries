@@ -3,10 +3,13 @@ import { loadPosts } from "../../lib/fetch-books";
 import styles from "./books.module.scss";
 import { IconDonation } from "../../components/icons/icon";
 import SectionPage from "../../components/sections/section";
-import CardBook_1 from "../../components/cards/books/cardBook_1";
-import MyCarousel from "../../components/carousel/carousel";
+import Image from "next/image";
+import CardBook from "../../components/cards/books/cardBook";
+import HeaderPage from "../../components/headerPage/headerPage";
+import OriginUrl from "../../components/originUrl/originUrl";
+import { useRouter } from "next/router";
 
-const Books = () => {
+const Books = ({ books }) => {
   const data = [
     {
       id: 1,
@@ -46,15 +49,22 @@ const Books = () => {
 
   let numerotation = 1;
 
+  const router = useRouter();
+
+  const pathname = router.pathname;
+
+  const formatPathname = pathname.replace("/", "");
+
+  const listLinks = ["home", formatPathname];
+
   return (
     <div className={styles.books}>
-      <div className={styles.books__titleBox}>
-        <div className={styles.books__titleBox__decoration}></div>
-        <h1 className={styles.books__titleBox__title}>
-          {" "}
-          <span>jc diambilay </span> <span> books</span>{" "}
-        </h1>
-      </div>
+      <HeaderPage
+        title="Books"
+        isWithFieldSearch={false}
+        listOriginUrl={<OriginUrl listItem={listLinks} />}
+      />
+
       <div className={styles.books__content}>
         <div className={`${styles.books__content__wrapper} wrapper`}>
           <div className={styles.books__content__intro}>
@@ -69,18 +79,38 @@ const Books = () => {
             <SectionPage
               titleSection="dernieres parutions"
               classname={`${styles.books__content__newsBooksCollection__box}`}
-            >
-              <CardBook_1 />
-              <CardBook_1 />
-            </SectionPage>
+            ></SectionPage>
           </div>
           <div className={styles.books__content__collectionCielOuvert}>
             <SectionPage
               titleSection="collection ciel ouvert"
               classname={`${styles.books__content__collectionCielOuvert__box}`}
             >
-              <CardBook_1 />
-              <CardBook_1 />
+              <CardBook />
+              <CardBook />
+              <CardBook />
+              <CardBook />
+              <CardBook />
+
+              {/* {books.data.map((book) => {
+                return (
+                  <>
+                    <img
+                      src={book.attributes.picture}
+                      alt={book.attributes.title}
+                    />
+                    <CardBook_1
+                      src={book.attributes.picture}
+                      alt={book.attributes.title}
+                      title={book.attributes.title}
+                      format={book.attributes.format}
+                      author="jean clément diambilay"
+                      price={book.attributes.price}
+                      urlBtn={`/books/${book.attributes.Slug}`}
+                    />
+                  </>
+                );
+              })} */}
             </SectionPage>
           </div>
 
@@ -143,5 +173,18 @@ const Books = () => {
     </div>
   );
 };
+
+// export async function getStaticProps() {
+//   const res = await fetch(
+//     "https://jcdiambilayministries.herokuapp.com/api/books"
+//   );
+//   const books = await res.json();
+
+//   return {
+//     props: {
+//       books,
+//     },
+//   };
+// }
 
 export default Books;

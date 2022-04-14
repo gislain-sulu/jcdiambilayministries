@@ -15,12 +15,7 @@ const FOOTER_LINKS_DATA = [
         url: "/biographie",
         isActive: true,
       },
-      {
-        id: 2,
-        label: "biographie Ap. JC diambilay",
-        url: "/biographie",
-        isActive: true,
-      },
+
       {
         id: 3,
         label: "organisation",

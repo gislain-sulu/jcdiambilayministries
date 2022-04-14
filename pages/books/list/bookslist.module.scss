@@ -8,123 +8,19 @@
   padding-bottom: 3rem;
   background: #fdf6e3;
 
+  h1 {
+    text-transform: lowercase;
+
+    @include responsive(sm) {
+      font-weight: 100;
+    }
+  }
+
   @include responsive(sm) {
     gap: 2rem;
     padding-bottom: 2rem;
   }
 
-  &__section {
-    padding: 5rem;
-    display: flex;
-    flex-direction: row;
-    gap: 1rem;
-    justify-content: center;
-
-    background: linear-gradient(rgba(97, 56, 24, 0.9), rgba(97, 56, 24, 0.8)),
-      url("../../../public/assets/images/backgrounds/bapteme-section-bgc.jpg");
-    background-size: cover;
-    overflow: hidden;
-    background-position: center center;
-
-    @include responsive(sm) {
-      padding: 4rem;
-    }
-
-    &__header {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      gap: 1rem;
-
-      @include responsive(sm) {
-        gap: 0.5rem;
-      }
-
-      &__title {
-        color: white;
-        font-size: 4rem;
-        font-weight: 100;
-        text-align: center;
-        line-height: 1;
-
-        @include responsive(sm) {
-          font-size: 2rem;
-        }
-      }
-      &__textHelper {
-        color: $color-white;
-        font-size: 1.5rem;
-
-        &__strong {
-          font-weight: 600;
-        }
-      }
-    }
-  }
-
-  &__form {
-    display: flex;
-
-    & > div {
-      display: flex;
-
-      input,
-      select {
-        border: none;
-        font-size: 1.6rem;
-        background: $color-white;
-        padding: 1rem 0;
-      }
-    }
-
-    &__fielSearchBox {
-      &__input {
-        padding: 1.5rem !important;
-        color: $color-gray;
-        white-space: nowrap;
-        outline: none;
-        width: 500px;
-        border-top-left-radius: 0.5rem;
-        border-bottom-left-radius: 0.5rem;
-
-        @include responsive(sm) {
-          width: 250px;
-        }
-
-        &:hover {
-          outline: none;
-        }
-      }
-    }
-
-    &__btnBox {
-      &__btn {
-        background: $color-primary;
-        color: $color-white;
-
-        outline: none;
-        border-top-right-radius: 0.5rem;
-        border-bottom-right-radius: 0.5rem;
-
-        &:hover {
-          outline: none;
-          background: transparentize($color-primary, 0.1);
-
-          svg {
-            color: $color-white;
-          }
-        }
-
-        a {
-          color: $color-white;
-          font-size: 1.5rem;
-          font-weight: 700;
-          text-transform: uppercase;
-        }
-      }
-    }
-  }
   &__content {
     &__wrapper {
       display: flex;
@@ -153,15 +49,16 @@
         align-items: center;
 
         &__item {
-          padding: 1.5rem;
+          padding: 1rem;
           white-space: nowrap;
+          font-weight: 100;
 
           a {
             color: $color-black !important;
           }
           &:hover {
             background: $color-secondary;
-            padding: 1.5rem;
+
             cursor: pointer;
             a {
               color: $color-white !important;
@@ -170,24 +67,40 @@
         }
       }
     }
-    &__list {
-      display: flex;
+
+    &__separator {
       position: relative;
+      &::after {
+        content: " ";
+        width: 100%;
+        height: 1px;
+        display: block;
+        background-color: $color-secondary;
+        position: absolute;
+        left: 0;
+      }
+    }
+
+    &__list {
+      margin-top: 1rem;
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(calc(100% / 3), 1fr));
+
+      align-items: center;
+      grid-row-gap: 1rem;
+
+      @include responsive(sm) {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 2rem;
+      }
 
       ul {
         display: flex;
         flex-wrap: wrap;
         justify-content: space-around;
-      }
-      &::after {
-        content: " ";
-        width: 100%;
-        height: 2px;
-        display: block;
-        background-color: $color-secondary;
-        position: absolute;
-        left: 0;
-        top: -0.2rem;
       }
 
       @include responsive(sm) {
