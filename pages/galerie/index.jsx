@@ -26,7 +26,7 @@ const Galery = () => {
   return (
     <div className={styles.galerie}>
       <HeaderPage
-        title="Galerie"
+        title="Galerie photos"
         isWithFieldSearch={false}
         listOriginUrl={<OriginUrl listItem={listLinks} />}
       />
