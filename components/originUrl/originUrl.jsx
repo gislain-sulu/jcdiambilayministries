@@ -22,13 +22,14 @@ const OriginUrl = ({ listItem, className }) => {
   return (
     <ul className={`${styles.list} ${className}`}>
       <li className={styles.list__item}>
-        <span className={styles.list__item__span}>
-          <Link href="/">
-            <a>
-              <IconHome /> Home
-            </a>
-          </Link>
-        </span>
+        <Link href="/">
+          <a className={styles.list__item__link}>
+            <span>
+              <IconHome />{" "}
+            </span>{" "}
+            <span>Home</span>
+          </a>
+        </Link>
       </li>
       {listItem.map((item) => (
         <li className={styles.list__item}>

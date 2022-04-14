@@ -2,10 +2,6 @@
 
 @import "../../../styles/sass/mixins/_responsive";
 .contact {
-  @include responsive(sm) {
-    padding-top: 3.5rem;
-  }
-
   &__wrapper {
     display: flex;
     flex-direction: column;
