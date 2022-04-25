@@ -18,11 +18,37 @@
       gap: 0.8rem;
       max-width: 70%;
       margin: 0 auto;
-      line-height: 1.3;
+      font-size: 1.6rem;
+
+      font-family: "EB Garamond", sans-serif;
+      line-height: 1.5;
+
+      p {
+        text-align: justify;
+      }
+
+      ol {
+        display: flex !important;
+        flex-direction: column;
+        gap: 2rem !important;
+        list-style: decimal;
+        list-style-position: inside;
+      }
 
       @include responsive(md) {
         max-width: 100%;
       }
+
+      h3 {
+        font-size: 2.5rem;
+      }
+    }
+
+    &__main {
+      margin-top: 2rem;
+    }
+    &__header {
+      margin-top: 2rem;
     }
 
     @include responsive(md) {
@@ -118,11 +144,18 @@
     }
 
     &__socialsMedias {
+      margin: 3rem 0;
       display: flex;
       justify-content: center;
       align-items: center;
-      align-self: flex-end;
-      gap: 1rem;
+      align-self: center;
+      gap: 2rem;
+
+      @include responsive(sm) {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
       &__label {
         text-transform: uppercase;
         font-weight: 600;

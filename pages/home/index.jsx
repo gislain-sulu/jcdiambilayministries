@@ -45,19 +45,6 @@ const Accuiel = () => {
     <div className={styles.home__mobile__slider}>
       <div className={styles.home__mobile__slider__pictureBox}>
         <Image
-          src={mobile_books_promotion}
-          alt=" Apotre jean clément diambilay"
-          loading="lazy"
-          quality="full"
-          className={styles.home__pictureBox__picture}
-          placeholder="blur"
-        />
-      </div>
-      <div className={styles.home__mobile__slider__textBox}></div>
-    </div>,
-    <div className={styles.home__mobile__slider}>
-      <div className={styles.home__mobile__slider__pictureBox}>
-        <Image
           src={book_acceleration_divine__mobile}
           alt="livre accélération divine"
           loading="lazy"
@@ -87,7 +74,7 @@ const Accuiel = () => {
                   styles.home__mobile__slider__textBox__content__title__strong
                 }
               >
-                de l'apôtre jean clement diambilay
+                de l'Apôtre Jean-Clément Diambilay
               </strong>
             </h2>
             <p
@@ -147,7 +134,7 @@ const Accuiel = () => {
                   styles.home__mobile__slider__textBox__content__title__strong
                 }
               >
-                de l'apôtre jean clement diambilay
+                de l'Apôtre Jean-clément Diambilay
               </strong>
             </h2>
             <p
@@ -221,7 +208,7 @@ const Accuiel = () => {
                     styles.home__headerBox__slider__textBox__content__title__strong
                   }
                 >
-                  de l'apôtre jean clement diambilay
+                  de l'Apôtre Jean-Clément Diambilay
                 </strong>
               </h2>
               <p
@@ -285,7 +272,7 @@ const Accuiel = () => {
                     styles.home__headerBox__slider__textBox__content__title__strong
                   }
                 >
-                  de l'apôtre jean clement diambilay
+                  de l'Apôtre Jean-Clément Diambilay
                 </strong>
               </h2>
               <p

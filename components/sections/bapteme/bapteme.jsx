@@ -7,7 +7,7 @@ const Bapteme = () => {
     <section className={styles.bapteme}>
       <div className={`${styles.bapteme__wrapper} wrapper`}>
         <h2 className={styles.bapteme__title}>
-          donnez votre vie à jesus christ
+          donnez votre vie à jesus-christ
         </h2>
         <p className={styles.bapteme__question}>
           Êtes-vous prêt à découvrir comment Le recevoir comme Seigneur et

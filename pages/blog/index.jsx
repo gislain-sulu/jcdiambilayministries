@@ -10,8 +10,10 @@ import MOCK_BLOG from "../../models/MOCK_BLOG";
 import HeaderPage from "../../components/headerPage/headerPage";
 import OriginUrl from "../../components/originUrl/originUrl";
 import { useRouter } from "next/router";
+import ReactMarkdown from "react-markdown";
 
-const Blog = () => {
+const Blog = ({ messages }) => {
+  console.log(messages);
   const router = useRouter();
 
   const pathname = router.pathname;
@@ -47,14 +49,14 @@ const Blog = () => {
           </div>
           <div className={styles.blog__content__list}>
             <Bloglist>
-              {MOCK_BLOG.map((blog) => (
-                <li key={blog.id}>
+              {messages.map((blog) => (
+                <li key={blog.attributes.id}>
                   <CardBlog
                     id={blog.id}
-                    title={blog.title}
-                    othor={blog.othor}
-                    date={blog.date}
-                    description={blog.description}
+                    title={blog.attributes.title}
+                    date={blog.attributes.date}
+                    description={blog.attributes.description}
+                    slug={blog.attributes.Slug}
                   />
                 </li>
               ))}
@@ -64,6 +66,18 @@ const Blog = () => {
       </section>
     </div>
   );
+};
+
+export const getStaticProps = async () => {
+  const res = await fetch(`http://localhost:1337/api/messages`);
+
+  const resData = await res.json();
+  const messages = resData.data;
+
+  return {
+    props: { messages },
+    revalidate: 1,
+  };
 };
 
 export default Blog;

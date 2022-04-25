@@ -9,15 +9,18 @@ const Button = ({
   icon = false,
   positionIcon = "left",
   type = "none",
+  onClick,
 }) => {
   if (icon === "none") {
     return (
-      <button type={type} className={`${styles.btn} ${className}`}>
+      <button
+        type={type}
+        className={`${styles.btn} ${className}`}
+        onClick={onClick}
+      >
         <span>
           <Link href={hrefUrl}>
-            <a href={hrefUrl} className={styles.btn__link}>
-              {textBtn}
-            </a>
+            <a className={styles.btn__link}>{textBtn}</a>
           </Link>
         </span>
       </button>
@@ -26,13 +29,20 @@ const Button = ({
   if (positionIcon === "right") {
     return (
       icon && (
-        <button type={type} className={`${styles.btn} ${className}`}>
+        <button
+          type={type}
+          className={`${styles.btn} ${className}`}
+          onClick={onClick}
+        >
           <span>
             <Link href={hrefUrl}>
-              <a className={styles.btn__link}>{textBtn}</a>
+              <a className={styles.btn__link}>
+                {textBtn}
+                {icon}
+              </a>
             </Link>
           </span>
-          <span className={styles.btn__icon}>{icon}</span>
+          {/* <span className={styles.btn__icon}>{icon}</span> */}
         </button>
       )
     );
@@ -40,10 +50,13 @@ const Button = ({
   return (
     icon && (
       <button type={type} className={`${styles.btn} ${className}`}>
-        <span className={styles.btn__icon}>{icon}</span>
+        {/* <span className={styles.btn__icon}></span> */}
         <span>
           <Link href={hrefUrl}>
-            <a className={styles.btn__link}>{textBtn}</a>
+            <a className={styles.btn__link}>
+              <span className={styles.btn__link__icon}>{icon}</span>
+              <span className={styles.btn__link__text}>{textBtn}</span>
+            </a>
           </Link>
         </span>
       </button>

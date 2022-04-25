@@ -4,9 +4,9 @@ import Button from "../../button/button";
 import { ArrowNext } from "../../icons/icon";
 import styles from "./cardBlog.module.scss";
 
-const CardBlog = ({ id, title, othor, date, description }) => {
+const CardBlog = ({ id, title, othor, date, description, slug }) => {
   const getDesciption = (desc) => {
-    return `${desc.toLowerCase().slice(0, 150)}...`;
+    return `${desc.slice(0, 150)}...`;
   };
   return (
     <div className={styles.CardBlog}>
@@ -15,12 +15,10 @@ const CardBlog = ({ id, title, othor, date, description }) => {
       <small className={styles.CardBlog__subtitle}>
         <span>{othor}</span> <span>|</span> <span> {date}</span>
       </small>
-      <div className={styles.CardBlog__content}>
-        {getDesciption(description)}
-      </div>
+      <div className={styles.CardBlog__content}>{`${description} ...`}</div>
       <div className={styles.CardBlog__footer}>
         <Button
-          hrefUrl={`/blog/${id}`}
+          hrefUrl={`/blog/${slug}`}
           textBtn="lire plus"
           className={styles.CardBlog__footer__button}
           icon={<ArrowNext />}

@@ -13,7 +13,7 @@ const Contact = () => {
 
         <Button
           hrefUrl={`/blog/`}
-          textBtn="contactez-nous"
+          textBtn="Contactez-nous"
           className={styles.contact__button}
           icon="none"
         />

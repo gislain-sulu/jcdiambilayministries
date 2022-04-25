@@ -8,7 +8,7 @@ const Share = () => {
   return (
     <div className="App">
       <div>
-        <h4>partager sur</h4>
+        {/* <h4>partager sur</h4> */}
         <InlineShareButtons
           config={{
             alignment: "center", // alignment of buttons (left, center, right)
@@ -16,14 +16,14 @@ const Share = () => {
             enabled: true, // show/hide buttons (true, false)
             font_size: 16, // font size for the buttons
             labels: "cta", // button labels (cta, counts, null)
-            language: "en", // which language to use (see LANGUAGES)
+            language: "fr", // which language to use (see LANGUAGES)
             networks: [
               // which networks to include (see SHARING NETWORKS)
               "whatsapp",
-              // "linkedin",
-              "messenger",
               "facebook",
               "twitter",
+              "messenger",
+              "linkedin",
             ],
             padding: 12, // padding within buttons (INTEGER)
             radius: 4, // the corner radius on each button (INTEGER)
@@ -31,7 +31,7 @@ const Share = () => {
             size: 40, // the size of each button (INTEGER)
 
             // OPTIONAL PARAMETERS
-            url: "https://www.sharethis.com", // (defaults to current url)
+            url: "jcdiambilay.com", // (defaults to current url)
             image: "https://bit.ly/2CMhCMC", // (defaults to og:image or twitter:image)
             description: "custom text", // (defaults to og:description or twitter:description)
             title: "custom title", // (defaults to og:title or twitter:title)
@@ -65,7 +65,6 @@ const Share = () => {
             url: "https://www.sharethis.com", // (defaults to current url)
           }}
         /> */}
-        <hr />
         {/* 
         <h1>Inline Follow Buttons</h1>
         <InlineFollowButtons

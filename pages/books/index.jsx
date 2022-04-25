@@ -1,13 +1,13 @@
 import React from "react";
-import { loadPosts } from "../../lib/fetch-books";
 import styles from "./books.module.scss";
 import { IconDonation } from "../../components/icons/icon";
 import SectionPage from "../../components/sections/section";
-import Image from "next/image";
 import CardBook from "../../components/cards/books/cardBook";
 import HeaderPage from "../../components/headerPage/headerPage";
 import OriginUrl from "../../components/originUrl/originUrl";
 import { useRouter } from "next/router";
+import axios from "axios";
+import formatDescription from "../../utils/formatDescription";
 
 const Books = ({ books }) => {
   const data = [
@@ -47,9 +47,9 @@ const Books = ({ books }) => {
     },
   ];
 
-  let numerotation = 1;
-
   const router = useRouter();
+
+  let numerotation = 1;
 
   const pathname = router.pathname;
 
@@ -79,38 +79,44 @@ const Books = ({ books }) => {
             <SectionPage
               titleSection="dernieres parutions"
               classname={`${styles.books__content__newsBooksCollection__box}`}
-            ></SectionPage>
+            >
+              {books.map((book) => {
+                const { cover, title, description, Slug } = book.attributes;
+                const { url } = cover.data.attributes.formats.small;
+
+                return (
+                  <CardBook
+                    key={book.id}
+                    picture={url}
+                    alt={title}
+                    title={title}
+                    description={formatDescription(description)}
+                    slug={Slug}
+                  />
+                );
+              })}
+            </SectionPage>
           </div>
           <div className={styles.books__content__collectionCielOuvert}>
             <SectionPage
               titleSection="collection ciel ouvert"
               classname={`${styles.books__content__collectionCielOuvert__box}`}
             >
-              <CardBook />
-              <CardBook />
-              <CardBook />
-              <CardBook />
-              <CardBook />
+              {books.map((book) => {
+                const { cover, title, description, Slug } = book.attributes;
+                const { url } = cover.data.attributes.formats.small;
 
-              {/* {books.data.map((book) => {
                 return (
-                  <>
-                    <img
-                      src={book.attributes.picture}
-                      alt={book.attributes.title}
-                    />
-                    <CardBook_1
-                      src={book.attributes.picture}
-                      alt={book.attributes.title}
-                      title={book.attributes.title}
-                      format={book.attributes.format}
-                      author="jean clément diambilay"
-                      price={book.attributes.price}
-                      urlBtn={`/books/${book.attributes.Slug}`}
-                    />
-                  </>
+                  <CardBook
+                    key={book.id}
+                    picture={url}
+                    alt={title}
+                    title={title}
+                    description={formatDescription(description)}
+                    slug={Slug}
+                  />
                 );
-              })} */}
+              })}
             </SectionPage>
           </div>
 
@@ -174,17 +180,30 @@ const Books = ({ books }) => {
   );
 };
 
-// export async function getStaticProps() {
-//   const res = await fetch(
-//     "https://jcdiambilayministries.herokuapp.com/api/books"
-//   );
-//   const books = await res.json();
+export const getStaticProps = async () => {
+  // try {
+  //   const res = await axios.get('https://jcdiambilayministries-backend.herokuapp.com/api/books');
+  //   const books = res.data;
+  //   return { books };
+  // } catch (errorCategories) {
+  //   return { errorCategories };
+  // }
+  try {
+    const res = await axios.get(
+      `https://jcdiambilayministries-backend.herokuapp.com/api/books?populate=*`
+    );
 
-//   return {
-//     props: {
-//       books,
-//     },
-//   };
-// }
+    const datas = res.data;
+
+    const books = datas.data;
+
+    return {
+      props: { books },
+      revalidate: 1,
+    };
+  } catch (err) {
+    return { err };
+  }
+};
 
 export default Books;

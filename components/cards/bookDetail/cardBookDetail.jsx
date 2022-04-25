@@ -1,5 +1,7 @@
 import Image from "next/image";
+import { useRouter } from "next/router";
 import React from "react";
+import formatDate from "../../../utils/formatDate";
 import Button from "../../button/button";
 import {
   Facebook,
@@ -9,19 +11,34 @@ import {
 } from "../../icons/icon";
 import styles from "./cardBookDetail.module.scss";
 
-const CardBookDetail = () => {
-  const responsive = {
-    0: { items: 1 },
-    568: { items: 2 },
-    1024: { items: 3 },
+const CardBookDetail = ({
+  src,
+  title,
+  author = "Jean-clément diambilay",
+  price,
+  linkAmazone,
+  description,
+  editor,
+  dateCreate,
+  format,
+  nbrePages,
+  poid,
+  language,
+  isbn,
+  ean,
+}) => {
+  const router = useRouter();
+
+  const getAmazoneUrl = () => {
+    router.push(linkAmazone);
   };
+
   return (
     <div className={styles.cardBookDetail}>
       <div className={styles.cardBookDetail__pictureBox}>
         <Image
-          src="/assets/images/livres/cover/acceleration_divine.jpg"
-          width="100"
-          height="100"
+          src={src}
+          alt={`cover du livre ${title}`}
           loading="lazy"
           layout="fill"
           objectFit="contain"
@@ -29,42 +46,36 @@ const CardBookDetail = () => {
         />
       </div>
       <div className={styles.cardBookDetail__content}>
-        <h3 className={styles.cardBookDetail__content__title}>
-          accélération divine
-        </h3>
+        <h3 className={styles.cardBookDetail__content__title}>{title}</h3>
         <h4 className={styles.cardBookDetail__content__subtitle}>
           <span
             className={styles.cardBookDetail__content__subtitle__label}
           ></span>
           <span className={styles.cardBookDetail__content__subtitle__author}>
             {" "}
-            De jean clément diambilay
+            {author}
           </span>
         </h4>
         <div className={styles.cardBookDetail__content__priceBox}>
           <span className={styles.cardBookDetail__content__priceBox__price}>
-            {" "}
-            20.00 ${" "}
+            {price} $
           </span>
           <span className={styles.cardBookDetail__content__priceBox__btnBox}>
             <Button
-              hrefUrl={`/blog/`}
+              // hrefUrl={`${linkAmazone}`}
               textBtn="commander"
               className={
                 styles.cardBookDetail__content__priceBox__btnBox__button
               }
               icon={<IconLinkExternal />}
               positionIcon="right"
+              onClick={() => getAmazoneUrl()}
             />
           </span>
         </div>
 
         <div className={styles.cardBookDetail__content__description}>
-          Quatrième de couverture Ferdinand Brun, vieux monsieur bougon qui
-          passe son temps à embêter ses voisins, perd sa chienne, Daisy. Il est
-          dé- vasté. Juliette, une fillette, et sa grand-mère Béatrice,
-          passionnée d'informatique à 93 ans, le forcent à se remettre d'aplomb
-          et à changer.
+          {description}
         </div>
         <div className={styles.cardBookDetail__content__main}>
           <table className={styles.cardBookDetail__table}>
@@ -74,7 +85,7 @@ const CardBookDetail = () => {
                   Editeurs
                 </td>
                 <td className={styles.cardBookDetail__table__group__row__data}>
-                  ECKI publications
+                  {editor}
                 </td>
               </tr>
               <tr className={styles.cardBookDetail__table__group__row}>
@@ -82,7 +93,7 @@ const CardBookDetail = () => {
                   date de parution
                 </td>
                 <td className={styles.cardBookDetail__table__group__row__data}>
-                  Décembre 2022
+                  {formatDate(dateCreate, "YYYY")}
                 </td>
               </tr>
               <tr className={styles.cardBookDetail__table__group__row}>
@@ -90,7 +101,7 @@ const CardBookDetail = () => {
                   format
                 </td>
                 <td className={styles.cardBookDetail__table__group__row__data}>
-                  14cm x 21cm
+                  {format}
                 </td>
               </tr>
               <tr className={styles.cardBookDetail__table__group__row}>
@@ -98,7 +109,7 @@ const CardBookDetail = () => {
                   Nombre pages
                 </td>
                 <td className={styles.cardBookDetail__table__group__row__data}>
-                  128 pages
+                  {nbrePages}
                 </td>
               </tr>
             </div>
@@ -108,7 +119,7 @@ const CardBookDetail = () => {
                   Poids
                 </td>
                 <td className={styles.cardBookDetail__table__group__row__data}>
-                  128 pages
+                  {poid} g
                 </td>
               </tr>
               <tr className={styles.cardBookDetail__table__group__row}>
@@ -116,7 +127,7 @@ const CardBookDetail = () => {
                   langues
                 </td>
                 <td className={styles.cardBookDetail__table__group__row__data}>
-                  Français
+                  {language}
                 </td>
               </tr>
               <tr className={styles.cardBookDetail__table__group__row}>
@@ -124,7 +135,7 @@ const CardBookDetail = () => {
                   ISBN
                 </td>
                 <td className={styles.cardBookDetail__table__group__row__data}>
-                  978-2-7499-4559-0
+                  {isbn}
                 </td>
               </tr>
               <tr className={styles.cardBookDetail__table__group__row}>
@@ -132,7 +143,7 @@ const CardBookDetail = () => {
                   EAN
                 </td>
                 <td className={styles.cardBookDetail__table__group__row__data}>
-                  9782749945590
+                  {ean}
                 </td>
               </tr>
             </div>

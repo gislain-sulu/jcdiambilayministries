@@ -30,7 +30,7 @@ const FOOTER_LINKS_DATA = [
       },
       {
         id: 5,
-        label: "communauté évangelique Nouvelle Cité de David",
+        label: "Communauté Evangelique Nouvelle Cité de David",
         url: "/communaute-evangelique-nouvelle-cite-de-david",
         isActive: true,
       },
@@ -92,8 +92,8 @@ const FOOTER_LINKS_DATA = [
       },
       {
         id: 3,
-        label: "magasines",
-        url: "/magasines",
+        label: "magazines",
+        url: "/magazines",
         isActive: true,
       },
       {
@@ -122,7 +122,7 @@ const FOOTER_LINKS_DATA = [
       },
       {
         id: 3,
-        label: "invitez l'apotre JC Diambilay",
+        label: "invitez l'Apôtre JC Diambilay",
         url: "/contact",
         isActive: true,
       },

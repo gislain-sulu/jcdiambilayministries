@@ -13,6 +13,23 @@
     align-items: center;
   }
 
+  &__link {
+    display: flex;
+    justify-content: center !important;
+    align-items: center !important;
+
+    &__text {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    &__icon {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+
   &:focus,
   &:visited {
     outline: none;
