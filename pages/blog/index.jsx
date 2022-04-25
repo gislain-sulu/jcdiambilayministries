@@ -12,8 +12,7 @@ import OriginUrl from "../../components/originUrl/originUrl";
 import { useRouter } from "next/router";
 import ReactMarkdown from "react-markdown";
 
-const Blog = ({ messages }) => {
-  console.log(messages);
+const Blog = () => {
   const router = useRouter();
 
   const pathname = router.pathname;
@@ -49,7 +48,7 @@ const Blog = ({ messages }) => {
           </div>
           <div className={styles.blog__content__list}>
             <Bloglist>
-              {messages.map((blog) => (
+              {/* {messages.map((blog) => (
                 <li key={blog.attributes.id}>
                   <CardBlog
                     id={blog.id}
@@ -59,25 +58,13 @@ const Blog = ({ messages }) => {
                     slug={blog.attributes.Slug}
                   />
                 </li>
-              ))}
+              ))} */}
             </Bloglist>
           </div>
         </div>
       </section>
     </div>
   );
-};
-
-export const getStaticProps = async () => {
-  const res = await fetch(`http://localhost:1337/api/messages`);
-
-  const resData = await res.json();
-  const messages = resData.data;
-
-  return {
-    props: { messages },
-    revalidate: 1,
-  };
 };
 
 export default Blog;

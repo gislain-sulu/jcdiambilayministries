@@ -20,10 +20,8 @@ import ReactMarkdown from "react-markdown";
 import Moment from "react-moment";
 import Share from "../../share";
 
-const BlogItem = ({ messageDataFiltered }) => {
-  const message = messageDataFiltered[0];
-
-  const listLinks = ["Home", "blog  ", `${message.attributes.Slug}`];
+const BlogItem = () => {
+  const listLinks = ["Home", "blog  "];
 
   const router = useRouter();
 
@@ -39,12 +37,12 @@ const BlogItem = ({ messageDataFiltered }) => {
         <article className={styles.blog__article}>
           <header className={styles.blog__article__header}>
             <h1 className={styles.blog__article__title} id="titleArticle">
-              {message.attributes.title}
+              {/* {message.attributes.title} */}
             </h1>
 
             <div className={styles.blog__article__infosBox}>
               <span className={styles.blog__article__infosBox__icon}>
-                <IconUser />
+                {/* <IconUser /> */}
               </span>
               <span className={styles.blog__article__infosBox__author}>
                 jean clément diambilay
@@ -53,18 +51,18 @@ const BlogItem = ({ messageDataFiltered }) => {
                 |
               </span>
               <span className={styles.blog__article__infosBox__icon}>
-                <IconDate />
+                {/* <IconDate /> */}
               </span>
               <span className={styles.blog__article__infosBox__date}>
                 Publié le:
-                <Moment format="  DD / MM / YYYY  à  HH:mm">
+                {/* <Moment format="  DD / MM / YYYY  à  HH:mm">
                   {message.attributes.createdAt}
-                </Moment>
+                </Moment> */}
               </span>
             </div>
           </header>
           <main className={styles.blog__article__main}>
-            <ReactMarkdown>{message.attributes.content}</ReactMarkdown>
+            {/* <ReactMarkdown>{message.attributes.content}</ReactMarkdown> */}
 
             <div className={styles.blog__article__socialsMedias}>
               <span className={styles.blog__article__socialsMedias__label}>
@@ -73,8 +71,8 @@ const BlogItem = ({ messageDataFiltered }) => {
               <span className={styles.blog__article__socialsMedias__content}>
                 <Share
                   url="https://www.sharethis.com"
-                  title={message.attributes.title}
-                  description={message.attributes.description}
+                  // title={message.attributes.title}
+                  // description={message.attributes.description}
                 />
               </span>
             </div>
@@ -108,34 +106,34 @@ const BlogItem = ({ messageDataFiltered }) => {
   );
 };
 
-export const getStaticProps = async ({ params }) => {
-  const { message } = params;
-  const res = await fetch(`http://localhost:1337/api/messages?slug=${message}`);
-  const messageData = await res.json();
+// export const getStaticProps = async ({ params }) => {
+//   const { message } = params;
+//   const res = await fetch(`http://localhost:1337/api/messages?slug=${message}`);
+//   const messageData = await res.json();
 
-  const messageDataFiltered = messageData.data.filter(
-    (data) => data.attributes.Slug === `${message}`
-  );
-  return {
-    props: { messageDataFiltered },
-    revalidate: 10,
-  };
-};
+//   const messageDataFiltered = messageData.data.filter(
+//     (data) => data.attributes.Slug === `${message}`
+//   );
+//   return {
+//     props: { messageDataFiltered },
+//     revalidate: 10,
+//   };
+// };
 
-export async function getStaticPaths() {
-  const res = await fetch(`http://localhost:1337/api/messages`);
-  const messagesData = await res.json();
+// export async function getStaticPaths() {
+//   const res = await fetch(`http://localhost:1337/api/messages`);
+//   const messagesData = await res.json();
 
-  const messages = messagesData.data;
+//   const messages = messagesData.data;
 
-  const paths = messages?.map(({ attributes }) => ({
-    params: { message: `${attributes.slug}` },
-  }));
+//   const paths = messages?.map(({ attributes }) => ({
+//     params: { message: `${attributes.slug}` },
+//   }));
 
-  return {
-    paths,
-    fallback: "blocking",
-  };
-}
+//   return {
+//     paths,
+//     fallback: "blocking",
+//   };
+// }
 
 export default BlogItem;
