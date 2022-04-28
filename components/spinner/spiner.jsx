@@ -3,7 +3,10 @@ import styles from "./spiner.module.scss";
 
 const Spiner = () => {
   return (
-    <div className={styles.spiner}>
+    <div className={styles.ellipsis}>
+      <div></div>
+      <div></div>
+      <div></div>
       <div></div>
     </div>
   );

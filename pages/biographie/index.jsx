@@ -50,7 +50,7 @@ const Biographie = () => {
             </span>
           </h3>
           <main className={styles.biographie__content__main}>
-            <p>
+            <p className={styles.biographie__content__main__p}>
               Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad
               minima modi, temporibus saepe natus ipsum ipsam commodi, labore
               veritatis ratione necessitatibus, impedit possimus. Porro ullam

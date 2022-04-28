@@ -1,0 +1,17 @@
+@import "../../styles/sass/mixins/_responsive";
+
+.list {
+  padding: 3rem 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  grid-column-gap: 3rem;
+  grid-row-gap: 3rem;
+
+  justify-items: center;
+
+  @include responsive(sm) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+}

@@ -25,7 +25,7 @@ const Confession = () => {
         <div className={`${styles.confession__content__wrapper} wrapper`}>
           <div className={styles.confession__content__pictureBox}>
             <Image
-              src="/assets/images/confession_de_foi.png"
+              src="https://res.cloudinary.com/personnal/image/upload/w_1000,ar_16:9,c_fill,g_auto,e_sharpen/v1650929133/confession_de_foi_jlirhv.png"
               width="667px"
               height="300px"
               className={styles.confession__content__pictureBox__picture}

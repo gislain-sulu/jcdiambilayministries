@@ -16,6 +16,7 @@
       //   padding: 9rem 0;
       text-align: center;
       line-height: 1.5;
+      font-size: 2rem;
       &__strong {
         font-weight: bold;
       }
@@ -57,7 +58,7 @@
     background: $color-secondary;
 
     background: linear-gradient(rgba(97, 56, 24, 0.9), rgba(97, 56, 24, 0.9)),
-      url("../../public/assets/images/backgrounds/background_about.jpg");
+      url("https://res.cloudinary.com/personnal/image/upload/w_1000,ar_16:9,c_fill,g_auto,e_sharpen/v1650937136/background_about_ho1hml.jpg");
     background-size: cover;
 
     padding-bottom: 8rem;
@@ -103,11 +104,11 @@
         &__item {
           text-transform: uppercase;
           font-weight: 600;
-          font-size: 1.5rem;
+          font-size: 2rem;
           position: relative;
           top: 0;
           @include responsive(md) {
-            font-size: 1.2rem;
+            font-size: 1.5rem;
           }
 
           &:after {

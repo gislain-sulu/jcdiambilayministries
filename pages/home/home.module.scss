@@ -25,7 +25,7 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        background: url("../../public/assets/images/mobile/jcdiambilay_mobile.jpg")
+        background: url("https://res.cloudinary.com/personnal/image/upload/v1650930360/jcdiambilay_mobile_qxvh70.jpg")
           no-repeat;
         background-size: cover;
 
@@ -158,10 +158,10 @@
 
       background: linear-gradient(
           to right,
-          rgba(235, 89, 48, 0.7),
-          rgba(97, 56, 24, 0.1)
+          rgba(235, 89, 48, 0),
+          rgba(97, 56, 24, 0)
         ),
-        url("../../public/assets/images/backgrounds/jcdiambilay_bgc_web.jpg")
+        url("https://res.cloudinary.com/personnal/image/upload/v1650929832/jcdiambilay_bgc_web_ldq5xw.jpg")
           no-repeat;
 
       background-size: cover;
@@ -310,8 +310,9 @@
 
       &__nameSite {
         background: $color-primary;
-        padding: 0 1rem;
+        padding: 2rem;
         color: $color-white;
+        font-size: 3rem;
 
         @include responsive(sm) {
           font-size: 2rem;

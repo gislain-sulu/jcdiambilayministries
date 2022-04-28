@@ -22,18 +22,12 @@
       & > * {
         flex: 0 0 calc(96% / 3);
       }
+    }
 
-      // &__mobile {
-      //   display: none;
-
-      //   @include responsive(sm) {
-      //     display: flex;
-      //     flex-direction: row !important;
-      //     & > * {
-      //       flex: 0 0 calc(100% / 3) !important;
-      //     }
-      //   }
-      // }
+    &__list {
+      display: flex;
+      flex-direction: column;
+      gap: 3rem;
     }
 
     &__citation,

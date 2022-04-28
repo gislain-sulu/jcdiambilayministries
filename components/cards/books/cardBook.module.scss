@@ -4,7 +4,7 @@
   display: grid;
   column-gap: 0.5rem;
   grid-template-rows: 210px 40px;
-  grid-template-columns: 140px 200px !important;
+  grid-template-columns: 140px 200px;
   overflow: hidden;
 
   &__boxBackground {

@@ -5,6 +5,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat&display=swap");
 @import "../styles/sass/base/variables.scss";
 @import "../styles/sass/mixins/_responsive";
+@import url("https://fonts.googleapis.com/css2?family=EB+Garamond&display=swap");
 html,
 body,
 div,
@@ -117,17 +118,17 @@ ol,
 ul {
   list-style: none;
 }
-blockquote,
-q {
-  quotes: none;
-}
-blockquote:before,
-blockquote:after,
-q:before,
-q:after {
-  content: "";
-  content: none;
-}
+// blockquote,
+// q {
+//   quotes: none;
+// }
+// blockquote:before,
+// blockquote:after,
+// q:before,
+// q:after {
+//   content: "";
+//   content: none;
+// }
 table {
   border-collapse: collapse;
   border-spacing: 0;
@@ -136,13 +137,13 @@ html {
   font-size: 62.5%;
 }
 body {
-  font-size: 1.6rem;
+  font-size: 2rem;
 }
 a {
   text-decoration: none;
   font-family: "Montserrat", sans-serif;
   font-size: 1.5rem;
-  color: #ffffff !important;
+
   transition: all 0.2s ease-out;
   &:hover {
     color: $color-primary !important;
@@ -267,4 +268,12 @@ img {
 
 .alice-carousel__stage-item.__active.__target {
   padding-left: 0px !important;
+}
+
+.infinite-scroll-component {
+  h4 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 }

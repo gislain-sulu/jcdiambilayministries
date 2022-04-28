@@ -3,7 +3,7 @@
 
 .footer {
   background: linear-gradient(rgba(97, 56, 24, 0.9), rgba(97, 56, 24, 0.9)),
-    url("../../../public/assets/images/backgrounds/bg_footer.jpg");
+    url("https://res.cloudinary.com/personnal/image/upload/w_1000,ar_16:9,c_fill,g_auto,e_sharpen/v1650927714/bg_footer_om9iqq.jpg");
   background-size: cover;
   padding: 5rem 0 0;
   display: flex;
@@ -71,7 +71,7 @@
         color: $color-white;
         margin-bottom: 1rem;
         display: inline-block;
-        font-size: 1.5rem;
+        font-size: 2rem;
       }
       &__form {
         form {

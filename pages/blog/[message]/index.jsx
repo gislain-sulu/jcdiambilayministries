@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import styles from "./blog.module.scss";
 import Image from "next/image";
 import {
@@ -19,11 +19,24 @@ import HeaderPage from "../../../components/headerPage/headerPage";
 import ReactMarkdown from "react-markdown";
 import Moment from "react-moment";
 import Share from "../../share";
+import axios from "axios";
+import formatDate from "../../../utils/formatDate";
 
-const BlogItem = () => {
-  const listLinks = ["Home", "blog  "];
+const BlogItem = ({ messagesDataFiltered }) => {
+  const [allMessagesDataFiltered, setAllMessagesDataFiltered] =
+    useState(messagesDataFiltered);
+  const listLinks = [
+    "Home",
+    "blog",
+    `${messagesDataFiltered[0].attributes.Slug}`,
+  ];
+  console.log("filteres", messagesDataFiltered);
 
   const router = useRouter();
+
+  if (allMessagesDataFiltered.length === 0) {
+    return <p>chargement en cours...</p>;
+  }
 
   return (
     <div className={styles.blog}>
@@ -37,32 +50,35 @@ const BlogItem = () => {
         <article className={styles.blog__article}>
           <header className={styles.blog__article__header}>
             <h1 className={styles.blog__article__title} id="titleArticle">
-              {/* {message.attributes.title} */}
+              {messagesDataFiltered[0].attributes.title}
             </h1>
 
             <div className={styles.blog__article__infosBox}>
               <span className={styles.blog__article__infosBox__icon}>
-                {/* <IconUser /> */}
+                <IconUser />
               </span>
               <span className={styles.blog__article__infosBox__author}>
-                jean clément diambilay
+                Jean-Clément Diambilay
               </span>
               <span className={styles.blog__article__infosBox__separator}>
                 |
               </span>
               <span className={styles.blog__article__infosBox__icon}>
-                {/* <IconDate /> */}
+                <IconDate />
               </span>
               <span className={styles.blog__article__infosBox__date}>
                 Publié le:
-                {/* <Moment format="  DD / MM / YYYY  à  HH:mm">
-                  {message.attributes.createdAt}
-                </Moment> */}
+                {formatDate(
+                  messagesDataFiltered[0].attributes.createAt,
+                  "DD/MM/YYYY à HH:MM"
+                )}
               </span>
             </div>
           </header>
           <main className={styles.blog__article__main}>
-            {/* <ReactMarkdown>{message.attributes.content}</ReactMarkdown> */}
+            <ReactMarkdown>
+              {messagesDataFiltered[0].attributes.content}
+            </ReactMarkdown>
 
             <div className={styles.blog__article__socialsMedias}>
               <span className={styles.blog__article__socialsMedias__label}>
@@ -135,5 +151,52 @@ const BlogItem = () => {
 //     fallback: "blocking",
 //   };
 // }
+
+export const getStaticProps = async ({ params }) => {
+  try {
+    const { message } = params;
+
+    const res = await axios.get(
+      `https://jcdiambilayministries-backend.herokuapp.com/api/messages?populate=*`
+    );
+
+    const datas = res.data;
+
+    const messages = datas.data;
+
+    const messagesDataFiltered = messages.filter(
+      (data) => data.attributes.Slug === `${message}`
+    );
+    return {
+      props: { messages, messagesDataFiltered },
+      revalidate: 10,
+    };
+  } catch (err) {
+    return { err };
+  }
+};
+
+export async function getStaticPaths() {
+  try {
+    const res = await axios.get(
+      `https://jcdiambilayministries-backend.herokuapp.com/api/messages?populate=*`
+    );
+
+    const datas = res.data;
+
+    const messages = datas.data;
+
+    const paths = messages?.map(({ attributes }) => ({
+      params: { message: `${attributes.Slug}` },
+    }));
+
+    return {
+      paths,
+      fallback: "blocking",
+    };
+  } catch (err) {
+    return { err };
+  }
+}
 
 export default BlogItem;

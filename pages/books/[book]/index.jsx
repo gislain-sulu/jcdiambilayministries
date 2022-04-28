@@ -86,7 +86,7 @@ const BookDetail = ({ books, booksDataFiltered }) => {
                 picture={url}
                 alt={title}
                 title={title}
-                description={formatDescription(description)}
+                description={formatDescription(description, 80)}
                 slug={Slug}
               />
             );
@@ -105,7 +105,7 @@ const BookDetail = ({ books, booksDataFiltered }) => {
                 picture={url}
                 alt={title}
                 title={title}
-                description={formatDescription(description)}
+                description={formatDescription(description, 80)}
                 slug={Slug}
               />
             );

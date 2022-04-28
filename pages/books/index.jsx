@@ -75,50 +75,53 @@ const Books = ({ books }) => {
               Consultez nos sélections Thématiques
             </p>
           </div>
-          <div className={styles.books__content__newsBooksCollection}>
-            <SectionPage
-              titleSection="dernieres parutions"
-              classname={`${styles.books__content__newsBooksCollection__box}`}
-            >
-              {books.map((book) => {
-                const { cover, title, description, Slug } = book.attributes;
-                const { url } = cover.data.attributes.formats.small;
 
-                return (
-                  <CardBook
-                    key={book.id}
-                    picture={url}
-                    alt={title}
-                    title={title}
-                    description={formatDescription(description)}
-                    slug={Slug}
-                  />
-                );
-              })}
-            </SectionPage>
-          </div>
-          <div className={styles.books__content__collectionCielOuvert}>
-            <SectionPage
-              titleSection="collection ciel ouvert"
-              classname={`${styles.books__content__collectionCielOuvert__box}`}
-            >
-              {books.map((book) => {
-                const { cover, title, description, Slug } = book.attributes;
-                const { url } = cover.data.attributes.formats.small;
+          <ul>
+            <li className={styles.books__content__newsBooksCollection}>
+              <SectionPage
+                titleSection="dernieres parutions"
+                classname={`${styles.books__content__newsBooksCollection__box}`}
+              >
+                {books.map((book) => {
+                  const { cover, title, description, Slug } = book.attributes;
+                  const { url } = cover.data.attributes.formats.small;
 
-                return (
-                  <CardBook
-                    key={book.id}
-                    picture={url}
-                    alt={title}
-                    title={title}
-                    description={formatDescription(description)}
-                    slug={Slug}
-                  />
-                );
-              })}
-            </SectionPage>
-          </div>
+                  return (
+                    <CardBook
+                      key={book.id}
+                      picture={url}
+                      alt={title}
+                      title={title}
+                      description={formatDescription(description, 80)}
+                      slug={Slug}
+                    />
+                  );
+                })}
+              </SectionPage>
+            </li>
+            <li className={styles.books__content__collectionCielOuvert}>
+              <SectionPage
+                titleSection="collection ciel ouvert"
+                classname={`${styles.books__content__collectionCielOuvert__box}`}
+              >
+                {books.map((book) => {
+                  const { cover, title, description, Slug } = book.attributes;
+                  const { url } = cover.data.attributes.formats.small;
+
+                  return (
+                    <CardBook
+                      key={book.id}
+                      picture={url}
+                      alt={title}
+                      title={title}
+                      description={formatDescription(description, 80)}
+                      slug={Slug}
+                    />
+                  );
+                })}
+              </SectionPage>
+            </li>
+          </ul>
 
           <div className={styles.books__content__pointsVentes}>
             <h3 className={styles.books__content__pointsVentes__title}>
@@ -181,13 +184,6 @@ const Books = ({ books }) => {
 };
 
 export const getStaticProps = async () => {
-  // try {
-  //   const res = await axios.get('https://jcdiambilayministries-backend.herokuapp.com/api/books');
-  //   const books = res.data;
-  //   return { books };
-  // } catch (errorCategories) {
-  //   return { errorCategories };
-  // }
   try {
     const res = await axios.get(
       `https://jcdiambilayministries-backend.herokuapp.com/api/books?populate=*`

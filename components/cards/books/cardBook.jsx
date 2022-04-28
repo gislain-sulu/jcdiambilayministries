@@ -27,7 +27,6 @@ const CardBook = ({
       <div className={styles.cardBook__content}>
         <h4 className={styles.cardBook__content__title}>
           {title.length > 50 ? `${title.slice(0, 50)}...` : `${title}`}
-
           <span>
             <IconBook />
           </span>

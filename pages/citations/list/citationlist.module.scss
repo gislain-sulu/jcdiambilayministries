@@ -7,15 +7,10 @@
   gap: 3rem;
   padding-bottom: 3rem;
   background: #fdf6e3;
-
   h1 {
     text-transform: lowercase;
-
-    @include responsive(sm) {
-      font-weight: 100 !important;
-    }
+    font-weight: 100 !important;
   }
-
   @include responsive(sm) {
     gap: 2rem;
     padding-bottom: 2rem;
@@ -67,14 +62,7 @@
       }
     }
     &__list {
-      display: flex;
       position: relative;
-
-      ul {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-around;
-      }
       &::after {
         content: " ";
         width: 100%;

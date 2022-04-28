@@ -14,24 +14,36 @@
 
   &__header {
     min-height: 250px;
-    background: $color-primary;
+    background: gray;
+    display: flex;
+    img {
+      object-fit: fill;
+    }
   }
 
   &__title {
     font-size: 2rem;
     font-weight: 700;
-    line-height: 1;
+    line-height: 1.3;
+    text-transform: uppercase;
+    font-family: "Montserrat", sans-serif;
+
+    a {
+      color: $color-primary;
+      &:hover {
+        color: $color-secondary !important;
+      }
+    }
   }
   &__subtitle {
     color: gray;
-    font-size: 1.1rem;
+    font-size: 1.2rem;
   }
   &__content {
-    font-size: 1.3rem;
-    line-height: 1.4;
     text-align: left;
     word-break: keep-all;
     letter-spacing: normal;
+    font-family: "EB Garamond", "Montserrat", sans-serif;
   }
   &__footer {
     display: flex;

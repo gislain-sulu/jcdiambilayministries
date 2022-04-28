@@ -10,10 +10,7 @@ import Image from "next/image";
 import Button from "../../components/button/button";
 import { IconAmazone, IconLinkExternal } from "../../components/icons/icon";
 import book_acceleration_divine from "../../public/assets/images/sliders/slide__acceleration_divine_web.jpg";
-import book_acceleration_divine__mobile from "../../public/assets/images/mobile/slide_acceleratioon_divine_mobile_v.jpg";
 import book_benediction_independance_financiere from "../../public/assets/images/sliders/slide__benediction_independance_financiere_web.jpg";
-import book_benediction_independance_financiere__mobile from "../../public/assets/images/mobile/slide_benediction_independance_financiere_v1.jpg";
-import mobile_books_promotion from "../../public/assets/images/mobile/slider_mobile_3.jpg";
 import AppContext from "../../context/AppContext";
 
 const Accuiel = () => {
@@ -45,12 +42,12 @@ const Accuiel = () => {
     <div className={styles.home__mobile__slider}>
       <div className={styles.home__mobile__slider__pictureBox}>
         <Image
-          src={book_acceleration_divine__mobile}
-          alt="livre accélération divine"
+          src="https://res.cloudinary.com/personnal/image/upload/v1650930890/slide_acceleratioon_divine_mobile_v_bzjbxu.jpg"
+          alt="cover du livre accélération divine"
           loading="lazy"
           quality="full"
           className={styles.home__pictureBox__picture}
-          placeholder="blur"
+          layout="fill"
         />
       </div>
 
@@ -105,12 +102,12 @@ const Accuiel = () => {
     <div className={styles.home__mobile__slider}>
       <div className={styles.home__mobile__slider__pictureBox}>
         <Image
-          src={book_benediction_independance_financiere__mobile}
-          alt="livre bénédiction de l'indépendance financière"
+          src="https://res.cloudinary.com/personnal/image/upload/v1650931143/slide_benediction_independance_financiere_v1_rjp4ny.jpg"
+          alt="cover du livre bénédiction de l'indépendance financière"
           loading="lazy"
           quality="full"
           className={styles.home__pictureBox__picture}
-          placeholder="blur"
+          layout="fill"
         />
       </div>
 
@@ -241,11 +238,11 @@ const Accuiel = () => {
       </div>
       <div className={styles.home__headerBox__slider__image}>
         <Image
-          src={book_acceleration_divine}
+          src="https://res.cloudinary.com/personnal/image/upload/v1650932594/slide__acceleration_divine_web_emm92z.jpg"
           quality="full"
           loading="lazy"
           className={styles.home__headerBox__slider__image__picture}
-          placeholder="blur"
+          layout="fill"
         />
       </div>
     </div>,
@@ -306,11 +303,11 @@ const Accuiel = () => {
 
       <div className={styles.home__headerBox__slider__image}>
         <Image
-          src={book_benediction_independance_financiere}
+          src="https://res.cloudinary.com/personnal/image/upload/v1650932793/slide__benediction_independance_financiere_web_i6qqvc.jpg"
           quality="full"
           loading="lazy"
           className={styles.home__headerBox__slider__image__picture}
-          placeholder="blur"
+          layout="fill"
         />
       </div>
     </div>,
@@ -323,11 +320,11 @@ const Accuiel = () => {
           autoPlay
           autoPlayControls
           autoPlayStrategy="none"
-          autoPlayInterval={1000}
+          autoPlayInterval={2000}
           animationDuration={1000}
-          animationType="fadeout"
+          animationType="fadein"
           infinite
-          touchTracking={false}
+          touchTracking={true}
           disableDotsControls
           disableButtonsControls
           items={itemsMobile}
@@ -339,23 +336,31 @@ const Accuiel = () => {
           autoPlay
           autoPlayControls
           autoPlayStrategy="none"
-          autoPlayInterval={1000}
+          autoPlayInterval={2000}
           animationDuration={1000}
-          animationType="fadeout"
+          animationType="fadein"
           infinite
-          touchTracking={false}
+          touchTracking={true}
           disableDotsControls
           disableButtonsControls
           items={itemsDesktop}
           controlsStrategy="alternate"
         />
       </section>
-      <section className={styles.home__content}>
-        <Blog />
-        <SectionCitation />
-        <Bapteme />
-        <Contact />
-      </section>
+      <ul className={styles.home__content}>
+        <li className={styles.home__content__blog}>
+          <Blog />
+        </li>
+        <li className={styles.home__content__citation}>
+          <SectionCitation />
+        </li>
+        <li className={styles.home__content__bapteme}>
+          <Bapteme />
+        </li>
+        <li className={styles.home__content__contact}>
+          <Contact />
+        </li>
+      </ul>
     </div>
   );
 };

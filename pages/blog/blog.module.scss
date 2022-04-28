@@ -66,8 +66,11 @@
     &__list {
       display: flex;
       position: relative;
+      justify-content: center;
+      align-items: center;
 
       ul {
+        width: 100%;
         display: flex;
         flex-wrap: wrap;
         justify-content: space-around;

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import AliceCarousel from "react-alice-carousel";
 import "react-alice-carousel/lib/alice-carousel.css";
 import styles from "./citation.module.scss";
@@ -18,8 +18,16 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import HeaderPage from "../../components/headerPage/headerPage";
 import OriginUrl from "../../components/originUrl/originUrl";
+import List from "../../components/list/list";
+import CardCitationList from "../../components/cards/citations/cardCitationlist";
+import axios from "axios";
+import InfiniteScroll from "react-infinite-scroll-component";
 
-const Citation = () => {
+const Citation = (citations) => {
+  console.log("citations", citations);
+
+  const [allCitations, setAllCitations] = useState(citations);
+
   const responsive = {
     0: { items: 1 },
     568: { items: 2 },
@@ -78,40 +86,79 @@ const Citation = () => {
               </li>
             ))}
           </ul>
-          <SectionPage
-            titleSection="citation"
-            classname={`${styles.citation__content__citation}`}
-            urlBtn="/citationlist2"
-            uniqId="citations"
-          >
-            {CITATION_DATA.map((data) => (
-              <CardCube pictureUrl={data.picture} imageAlt={data.name} />
-            ))}
-          </SectionPage>
-          <SectionPage
-            titleSection="citation livres"
-            classname={`${styles.citation__content__citationLivres}`}
-            urlBtn="/citationlist2"
-            uniqId="citation_livres"
-          >
-            {CITATION_LIVRES_DATA.map((data) => (
-              <CardCube pictureUrl={data.picture} imageAlt={data.name} />
-            ))}
-          </SectionPage>
-          <SectionPage
-            titleSection="Déclaration prophétiques"
-            classname={`${styles.citation__content__declarations}`}
-            urlBtn="/citationlist2"
-            uniqId="declarations_prophetique"
-          >
-            {DECLARATIONS.map((data) => (
-              <CardCube pictureUrl={data.picture} imageAlt={data.name} />
-            ))}
-          </SectionPage>
+
+          <ul className={styles.citation__content__list}>
+            <li>
+              <SectionPage
+                titleSection="citation"
+                classname={`${styles.citation__content__box}`}
+                urlBtn="/citationlist2"
+                uniqId="citations"
+              >
+                <AliceCarousel
+                  mouseTracking
+                  items={CITATION_DATA.map((citation) => (
+                    <Link href="/">
+                      <a>
+                        <CardCitationList
+                          pictureUrl={citation.picture}
+                          pictureAlt={citation.name}
+                          text={citation.citation}
+                        />
+                      </a>
+                    </Link>
+                  ))}
+                  responsive={responsive}
+                  controlsStrategy="alternate"
+                />
+              </SectionPage>
+            </li>
+            <li>
+              <SectionPage
+                titleSection="citation livres"
+                classname={`${styles.citation__content__citationLivres}`}
+                urlBtn="/citationlist2"
+                uniqId="citation_livres"
+              >
+                {CITATION_LIVRES_DATA.map((data) => (
+                  <CardCube pictureUrl={data.picture} imageAlt={data.name} />
+                ))}
+              </SectionPage>
+            </li>
+            <li>
+              <SectionPage
+                titleSection="Déclaration prophétiques"
+                classname={`${styles.citation__content__declarations}`}
+                urlBtn="/citationlist2"
+                uniqId="declarations_prophetique"
+              >
+                {DECLARATIONS.map((data) => (
+                  <CardCube pictureUrl={data.picture} imageAlt={data.name} />
+                ))}
+              </SectionPage>
+            </li>
+          </ul>
         </div>
       </div>
     </div>
   );
+};
+
+export const getStaticProps = async () => {
+  try {
+    const res = await axios.get(`${process.env.API_URL}/citations?populate=*`);
+
+    const datas = res.data;
+
+    const citations = datas.data;
+
+    return {
+      props: { citations },
+      revalidate: 1,
+    };
+  } catch (err) {
+    return { err };
+  }
 };
 
 export default Citation;

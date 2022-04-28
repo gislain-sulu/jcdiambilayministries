@@ -5,6 +5,8 @@
 
   position: relative;
   overflow: hidden;
+  min-width: 300px;
+  justify-content: center;
 
   &__pictureBox {
     grid-area: 1/1;

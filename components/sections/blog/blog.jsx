@@ -1,3 +1,4 @@
+import axios from "axios";
 import React from "react";
 import AliceCarousel from "react-alice-carousel";
 import "react-alice-carousel/lib/alice-carousel.css";
@@ -6,8 +7,10 @@ import CardBlog from "../../cards/blog/cardBlog";
 import SectionPage from "../section";
 import styles from "./blog.module.scss";
 
-const Blog = () => {
-  const LAST_BLOG_DATA = MOCK_BLOG.slice(MOCK_BLOG.length - 3);
+const Blog = ({ messages }) => {
+  console.log(messages);
+
+  // const LAST_BLOG_DATA = messages.slice(MOCK_BLOG.length - 3);
 
   const responsive = {
     0: { items: 1 },
@@ -25,15 +28,15 @@ const Blog = () => {
         >
           <AliceCarousel
             mouseTracking
-            items={LAST_BLOG_DATA.map((cardBlogInfos) => (
-              <CardBlog
-                title={cardBlogInfos.title}
-                othor={cardBlogInfos.othor}
-                date={cardBlogInfos.date}
-                description={cardBlogInfos.description}
-                urlBtn="/blog"
-              />
-            ))}
+            // items={LAST_BLOG_DATA.map((cardBlogInfos) => (
+            //   <CardBlog
+            //     title={cardBlogInfos.title}
+            //     othor={cardBlogInfos.othor}
+            //     date={cardBlogInfos.date}
+            //     description={cardBlogInfos.description}
+            //     urlBtn="/blog"
+            //   />
+            // ))}
             responsive={responsive}
             controlsStrategy="alternate"
           />
@@ -41,6 +44,25 @@ const Blog = () => {
       </div>
     </>
   );
+};
+
+export const getStaticProps = async () => {
+  try {
+    const res = await axios.get(
+      `https://jcdiambilayministries-backend.herokuapp.com/api/messages?populate=*`
+    );
+
+    const datas = res.data;
+
+    const messages = datas.data;
+
+    return {
+      props: { messages },
+      revalidate: 1,
+    };
+  } catch (err) {
+    return { err };
+  }
 };
 
 export default Blog;
