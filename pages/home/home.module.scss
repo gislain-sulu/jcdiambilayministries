@@ -256,6 +256,10 @@
           &__btnBox {
             &__btn {
               background: $color-primary;
+
+              &:hover {
+                background: darken($color-primary, 10%);
+              }
             }
             a {
               text-transform: uppercase;

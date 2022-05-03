@@ -16,6 +16,12 @@
     flex-direction: column;
     gap: 1;
 
+    &__list {
+      display: flex;
+      flex-direction: column;
+      gap: 3rem;
+    }
+
     &__wrapper {
       display: flex;
       flex-direction: column;
@@ -68,7 +74,7 @@
       overflow: hidden;
       ul {
         display: flex;
-        gap: 1rem;
+        gap: 2rem;
       }
     }
 

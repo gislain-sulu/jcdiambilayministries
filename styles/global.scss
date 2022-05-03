@@ -149,6 +149,9 @@ a {
     color: $color-primary !important;
   }
 }
+svg {
+  pointer-events: none !important;
+}
 button {
   background: #ffffff;
   border: none;

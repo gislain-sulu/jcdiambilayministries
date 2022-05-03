@@ -36,7 +36,8 @@ const CardBookDetail = ({
           src={src}
           alt={`cover du livre ${title}`}
           loading="lazy"
-          layout="fill"
+          width="640"
+          height="976"
           objectFit="cover"
           className={styles.cardBookDetail__pictureBox__picture}
         />

@@ -82,12 +82,12 @@ const Books = ({ books }) => {
             <p className={styles.books__content__intro__text}>
               <strong className={styles.books__content__intro__text__strong}>
                 Une envie de lecture?
-              </strong>{" "}
+              </strong>
               Consultez nos sélections Thématiques
             </p>
           </div>
 
-          <ul>
+          <ul className={styles.books__content__list}>
             <li className={styles.books__content__newsBooksCollection}>
               <SectionPage
                 titleSection="dernieres parutions"
