@@ -4,7 +4,7 @@
   display: grid;
   column-gap: 0.5rem;
   grid-template-rows: 210px 40px;
-  grid-template-columns: 140px 200px;
+  grid-template-columns: 100px 200px;
   overflow: hidden;
 
   &__boxBackground {
@@ -12,7 +12,7 @@
     grid-row-end: 2;
     grid-column-start: 1;
     grid-column-end: -1;
-    background: #fdf6e3;
+    // background: #fdf6e3;
   }
 
   &__pictureBox {
@@ -30,7 +30,7 @@
   }
 
   &__content {
-    padding: 1rem 1rem 0 0;
+    // padding: 1rem 1rem 0 0;
 
     grid-row-start: 1;
     grid-column-start: 2;
@@ -69,6 +69,7 @@
     &__btnBox {
       margin-left: auto;
       margin-top: auto;
+
       &__btn {
         flex: 1;
         background: $color-primary;
@@ -86,6 +87,10 @@
         }
         svg {
           font-size: 2rem;
+        }
+
+        &:hover {
+          background: $color-secondary;
         }
       }
     }

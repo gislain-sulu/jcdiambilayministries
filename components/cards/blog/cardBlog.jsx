@@ -18,7 +18,6 @@ const CardBlog = ({ id, picture, title, author, date, description, slug }) => {
           <a lassName={styles.CardBlog__title__link}> {title}</a>
         </Link>
       </h4>
-
       <small className={styles.CardBlog__subtitle}>
         <span>{author ? author : "Par l'Apôtre Jean-Clément Diambilay"}</span>{" "}
         <span>|</span> <span>{formatDate(date, "DD/MM/YYYY à HH : MM")}</span>

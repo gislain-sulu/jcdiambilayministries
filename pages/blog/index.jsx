@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import styles from "./blog.module.scss";
 
 import Button from "../../components/button/button";
@@ -12,9 +12,37 @@ import OriginUrl from "../../components/originUrl/originUrl";
 import { useRouter } from "next/router";
 import axios from "axios";
 import List from "../../components/list/list";
+import InfiniteScroll from "react-infinite-scroll-component";
+import Spiner from "../../components/spinner/spiner";
 
-const Blog = ({ messages }) => {
-  console.log(messages);
+const Blog = ({ data, total }) => {
+  const [messages, setmessages] = useState([]);
+  const [allMessagesLength, setAllMessagesLength] = useState(total);
+
+  const [hasMore, setHasMore] = useState(true);
+
+  const { API_URL } = process.env;
+
+  const getMoreCitations = async () => {
+    const res = await axios.get(
+      `${API_URL}/messages?pagination[start]=${messages.length}&pagination[limit]=5&populate=*`
+    );
+
+    const newMessages = res.data;
+
+    const { data } = newMessages;
+
+    setmessages((message) => [...message, ...data]);
+  };
+
+  useEffect(() => {
+    setHasMore(allMessagesLength > messages.length ? true : false);
+  }, [messages]);
+
+  useEffect(() => {
+    setmessages(data);
+  }, [messages]);
+
   const router = useRouter();
 
   const pathname = router.pathname;
@@ -49,25 +77,41 @@ const Blog = ({ messages }) => {
             </ul>
           </div>
           <div className={styles.blog__content__list}>
-            <List>
-              {messages.map((blog) => {
-                const { url } =
-                  blog.attributes.cover.data.attributes.formats.small;
+            <InfiniteScroll
+              dataLength={messages.length}
+              next={getMoreCitations}
+              hasMore={hasMore}
+              loader={
+                <h4>
+                  <Spiner />
+                </h4>
+              }
+              endMessage={
+                <p style={{ textAlign: "center" }}>
+                  <b>Yay! vous avez affiché tout les articles</b>
+                </p>
+              }
+            >
+              <List>
+                {messages.map((blog) => {
+                  const { url } =
+                    blog.attributes.cover.data.attributes.formats.small;
 
-                return (
-                  <li key={blog.attributes.id}>
-                    <CardBlog
-                      id={blog.id}
-                      title={blog.attributes.title}
-                      date={blog.attributes.updatedAt}
-                      description={blog.attributes.description}
-                      slug={blog.attributes.Slug}
-                      picture={url}
-                    />
-                  </li>
-                );
-              })}
-            </List>
+                  return (
+                    <li key={blog.attributes.id}>
+                      <CardBlog
+                        id={blog.id}
+                        title={blog.attributes.title}
+                        date={blog.attributes.updatedAt}
+                        description={blog.attributes.description}
+                        slug={blog.attributes.Slug}
+                        picture={url}
+                      />
+                    </li>
+                  );
+                })}
+              </List>
+            </InfiniteScroll>
           </div>
         </div>
       </section>
@@ -76,17 +120,18 @@ const Blog = ({ messages }) => {
 };
 
 export const getStaticProps = async () => {
+  const { API_URL } = process.env;
   try {
-    const res = await axios.get(
-      `https://jcdiambilayministries-backend.herokuapp.com/api/messages?populate=*`
-    );
+    const res = await axios.get(`${API_URL}/messages?populate=*`);
 
-    const datas = res.data;
+    const messages = res.data;
 
-    const messages = datas.data;
+    const { data, meta } = messages;
+
+    const { total } = meta.pagination;
 
     return {
-      props: { messages },
+      props: { data, total },
       revalidate: 1,
     };
   } catch (err) {

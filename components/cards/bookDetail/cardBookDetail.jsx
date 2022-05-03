@@ -29,10 +29,6 @@ const CardBookDetail = ({
 }) => {
   const router = useRouter();
 
-  const getAmazoneUrl = () => {
-    router.push(linkAmazone);
-  };
-
   return (
     <div className={styles.cardBookDetail}>
       <div className={styles.cardBookDetail__pictureBox}>
@@ -41,7 +37,7 @@ const CardBookDetail = ({
           alt={`cover du livre ${title}`}
           loading="lazy"
           layout="fill"
-          objectFit="contain"
+          objectFit="cover"
           className={styles.cardBookDetail__pictureBox__picture}
         />
       </div>
@@ -52,7 +48,6 @@ const CardBookDetail = ({
             className={styles.cardBookDetail__content__subtitle__label}
           ></span>
           <span className={styles.cardBookDetail__content__subtitle__author}>
-            {" "}
             {author}
           </span>
         </h4>
@@ -62,14 +57,13 @@ const CardBookDetail = ({
           </span>
           <span className={styles.cardBookDetail__content__priceBox__btnBox}>
             <Button
-              // hrefUrl={`${linkAmazone}`}
+              hrefUrl={`${linkAmazone}`}
               textBtn="commander"
               className={
                 styles.cardBookDetail__content__priceBox__btnBox__button
               }
               icon={<IconLinkExternal />}
               positionIcon="right"
-              onClick={() => getAmazoneUrl()}
             />
           </span>
         </div>

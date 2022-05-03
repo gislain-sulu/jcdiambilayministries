@@ -1,3 +1,4 @@
+import axios from "axios";
 import React, { useState } from "react";
 import Layout from "../components/layout/layout";
 import AppContext from "../context/AppContext";

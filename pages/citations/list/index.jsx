@@ -15,7 +15,7 @@ import InfiniteScroll from "react-infinite-scroll-component";
 import Spiner from "../../../components/spinner/spiner";
 
 const Citationlist = ({ data, total }) => {
-  const [citations, setCitations] = useState(data);
+  const [citations, setCitations] = useState([]);
   const [allCitationsLength, setAllCitationsLength] = useState(total);
   const [hasMore, setHasMore] = useState(true);
 
@@ -114,21 +114,6 @@ const Citationlist = ({ data, total }) => {
 };
 
 export const getServerSideProps = async () => {
-  // https://jcdiambilayministries-backend.herokuapp.com/api/citations?pagination[start]=0&pagination[limit]=12&populate=*
-
-  // const qs = require("qs");
-  // const query = qs.stringify(
-  //   {
-  //     pagination: {
-  //       start: 1,
-  //       pageSize: 5,
-  //     },
-  //   },
-  //   {
-  //     encodeValuesOnly: true,
-  //   }
-  // );
-
   try {
     const { API_URL } = process.env;
 

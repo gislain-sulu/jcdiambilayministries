@@ -48,4 +48,3 @@ const CardBook = ({
   );
 };
 export default CardBook;
-0;

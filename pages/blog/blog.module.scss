@@ -70,10 +70,8 @@
       align-items: center;
 
       ul {
-        width: 100%;
         display: flex;
-        flex-wrap: wrap;
-        justify-content: space-around;
+        gap: 8rem;
       }
       &::after {
         content: " ";

@@ -5,12 +5,12 @@
   display: flex;
   width: 100%;
 
-  @include responsive(sm) {
-    flex-direction: column;
+  & > div {
+    flex: 1;
   }
 
-  & > div {
-    flex: 0 0 calc(100% / 2);
+  @include responsive(sm) {
+    flex-direction: column;
   }
 
   &__pictureBox {
@@ -19,7 +19,13 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    flex: 1;
+
+    span {
+      flex: 1;
+      img {
+        box-sizing: 100%;
+      }
+    }
 
     &::before {
       content: "";
@@ -37,7 +43,7 @@
     display: flex;
     flex-direction: column;
     gap: 2rem;
-    padding-left: 3rem;
+    padding: 1rem;
 
     @include responsive(sm) {
       gap: 1rem;
@@ -104,12 +110,17 @@
             color: $color-white;
             text-transform: uppercase;
             font-weight: 600;
-            pointer-events: none;
+            &:hover {
+              color: $color-white !important;
+            }
           }
           svg {
             font-size: 2.5rem;
             color: $color-white;
             pointer-events: none;
+          }
+          &:hover {
+            background: darken($color-primary, 10%);
           }
         }
       }

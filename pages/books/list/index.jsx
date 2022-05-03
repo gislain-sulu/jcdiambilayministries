@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import styles from "./bookslist.module.scss";
 
 import Button from "../../../components/button/button";
@@ -12,11 +12,37 @@ import OriginUrl from "../../../components/originUrl/originUrl";
 import List from "../../../components/list/list";
 import axios from "axios";
 import formatDescription from "../../../utils/formatDescription";
+import Spiner from "../../../components/spinner/spiner";
+import InfiniteScroll from "react-infinite-scroll-component";
 
-const Bookslist = ({ books }) => {
+const Bookslist = ({ data, total }) => {
+  const [books, setBooks] = useState([]);
+  const [allBooksLength, setAllBooksLength] = useState(total);
+  const [hasMore, setHasMore] = useState(true);
+
+  const { API_URL } = process.env;
+
+  const getMoreBooks = async () => {
+    const res = await axios.get(
+      `${API_URL}/books?pagination[start]=${books.length}&pagination[limit]=5&populate=*`
+    );
+
+    const newBooks = res.data;
+
+    const { data } = newBooks;
+
+    setBooks((books) => [...books, ...data]);
+  };
+
+  useEffect(() => {
+    setHasMore(allBooksLength > books.length ? true : false);
+  }, [books]);
+
   const listLinks = ["home", "books", "list"];
 
-  console.log(books);
+  console.log("data", data);
+  console.log("total", total);
+
   return (
     <div className={styles.bookslist}>
       <HeaderPage
@@ -43,90 +69,146 @@ const Bookslist = ({ books }) => {
           </div>
           <div className={styles.bookslist__content__separator}> </div>
           <div className={styles.bookslist__content__list}>
-            <List>
-              {books.map((book) => {
-                const { cover, title, description, Slug } = book.attributes;
-                const { url } = cover.data.attributes.formats.small;
+            <InfiniteScroll
+              dataLength={books.length}
+              next={getMoreBooks}
+              hasMore={hasMore}
+              loader={
+                <h4>
+                  <Spiner />
+                </h4>
+              }
+              endMessage={
+                <p style={{ textAlign: "center" }}>
+                  <b>Yay! vous avez affiché tout les livres</b>
+                </p>
+              }
+            >
+              <List>
+                {books.map((book) => {
+                  const { cover, title, description, Slug } = book.attributes;
+                  const { url } = cover.data.attributes.formats.small;
 
-                return (
-                  <CardBook
-                    key={book.id}
-                    picture={url}
-                    alt={title}
-                    title={title}
-                    description={formatDescription(description, 80)}
-                    slug={Slug}
-                  />
-                );
-              })}
+                  return (
+                    <CardBook
+                      key={book.id}
+                      picture={url}
+                      alt={title}
+                      title={title}
+                      description={formatDescription(description, 80)}
+                      slug={Slug}
+                    />
+                  );
+                })}
+                <CardBook
+                  key="2"
+                  picture="../../../public/assets/images/livres/cover/acceleration_divine.jpg"
+                  alt="acceleration divine"
+                  title="accereration divine"
+                  description={formatDescription(
+                    "nous savons que toutes choses travaillent ensemblent pour le bien de ceux qui aiment Dieu et ceux qui sont appel&és elon son projet",
+                    80
+                  )}
+                  slug="nous-savons"
+                />
+                <CardBook
+                  key="2"
+                  picture="../../../public/assets/images/livres/cover/acceleration_divine.jpg"
+                  alt="acceleration divine"
+                  title="accereration divine"
+                  description={formatDescription(
+                    "nous savons que toutes choses travaillent ensemblent pour le bien de ceux qui aiment Dieu et ceux qui sont appel&és elon son projet",
+                    80
+                  )}
+                  slug="nous-savons"
+                />
+              </List>
+            </InfiniteScroll>
 
-              <CardBook
-                key="2"
-                picture="../../../public/assets/images/livres/cover/acceleration_divine.jpg"
-                alt="acceleration divine"
-                title="accereration divine"
-                description={formatDescription(
-                  "nous savons que toutes choses travaillent ensemblent pour le bien de ceux qui aiment Dieu et ceux qui sont appel&és elon son projet",
-                  80
-                )}
-                slug="nous-savons"
-              />
-              <CardBook
-                key="2"
-                picture="../../../public/assets/images/livres/cover/acceleration_divine.jpg"
-                alt="acceleration divine"
-                title="accereration divine"
-                description={formatDescription(
-                  "nous savons que toutes choses travaillent ensemblent pour le bien de ceux qui aiment Dieu et ceux qui sont appel&és elon son projet",
-                  80
-                )}
-                slug="nous-savons"
-              />
-              <CardBook
-                key="2"
-                picture="../../../public/assets/images/livres/cover/acceleration_divine.jpg"
-                alt="acceleration divine"
-                title="accereration divine"
-                description={formatDescription(
-                  "nous savons que toutes choses travaillent ensemblent pour le bien de ceux qui aiment Dieu et ceux qui sont appel&és elon son projet",
-                  80
-                )}
-                slug="nous-savons"
-              />
-              <CardBook
-                key="2"
-                picture="../../../public/assets/images/livres/cover/acceleration_divine.jpg"
-                alt="acceleration divine"
-                title="accereration divine"
-                description={formatDescription(
-                  "nous savons que toutes choses travaillent ensemblent pour le bien de ceux qui aiment Dieu et ceux qui sont appel&és elon son projet",
-                  80
-                )}
-                slug="nous-savons"
-              />
-              <CardBook
-                key="2"
-                picture="../../../public/assets/images/livres/cover/acceleration_divine.jpg"
-                alt="acceleration divine"
-                title="accereration divine"
-                description={formatDescription(
-                  "nous savons que toutes choses travaillent ensemblent pour le bien de ceux qui aiment Dieu et ceux qui sont appel&és elon son projet",
-                  80
-                )}
-                slug="nous-savons"
-              />
-              <CardBook
-                key="2"
-                picture="../../../public/assets/images/livres/cover/acceleration_divine.jpg"
-                alt="acceleration divine"
-                title="accereration divine"
-                description={formatDescription(
-                  "nous savons que toutes choses travaillent ensemblent pour le bien de ceux qui aiment Dieu et ceux qui sont appel&és elon son projet",
-                  80
-                )}
-                slug="nous-savons"
-              />
-            </List>
+            {/* <List>
+                {books.map((book) => {
+                  const { cover, title, description, Slug } = book.attributes;
+                  const { url } = cover.data.attributes.formats.small;
+
+                  return (
+                    <CardBook
+                      key={book.id}
+                      picture={url}
+                      alt={title}
+                      title={title}
+                      description={formatDescription(description, 80)}
+                      slug={Slug}
+                    />
+                  );
+                })}
+
+                <CardBook
+                  key="2"
+                  picture="../../../public/assets/images/livres/cover/acceleration_divine.jpg"
+                  alt="acceleration divine"
+                  title="accereration divine"
+                  description={formatDescription(
+                    "nous savons que toutes choses travaillent ensemblent pour le bien de ceux qui aiment Dieu et ceux qui sont appel&és elon son projet",
+                    80
+                  )}
+                  slug="nous-savons"
+                />
+                <CardBook
+                  key="2"
+                  picture="../../../public/assets/images/livres/cover/acceleration_divine.jpg"
+                  alt="acceleration divine"
+                  title="accereration divine"
+                  description={formatDescription(
+                    "nous savons que toutes choses travaillent ensemblent pour le bien de ceux qui aiment Dieu et ceux qui sont appel&és elon son projet",
+                    80
+                  )}
+                  slug="nous-savons"
+                />
+                <CardBook
+                  key="2"
+                  picture="../../../public/assets/images/livres/cover/acceleration_divine.jpg"
+                  alt="acceleration divine"
+                  title="accereration divine"
+                  description={formatDescription(
+                    "nous savons que toutes choses travaillent ensemblent pour le bien de ceux qui aiment Dieu et ceux qui sont appel&és elon son projet",
+                    80
+                  )}
+                  slug="nous-savons"
+                />
+                <CardBook
+                  key="2"
+                  picture="../../../public/assets/images/livres/cover/acceleration_divine.jpg"
+                  alt="acceleration divine"
+                  title="accereration divine"
+                  description={formatDescription(
+                    "nous savons que toutes choses travaillent ensemblent pour le bien de ceux qui aiment Dieu et ceux qui sont appel&és elon son projet",
+                    80
+                  )}
+                  slug="nous-savons"
+                />
+                <CardBook
+                  key="2"
+                  picture="../../../public/assets/images/livres/cover/acceleration_divine.jpg"
+                  alt="acceleration divine"
+                  title="accereration divine"
+                  description={formatDescription(
+                    "nous savons que toutes choses travaillent ensemblent pour le bien de ceux qui aiment Dieu et ceux qui sont appel&és elon son projet",
+                    80
+                  )}
+                  slug="nous-savons"
+                />
+                <CardBook
+                  key="2"
+                  picture="../../../public/assets/images/livres/cover/acceleration_divine.jpg"
+                  alt="acceleration divine"
+                  title="accereration divine"
+                  description={formatDescription(
+                    "nous savons que toutes choses travaillent ensemblent pour le bien de ceux qui aiment Dieu et ceux qui sont appel&és elon son projet",
+                    80
+                  )}
+                  slug="nous-savons"
+                />
+              </List> */}
           </div>
         </div>
       </section>
@@ -134,19 +216,22 @@ const Bookslist = ({ books }) => {
   );
 };
 
-export const getStaticProps = async () => {
+export const getServerSideProps = async () => {
   try {
+    const { API_URL } = process.env;
+
     const res = await axios.get(
-      `https://jcdiambilayministries-backend.herokuapp.com/api/books?populate=*`
+      `${API_URL}/books?pagination[start]=0&pagination[limit]=5&populate=*`
     );
 
-    const datas = res.data;
+    const books = res.data;
 
-    const books = datas.data;
+    const { data, meta } = books;
+
+    const { total } = meta.pagination;
 
     return {
-      props: { books },
-      revalidate: 1,
+      props: { data, total },
     };
   } catch (err) {
     return { err };

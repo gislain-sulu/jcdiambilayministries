@@ -9,15 +9,10 @@ const Button = ({
   icon = false,
   positionIcon = "left",
   type = "none",
-  onClick,
 }) => {
   if (icon === "none") {
     return (
-      <button
-        type={type}
-        className={`${styles.btn} ${className}`}
-        onClick={onClick}
-      >
+      <button type={type} className={`${styles.btn} ${className}`}>
         <span>
           <Link href={hrefUrl}>
             <a className={styles.btn__link}>{textBtn}</a>
@@ -32,7 +27,7 @@ const Button = ({
         <button
           type={type}
           className={`${styles.btn} ${className}`}
-          onClick={onClick}
+          // onClick={onClick}
         >
           <span>
             <Link href={hrefUrl}>

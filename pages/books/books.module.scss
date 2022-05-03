@@ -44,22 +44,31 @@
         }
       }
     }
+    // &__newsBooksCollection,
+    // &__collectionCielOuvert {
+    //   &__box {
+    //     display: grid;
+    //     grid-template-columns: repeat(auto-fill, minmax(calc(100% / 3), 1fr));
+
+    //     align-items: center;
+    //     grid-row-gap: 1rem;
+
+    //     @include responsive(sm) {
+    //       display: flex;
+    //       flex-direction: column;
+    //       justify-content: center;
+    //       align-items: center;
+    //       gap: 2rem;
+    //     }
+    //   }
+    // }
+
     &__newsBooksCollection,
     &__collectionCielOuvert {
-      &__box {
-        display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(calc(100% / 3), 1fr));
-
-        align-items: center;
-        grid-row-gap: 1rem;
-
-        @include responsive(sm) {
-          display: flex;
-          flex-direction: column;
-          justify-content: center;
-          align-items: center;
-          gap: 2rem;
-        }
+      overflow: hidden;
+      ul {
+        display: flex;
+        gap: 1rem;
       }
     }
 

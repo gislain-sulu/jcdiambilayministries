@@ -8,7 +8,7 @@ const SectionPage = ({
   children,
   classname,
   withButton = true,
-  urlBtn = "/",
+  urlBtn,
   uniqId,
 }) => {
   return (

@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import AliceCarousel from "react-alice-carousel";
 import "react-alice-carousel/lib/alice-carousel.css";
 import styles from "./home.module.scss";
@@ -12,13 +12,57 @@ import { IconAmazone, IconLinkExternal } from "../../components/icons/icon";
 import book_acceleration_divine from "../../public/assets/images/sliders/slide__acceleration_divine_web.jpg";
 import book_benediction_independance_financiere from "../../public/assets/images/sliders/slide__benediction_independance_financiere_web.jpg";
 import AppContext from "../../context/AppContext";
+import List from "../../components/list/list";
+import axios from "axios";
+import CardBookDetail from "../../components/cards/bookDetail/cardBookDetail";
+import Spiner from "../../components/spinner/spiner";
+import CardBlog from "../../components/cards/blog/cardBlog";
+import CardCitationList from "../../components/cards/citations/cardCitationlist";
+import Link from "next/link";
 
 const Accuiel = () => {
+  const [lastMessages, setLastMessages] = useState([]);
+  const [lastCitations, setLastCitations] = useState([]);
+
+  const { API_URL } = process.env;
+
+  useEffect(async () => {
+    try {
+      const res = await axios.get(
+        `${API_URL}/messages?pagination[page]=1&pagination[pageSize]=3&populate=*`
+      );
+
+      const datas = res.data;
+
+      const { data } = datas;
+
+      setLastMessages(data);
+    } catch (err) {
+      return { err };
+    }
+  }, []);
+
+  useEffect(async () => {
+    try {
+      const res = await axios.get(
+        `${API_URL}/citations?pagination[page]=1&pagination[pageSize]=3&populate=*`
+      );
+
+      const datas = res.data;
+
+      const { data } = datas;
+
+      setLastCitations(data);
+    } catch (err) {
+      return { err };
+    }
+  }, []);
+
+  console.log("messages", lastMessages);
+
   const value = useContext(AppContext);
 
   const { name } = value.state;
-
-  console.log(name);
 
   const responsive = {
     0: { items: 1 },
@@ -349,10 +393,65 @@ const Accuiel = () => {
       </section>
       <ul className={styles.home__content}>
         <li className={styles.home__content__blog}>
-          <Blog />
+          <Blog>
+            {lastMessages?.length === 0 && (
+              <section className={styles.home__content__citation__loaderBox}>
+                <div
+                  className={styles.home__content__citation__loaderBox__loader}
+                >
+                  <Spiner />
+                </div>
+              </section>
+            )}
+
+            <AliceCarousel
+              mouseTracking
+              items={lastMessages?.map(({ attributes }) => (
+                <CardBlog
+                  key={attributes.id}
+                  id={attributes.id}
+                  picture={attributes.cover.data.attributes.url}
+                  title={attributes.title}
+                  author={attributes.author}
+                  date={attributes.published_at}
+                  description={attributes.description}
+                  slug={attributes.Slug}
+                />
+              ))}
+              responsive={responsive}
+              controlsStrategy="alternate"
+            />
+          </Blog>
         </li>
         <li className={styles.home__content__citation}>
-          <SectionCitation />
+          <SectionCitation>
+            {lastCitations?.length === 0 && (
+              <section className={styles.home__content__citation__loaderBox}>
+                <div
+                  className={styles.home__content__citation__loaderBox__loader}
+                >
+                  <Spiner />
+                </div>
+              </section>
+            )}
+
+            <AliceCarousel
+              mouseTracking
+              items={lastCitations?.map(({ attributes }) => (
+                <Link href={attributes.cover.data.attributes.url}>
+                  <a target="_blank">
+                    <CardCitationList
+                      pictureUrl={attributes.cover.data.attributes.url}
+                      pictureAlt={attributes.Slug}
+                      text={attributes.content}
+                    />
+                  </a>
+                </Link>
+              ))}
+              responsive={responsive}
+              controlsStrategy="alternate"
+            />
+          </SectionCitation>
         </li>
         <li className={styles.home__content__bapteme}>
           <Bapteme />

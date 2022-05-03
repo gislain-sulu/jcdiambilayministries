@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import AliceCarousel from "react-alice-carousel";
 import "react-alice-carousel/lib/alice-carousel.css";
 import styles from "./citation.module.scss";
@@ -22,11 +22,55 @@ import List from "../../components/list/list";
 import CardCitationList from "../../components/cards/citations/cardCitationlist";
 import axios from "axios";
 import InfiniteScroll from "react-infinite-scroll-component";
+import Spiner from "../../components/spinner/spiner";
 
-const Citation = (citations) => {
-  console.log("citations", citations);
+const Citation = ({ citations }) => {
+  const [citationsData, setCitationsData] = useState([]);
+  const [citationsLivresData, setCitationsLivresData] = useState([]);
+  const [declarationsData, setDeclarationsData] = useState([]);
 
-  const [allCitations, setAllCitations] = useState(citations);
+  const categoryCitationsData = citations.filter(
+    (citation) => citation.attributes.category.data.id === 2
+  );
+  const categoryCitationsLivreData = citations.filter(
+    (citation) => citation.attributes.category.data.id === 1
+  );
+  const categoryDeclarationsData = citations.filter(
+    (citation) => citation.attributes.category.data.id === 3
+  );
+
+  const categoryDataFiltered = (category) => {
+    if (category.length > 4) {
+      return category.slice(0, 4);
+    }
+    return category;
+  };
+
+  const categoryCitationsDataFiltered = categoryDataFiltered(
+    categoryCitationsData
+  );
+  const categoryCitationsLivreDataFiltered = categoryDataFiltered(
+    categoryCitationsLivreData
+  );
+  const categoryDeclarationsDataFiltered = categoryDataFiltered(
+    categoryDeclarationsData
+  );
+
+  useEffect(() => {
+    setCitationsData(categoryCitationsDataFiltered);
+  }, []);
+
+  useEffect(() => {
+    setCitationsLivresData(categoryCitationsLivreDataFiltered);
+  }, []);
+
+  useEffect(() => {
+    setDeclarationsData(categoryDeclarationsDataFiltered);
+  }, []);
+
+  console.log("categorie1", citationsData);
+  console.log("categorie2", citationsLivresData);
+  console.log("categorie3", declarationsData);
 
   const responsive = {
     0: { items: 1 },
@@ -69,7 +113,6 @@ const Citation = (citations) => {
         listOriginUrl={<OriginUrl listItem={listLinks} />}
         isWithFieldSearch={false}
       />
-
       <div className={styles.citation__content}>
         <div className={`${styles.citation__content} wrapper`}>
           <ul className={styles.citation__content__cardsBox}>
@@ -90,51 +133,110 @@ const Citation = (citations) => {
           <ul className={styles.citation__content__list}>
             <li>
               <SectionPage
-                titleSection="citation"
+                titleSection="citations"
                 classname={`${styles.citation__content__box}`}
-                urlBtn="/citationlist2"
+                urlBtn="/citations/list"
                 uniqId="citations"
               >
-                <AliceCarousel
-                  mouseTracking
-                  items={CITATION_DATA.map((citation) => (
-                    <Link href="/">
-                      <a>
-                        <CardCitationList
-                          pictureUrl={citation.picture}
-                          pictureAlt={citation.name}
-                          text={citation.citation}
-                        />
-                      </a>
-                    </Link>
-                  ))}
-                  responsive={responsive}
-                  controlsStrategy="alternate"
-                />
+                {citationsData.length === 0 ? (
+                  <section>
+                    <Spiner />
+                  </section>
+                ) : (
+                  <AliceCarousel
+                    mouseTracking
+                    items={citationsData.map((citation) => {
+                      const { Slug, content } = citation.attributes;
+
+                      const { url } = citation.attributes.cover.data.attributes;
+                      return (
+                        <Link href={url}>
+                          <a target="_blank">
+                            <CardCitationList
+                              pictureUrl={url}
+                              pictureAlt={Slug}
+                              text={content}
+                            />
+                          </a>
+                        </Link>
+                      );
+                    })}
+                    responsive={responsive}
+                    controlsStrategy="alternate"
+                  />
+                )}
               </SectionPage>
             </li>
             <li>
               <SectionPage
-                titleSection="citation livres"
+                titleSection="citations livres"
                 classname={`${styles.citation__content__citationLivres}`}
-                urlBtn="/citationlist2"
+                urlBtn="/citations/list"
                 uniqId="citation_livres"
               >
-                {CITATION_LIVRES_DATA.map((data) => (
-                  <CardCube pictureUrl={data.picture} imageAlt={data.name} />
-                ))}
+                {citationsLivresData.length === 0 ? (
+                  <section>
+                    <Spiner />
+                  </section>
+                ) : (
+                  <AliceCarousel
+                    mouseTracking
+                    items={citationsLivresData.map((citation) => {
+                      const { Slug, content } = citation.attributes;
+
+                      const { url } = citation.attributes.cover.data.attributes;
+                      return (
+                        <Link href={url}>
+                          <a target="_blank">
+                            <CardCitationList
+                              pictureUrl={url}
+                              pictureAlt={Slug}
+                              text={content}
+                            />
+                          </a>
+                        </Link>
+                      );
+                    })}
+                    responsive={responsive}
+                    controlsStrategy="alternate"
+                  />
+                )}
               </SectionPage>
             </li>
             <li>
               <SectionPage
-                titleSection="Déclaration prophétiques"
+                titleSection="Déclarations prophétiques"
                 classname={`${styles.citation__content__declarations}`}
-                urlBtn="/citationlist2"
+                urlBtn="/citations/list"
                 uniqId="declarations_prophetique"
               >
-                {DECLARATIONS.map((data) => (
-                  <CardCube pictureUrl={data.picture} imageAlt={data.name} />
-                ))}
+                {declarationsData.length === 0 ? (
+                  <section>
+                    <Spiner />
+                  </section>
+                ) : (
+                  <AliceCarousel
+                    mouseTracking
+                    items={declarationsData.map((citation) => {
+                      const { Slug, content } = citation.attributes;
+
+                      const { url } = citation.attributes.cover.data.attributes;
+                      return (
+                        <Link href={url}>
+                          <a target="_blank">
+                            <CardCitationList
+                              pictureUrl={url}
+                              pictureAlt={Slug}
+                              text={content}
+                            />
+                          </a>
+                        </Link>
+                      );
+                    })}
+                    responsive={responsive}
+                    controlsStrategy="alternate"
+                  />
+                )}
               </SectionPage>
             </li>
           </ul>
@@ -145,15 +247,29 @@ const Citation = (citations) => {
 };
 
 export const getStaticProps = async () => {
+  const { API_URL } = process.env;
+
+  const qs = require("qs");
+  const query = qs.stringify(
+    {
+      populate: "*",
+    },
+    {
+      encodeValuesOnly: true,
+    }
+  );
+
   try {
-    const res = await axios.get(`${process.env.API_URL}/citations?populate=*`);
+    const res = await axios.get(`${API_URL}/citations?${query}`);
 
     const datas = res.data;
 
-    const citations = datas.data;
+    const { data } = datas;
+
+    // const citations = allcitations.data[0];
 
     return {
-      props: { citations },
+      props: { citations: data },
       revalidate: 1,
     };
   } catch (err) {

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import styles from "./books.module.scss";
 import { IconDonation } from "../../components/icons/icon";
 import SectionPage from "../../components/sections/section";
@@ -8,8 +8,16 @@ import OriginUrl from "../../components/originUrl/originUrl";
 import { useRouter } from "next/router";
 import axios from "axios";
 import formatDescription from "../../utils/formatDescription";
+import Spiner from "../../components/spinner/spiner";
+import AliceCarousel from "react-alice-carousel";
 
 const Books = ({ books }) => {
+  const [newbooks, setNewBooks] = useState([]);
+
+  useEffect(() => {
+    setNewBooks(books);
+  }, []);
+
   const data = [
     {
       id: 1,
@@ -47,9 +55,12 @@ const Books = ({ books }) => {
     },
   ];
 
+  const responsive = {
+    0: { items: 1 },
+    568: { items: 2 },
+    1024: { items: 3 },
+  };
   const router = useRouter();
-
-  let numerotation = 1;
 
   const pathname = router.pathname;
 
@@ -81,44 +92,72 @@ const Books = ({ books }) => {
               <SectionPage
                 titleSection="dernieres parutions"
                 classname={`${styles.books__content__newsBooksCollection__box}`}
+                urlBtn="/books/list"
               >
-                {books.map((book) => {
-                  const { cover, title, description, Slug } = book.attributes;
-                  const { url } = cover.data.attributes.formats.small;
+                {newbooks?.length === 0 && (
+                  <section className={styles.books__content__loaderBox}>
+                    <div className={styles.books__content__loaderBox__loader}>
+                      <Spiner />
+                    </div>
+                  </section>
+                )}
 
-                  return (
-                    <CardBook
-                      key={book.id}
-                      picture={url}
-                      alt={title}
-                      title={title}
-                      description={formatDescription(description, 80)}
-                      slug={Slug}
-                    />
-                  );
-                })}
+                <AliceCarousel
+                  mouseTracking
+                  items={newbooks.map((book) => {
+                    const { cover, title, description, Slug } = book.attributes;
+                    const { url } = cover.data.attributes.formats.small;
+
+                    return (
+                      <CardBook
+                        key={book.id}
+                        picture={url}
+                        alt={title}
+                        title={title}
+                        description={formatDescription(description, 80)}
+                        slug={Slug}
+                      />
+                    );
+                  })}
+                  responsive={responsive}
+                  controlsStrategy="alternate"
+                />
               </SectionPage>
             </li>
             <li className={styles.books__content__collectionCielOuvert}>
               <SectionPage
                 titleSection="collection ciel ouvert"
                 classname={`${styles.books__content__collectionCielOuvert__box}`}
+                urlBtn="/books/list"
               >
-                {books.map((book) => {
-                  const { cover, title, description, Slug } = book.attributes;
-                  const { url } = cover.data.attributes.formats.small;
+                {newbooks?.length === 0 && (
+                  <section className={styles.books__content__loaderBox}>
+                    <div className={styles.books__content__loaderBox__loader}>
+                      <Spiner />
+                    </div>
+                  </section>
+                )}
 
-                  return (
-                    <CardBook
-                      key={book.id}
-                      picture={url}
-                      alt={title}
-                      title={title}
-                      description={formatDescription(description, 80)}
-                      slug={Slug}
-                    />
-                  );
-                })}
+                <AliceCarousel
+                  mouseTracking
+                  items={newbooks.map((book) => {
+                    const { cover, title, description, Slug } = book.attributes;
+                    const { url } = cover.data.attributes.formats.small;
+
+                    return (
+                      <CardBook
+                        key={book.id}
+                        picture={url}
+                        alt={title}
+                        title={title}
+                        description={formatDescription(description, 80)}
+                        slug={Slug}
+                      />
+                    );
+                  })}
+                  responsive={responsive}
+                  controlsStrategy="alternate"
+                />
               </SectionPage>
             </li>
           </ul>
