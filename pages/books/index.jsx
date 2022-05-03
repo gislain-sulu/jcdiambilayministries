@@ -10,6 +10,8 @@ import axios from "axios";
 import formatDescription from "../../utils/formatDescription";
 import Spiner from "../../components/spinner/spiner";
 import AliceCarousel from "react-alice-carousel";
+import SectionCitation from "../../components/sections/citation/citation";
+import List from "../../components/list/list";
 
 const Books = ({ books }) => {
   const [newbooks, setNewBooks] = useState([]);
@@ -102,26 +104,25 @@ const Books = ({ books }) => {
                   </section>
                 )}
 
-                <AliceCarousel
-                  mouseTracking
-                  items={newbooks.map((book) => {
+                <List>
+                  {newbooks.map((book) => {
                     const { cover, title, description, Slug } = book.attributes;
                     const { url } = cover.data.attributes.formats.small;
 
                     return (
-                      <CardBook
-                        key={book.id}
-                        picture={url}
-                        alt={title}
-                        title={title}
-                        description={formatDescription(description, 80)}
-                        slug={Slug}
-                      />
+                      <li>
+                        <CardBook
+                          key={book.id}
+                          picture={url}
+                          alt={title}
+                          title={title}
+                          description={formatDescription(description, 80)}
+                          slug={Slug}
+                        />
+                      </li>
                     );
                   })}
-                  responsive={responsive}
-                  controlsStrategy="alternate"
-                />
+                </List>
               </SectionPage>
             </li>
             <li className={styles.books__content__collectionCielOuvert}>
@@ -138,26 +139,25 @@ const Books = ({ books }) => {
                   </section>
                 )}
 
-                <AliceCarousel
-                  mouseTracking
-                  items={newbooks.map((book) => {
+                <List>
+                  {newbooks.map((book) => {
                     const { cover, title, description, Slug } = book.attributes;
                     const { url } = cover.data.attributes.formats.small;
 
                     return (
-                      <CardBook
-                        key={book.id}
-                        picture={url}
-                        alt={title}
-                        title={title}
-                        description={formatDescription(description, 80)}
-                        slug={Slug}
-                      />
+                      <li>
+                        <CardBook
+                          key={book.id}
+                          picture={url}
+                          alt={title}
+                          title={title}
+                          description={formatDescription(description, 80)}
+                          slug={Slug}
+                        />
+                      </li>
                     );
                   })}
-                  responsive={responsive}
-                  controlsStrategy="alternate"
-                />
+                </List>
               </SectionPage>
             </li>
           </ul>

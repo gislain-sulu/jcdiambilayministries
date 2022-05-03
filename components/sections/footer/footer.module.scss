@@ -131,8 +131,14 @@
 
     a {
       color: $color-secondary !important;
+
       @include responsive(sm) {
         font-size: 1rem;
+
+        & > span:last-of-type {
+          background: blue;
+          display: none;
+        }
       }
     }
   }

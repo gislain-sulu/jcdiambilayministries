@@ -13,6 +13,7 @@ import formatDescription from "../../../utils/formatDescription";
 import Spiner from "../../../components/spinner/spiner";
 import { useRouter } from "next/router";
 import AliceCarousel from "react-alice-carousel";
+import List from "../../../components/list/list";
 
 const BookDetail = ({ books, newBooksDataFiltered }) => {
   const [book, setBook] = useState([]);
@@ -125,43 +126,8 @@ const BookDetail = ({ books, newBooksDataFiltered }) => {
                   <Spiner />
                 </section>
               ) : (
-                <AliceCarousel
-                  mouseTracking
-                  items={newBooksDataFiltered.map((book) => {
-                    const { cover, title, description, Slug } = book.attributes;
-                    const { url } = cover.data.attributes.formats.thumbnail;
-
-                    return (
-                      <CardBook
-                        key={book.id}
-                        picture={url}
-                        alt={title}
-                        title={title}
-                        description={formatDescription(description, 80)}
-                        slug={Slug}
-                      />
-                    );
-                  })}
-                  responsive={responsive}
-                  controlsStrategy="alternate"
-                />
-              )}
-            </SectionPage>
-          </li>
-          <li className={styles.bookDetail__content__sectionOthorsBooksBox}>
-            <SectionPage
-              titleSection="ces livres peuvent aussi vous interessez"
-              classname={`${styles.bookDetail__content__othersBooks}`}
-              urlBtn="/books/list"
-            >
-              {newBooksDataFiltered.length === 0 ? (
-                <section>
-                  <Spiner />
-                </section>
-              ) : (
-                <AliceCarousel
-                  mouseTracking
-                  items={newBooksDataFiltered.map((book) => {
+                <List>
+                  {newBooksDataFiltered.map((book) => {
                     const { cover, title, description, Slug } = book.attributes;
                     const { url } = cover.data.attributes.formats.small;
 
@@ -176,9 +142,38 @@ const BookDetail = ({ books, newBooksDataFiltered }) => {
                       />
                     );
                   })}
-                  responsive={responsive}
-                  controlsStrategy="alternate"
-                />
+                </List>
+              )}
+            </SectionPage>
+          </li>
+          <li className={styles.bookDetail__content__sectionOthorsBooksBox}>
+            <SectionPage
+              titleSection="ces livres peuvent aussi vous interessez"
+              classname={`${styles.bookDetail__content__othersBooks}`}
+              urlBtn="/books/list"
+            >
+              {newBooksDataFiltered.length === 0 ? (
+                <section>
+                  <Spiner />
+                </section>
+              ) : (
+                <List>
+                  {newBooksDataFiltered.map((book) => {
+                    const { cover, title, description, Slug } = book.attributes;
+                    const { url } = cover.data.attributes.formats.small;
+
+                    return (
+                      <CardBook
+                        key={book.id}
+                        picture={url}
+                        alt={title}
+                        title={title}
+                        description={formatDescription(description, 80)}
+                        slug={Slug}
+                      />
+                    );
+                  })}
+                </List>
               )}
             </SectionPage>
           </li>

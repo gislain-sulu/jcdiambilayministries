@@ -18,6 +18,15 @@ import Spiner from "../../components/spinner/spiner";
 const Blog = ({ data, total }) => {
   const [messages, setmessages] = useState([]);
   const [allMessagesLength, setAllMessagesLength] = useState(total);
+  const [term, setTerm] = useState("");
+  const [filteredMessagesSearch, setFilteredMessagesSearch] = useState([]);
+
+  useEffect(() => {
+    const messagesFilteredSearchTerm = data.filter(({ attributes }) =>
+      attributes.title.includes(term)
+    );
+    setFilteredMessagesSearch(messagesFilteredSearchTerm);
+  }, [term]);
 
   const [hasMore, setHasMore] = useState(true);
 
@@ -51,6 +60,20 @@ const Blog = ({ data, total }) => {
 
   const listLinks = ["home", formatPathname];
 
+  const handleChange = (e) => {
+    setTerm(e.target.value);
+  };
+
+  // const filteredMessagesSearch = () => {
+  //   const res = await axios.get(`${API_URL}/messages?populate=*`);
+
+  //   const newMessages = res.data;
+
+  //   const { data } = newMessages;
+
+  //   setmessages((message) => [...message, ...data]);
+  // };
+
   return (
     <div className={styles.blog}>
       <HeaderPage
@@ -59,6 +82,10 @@ const Blog = ({ data, total }) => {
         textHelper="garder son coeur pur"
         listOriginUrl={<OriginUrl listItem={listLinks} />}
         classname={styles.blog__title}
+        termSearchField={term}
+        handleSearchInput={handleChange}
+        datasFilteredSearch={filteredMessagesSearch}
+        pathname="/blog"
       />
 
       <section className={styles.blog__content}>

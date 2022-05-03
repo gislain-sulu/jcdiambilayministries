@@ -37,10 +37,7 @@ const Header = () => {
             </div>
             <div className={styles.header__navbrandBox__slogan}>
               <p className={styles.header__navbrandBox__slogan__text}>
-                <strong>
-                  {" "}
-                  Inspirer l'excellence - Accélerer les destinées
-                </strong>
+                <strong>Inspirer l'excellence - Accélerer les destinées</strong>
               </p>
             </div>
           </div>

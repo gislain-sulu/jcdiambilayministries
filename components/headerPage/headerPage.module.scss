@@ -16,6 +16,30 @@
     padding: 3rem;
   }
 
+  &__searchBox {
+    background: $color-white;
+    position: relative;
+
+    &__collections {
+      position: absolute;
+      background: $color-white;
+      width: 100%;
+      &__active {
+        display: flex;
+        position: absolute;
+        padding: 0 1rem;
+        box-sizing: border-box;
+        background: $color-white;
+        overflow: hidden;
+        width: 100%;
+
+        a {
+          color: $color-secondary;
+        }
+      }
+    }
+  }
+
   &__titleBox {
     text-transform: uppercase;
 
