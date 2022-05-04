@@ -9,12 +9,8 @@ import SectionCitation from "../../components/sections/citation/citation";
 import Image from "next/image";
 import Button from "../../components/button/button";
 import { IconAmazone, IconLinkExternal } from "../../components/icons/icon";
-import book_acceleration_divine from "../../public/assets/images/sliders/slide__acceleration_divine_web.jpg";
-import book_benediction_independance_financiere from "../../public/assets/images/sliders/slide__benediction_independance_financiere_web.jpg";
 import AppContext from "../../context/AppContext";
-import List from "../../components/list/list";
 import axios from "axios";
-import CardBookDetail from "../../components/cards/bookDetail/cardBookDetail";
 import Spiner from "../../components/spinner/spiner";
 import CardBlog from "../../components/cards/blog/cardBlog";
 import CardCitationList from "../../components/cards/citations/cardCitationlist";
@@ -57,8 +53,6 @@ const Accuiel = () => {
       return { err };
     }
   }, []);
-
-  console.log("messages", lastMessages);
 
   const value = useContext(AppContext);
 

@@ -10,18 +10,12 @@ import {
   IconQuote_3,
 } from "../../components/icons/icon";
 import SectionPage from "../../components/sections/section";
-import CardCube from "../../components/cards/cardCube/cardCube";
-import CITATION_DATA from "../../models/CITATION_DATA";
-import CITATION_LIVRES_DATA from "../../models/CITATION_LIVRES_DATA";
-import DECLARATIONS from "../../models/DECLARATIONS_DATA";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import HeaderPage from "../../components/headerPage/headerPage";
 import OriginUrl from "../../components/originUrl/originUrl";
-import List from "../../components/list/list";
 import CardCitationList from "../../components/cards/citations/cardCitationlist";
 import axios from "axios";
-import InfiniteScroll from "react-infinite-scroll-component";
 import Spiner from "../../components/spinner/spiner";
 
 const Citation = ({ citations }) => {
@@ -67,10 +61,6 @@ const Citation = ({ citations }) => {
   useEffect(() => {
     setDeclarationsData(categoryDeclarationsDataFiltered);
   }, []);
-
-  console.log("categorie1", citationsData);
-  console.log("categorie2", citationsLivresData);
-  console.log("categorie3", declarationsData);
 
   const responsive = {
     0: { items: 1 },

@@ -125,6 +125,8 @@
 
                 a {
                   text-transform: uppercase;
+                  color: $color-white !important;
+                  font-size: 1.5rem;
                 }
                 svg {
                   color: $color-white;
@@ -265,6 +267,11 @@
               text-transform: uppercase;
               font-weight: 600;
               color: $color-white !important;
+              font-size: 1.5rem;
+
+              @include responsive(sm) {
+                color: $color-white !important;
+              }
             }
             svg {
               color: $color-white !important;

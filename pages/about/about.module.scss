@@ -55,13 +55,11 @@
   }
 
   &__meansOfAction {
-    background: $color-secondary;
-
-    background: linear-gradient(rgba(97, 56, 24, 0.9), rgba(97, 56, 24, 0.9)),
-      url("https://res.cloudinary.com/personnal/image/upload/w_1000,ar_16:9,c_fill,g_auto,e_sharpen/v1650937136/background_about_ho1hml.jpg");
-    background-size: cover;
+    background: darken($color-primary, 70%);
 
     padding-bottom: 8rem;
+    margin: 5rem;
+    border-radius: 15px;
 
     &__titleBox {
       padding: 9rem;

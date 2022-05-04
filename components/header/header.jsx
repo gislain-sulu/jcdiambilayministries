@@ -46,12 +46,13 @@ const Header = () => {
           </div>
           <div className={styles.header__buttonsBox}>
             <aside className={styles.header__aside}>
-              {HEADER_BTN_DATA.map((link) => (
+              {HEADER_BTN_DATA.map((btn) => (
                 <Button
-                  hrefUrl={`/${link}`}
-                  textBtn={link}
+                  key={btn.id}
+                  hrefUrl={`${btn.url}`}
+                  textBtn={btn.content}
                   className={styles.header__aside__btn}
-                  icon={getLinkIcon(link)}
+                  icon={getLinkIcon(btn.content)}
                 />
               ))}
             </aside>

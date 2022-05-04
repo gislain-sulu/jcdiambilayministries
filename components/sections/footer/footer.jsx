@@ -89,7 +89,7 @@ const Footer = () => {
               <form>
                 <input type="email" placeholder="votre email..." />
                 <Button
-                  textBtn="s'abonner"
+                  textBtn="S'abonner"
                   icon={<IconSuscribe />}
                   type="submit"
                   className={styles.footer__button}

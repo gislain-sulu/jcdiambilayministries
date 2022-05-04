@@ -18,6 +18,11 @@
     justify-content: center !important;
     align-items: center !important;
     gap: 0.5rem;
+    span {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
 
     &__text {
       display: flex;

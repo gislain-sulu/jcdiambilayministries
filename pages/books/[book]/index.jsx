@@ -12,32 +12,14 @@ import axios from "axios";
 import formatDescription from "../../../utils/formatDescription";
 import Spiner from "../../../components/spinner/spiner";
 import { useRouter } from "next/router";
-import AliceCarousel from "react-alice-carousel";
 import List from "../../../components/list/list";
 
 const BookDetail = ({ books, newBooksDataFiltered }) => {
   const [book, setBook] = useState([]);
   const [booksFilteredData, setbooksFilteredData] = useState([]);
 
-  const responsive = {
-    0: { items: 1 },
-    568: { items: 2 },
-    1024: { items: 3 },
-  };
-  console.log("newBooksData", newBooksDataFiltered);
-
-  // const newsBooks = () => {
-  //   if (book.length !== 1) {
-  //     return booksFilteredData.filter(
-  //       (book) => book.attributes.id !== book[0].attributes.id
-  //     );
-  //   }
-  //   return;
-  // };
-
   const router = useRouter();
 
-  // console.log("newsBooks", newsBooks());
   const { API_URL } = process.env;
 
   useEffect(async () => {

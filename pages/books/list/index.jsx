@@ -2,8 +2,6 @@ import React, { useState, useEffect } from "react";
 import styles from "./bookslist.module.scss";
 
 import Link from "next/link";
-import CardBlog from "../../../components/cards/blog/cardBlog";
-import MOCK_BLOG from "../../../models/MOCK_BLOG";
 import CardBook from "../../../components/cards/books/cardBook";
 import HeaderPage from "../../../components/headerPage/headerPage";
 import OriginUrl from "../../../components/originUrl/originUrl";

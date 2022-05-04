@@ -1,23 +1,10 @@
 import React, { useState, useEffect } from "react";
 import styles from "./blog.module.scss";
-import Image from "next/image";
-import {
-  Facebook,
-  IconDate,
-  IconUser,
-  Instagram,
-  Linkedin,
-  Twitter,
-  IconNext,
-  IconPrev,
-} from "../../../components/icons/icon";
+import { IconDate, IconUser, IconPrev } from "../../../components/icons/icon";
 import OriginUrl from "../../../components/originUrl/originUrl";
-import PointsPrieres from "../../../components/pointsPrieres/pointsPrieres";
 import Button from "../../../components/button/button";
-import Router, { useRouter } from "next/router";
 import HeaderPage from "../../../components/headerPage/headerPage";
 import ReactMarkdown from "react-markdown";
-import Moment from "react-moment";
 import Share from "../../share";
 import axios from "axios";
 import formatDate from "../../../utils/formatDate";
@@ -103,15 +90,6 @@ const BlogItem = ({ messages }) => {
                     className={styles.blog__article__prevNextBox__prev__button}
                     icon={<IconPrev />}
                     positionIcon="left"
-                  />
-                </div>
-                <div className={styles.blog__article__prevNextBox__next}>
-                  <Button
-                    hrefUrl={`/blog`}
-                    textBtn="suivant"
-                    className={styles.blog__article__prevNextBox__next__button}
-                    icon={<IconNext />}
-                    positionIcon="right"
                   />
                 </div>
               </div>

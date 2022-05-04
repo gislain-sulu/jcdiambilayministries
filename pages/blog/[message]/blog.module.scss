@@ -97,7 +97,6 @@
     }
 
     &__infosBox {
-      font-size: 1.4rem;
       display: flex;
       gap: 0.5rem;
       align-self: flex-start;
@@ -116,6 +115,10 @@
       &__author,
       &__date {
         font-size: 2rem;
+
+        @include responsive(sm) {
+          font-size: 1.5rem;
+        }
       }
 
       &__icon {
@@ -189,12 +192,23 @@
         &__button {
           background: $color-secondary;
           padding: 1rem;
+
           svg {
             font-size: 2rem;
             color: $color-white;
           }
           a {
             color: $color-white;
+            text-transform: uppercase;
+            font-size: 1.5rem;
+            span:last-of-type {
+              display: flex;
+              justify-content: center;
+              align-self: center;
+            }
+            &:hover {
+              color: $color-white !important;
+            }
           }
 
           &:hover {
@@ -202,7 +216,7 @@
           }
         }
       }
-      &__next {
+      &__prev {
         margin-left: auto !important;
       }
     }

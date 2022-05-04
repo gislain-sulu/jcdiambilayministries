@@ -32,8 +32,8 @@ const Button = ({
           <span>
             <Link href={hrefUrl}>
               <a className={styles.btn__link}>
-                {textBtn}
-                {icon}
+                <span>{textBtn}</span>
+                <span>{icon}</span>
               </a>
             </Link>
           </span>

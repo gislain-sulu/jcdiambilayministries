@@ -1,12 +1,8 @@
 import React, { useState, useEffect } from "react";
 import styles from "./blog.module.scss";
 
-import Button from "../../components/button/button";
-import { IconSearch } from "../../components/icons/icon";
 import Link from "next/link";
-import Bloglist from "../../components/list/list";
 import CardBlog from "../../components/cards/blog/cardBlog";
-import MOCK_BLOG from "../../models/MOCK_BLOG";
 import HeaderPage from "../../components/headerPage/headerPage";
 import OriginUrl from "../../components/originUrl/originUrl";
 import { useRouter } from "next/router";

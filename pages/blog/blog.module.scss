@@ -30,6 +30,7 @@
       justify-content: center;
       position: relative;
       align-self: flex-start;
+      display: none;
 
       &__label {
         letter-spacing: 1rem;
@@ -78,7 +79,7 @@
         width: 100%;
         height: 2px;
         display: block;
-        background-color: $color-secondary;
+        background-color: rgba(128, 128, 128, 0.377);
         position: absolute;
         left: 0;
         top: -0.2rem;

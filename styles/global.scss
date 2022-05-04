@@ -110,25 +110,14 @@ section {
 }
 body {
   line-height: 1.3;
-  font-family: "EB Garamond", serif;
-
-  // font-family: "Montserrat", sans-serif;
+  font-family: "EB Garamond", "Montserrat", sans-serif;
+  font-size: 2rem;
 }
 ol,
 ul {
   list-style: none;
 }
-// blockquote,
-// q {
-//   quotes: none;
-// }
-// blockquote:before,
-// blockquote:after,
-// q:before,
-// q:after {
-//   content: "";
-//   content: none;
-// }
+
 table {
   border-collapse: collapse;
   border-spacing: 0;
@@ -136,13 +125,11 @@ table {
 html {
   font-size: 62.5%;
 }
-body {
-  font-size: 2rem;
-}
+
 a {
   text-decoration: none;
-  font-family: "Montserrat", sans-serif;
-  font-size: 1.5rem;
+  font-family: "EB Garamond", "Montserrat", serif;
+  font-size: 2rem;
 
   transition: all 0.2s ease-out;
   &:hover {
@@ -209,38 +196,6 @@ img {
   color: #fff !important;
   background: #eb5930 !important;
 }
-
-// .mySwiperMobile {
-//   padding: 0 4rem 4rem !important;
-// }
-// .mySwiperMobileBlogSection {
-//   padding: 0 0 2rem 0 !important;
-// }
-
-// ////CAROUSEL STYLE
-
-// .swiper {
-//   width: 100%;
-//   height: 100%;
-// }
-
-// .swiper-slide {
-//   background: #fff;
-
-//   /* Center slide text vertically */
-//   display: -webkit-box;
-//   display: -ms-flexbox;
-//   display: -webkit-flex;
-//   display: flex;
-//   -webkit-box-pack: center;
-//   -ms-flex-pack: center;
-//   -webkit-justify-content: center;
-//   justify-content: center;
-//   -webkit-box-align: center;
-//   -ms-flex-align: center;
-//   -webkit-align-items: center;
-//   align-items: center;
-// }
 
 .alice-carousel__prev-btn,
 .alice-carousel__next-btn {

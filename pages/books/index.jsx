@@ -9,8 +9,6 @@ import { useRouter } from "next/router";
 import axios from "axios";
 import formatDescription from "../../utils/formatDescription";
 import Spiner from "../../components/spinner/spiner";
-import AliceCarousel from "react-alice-carousel";
-import SectionCitation from "../../components/sections/citation/citation";
 import List from "../../components/list/list";
 
 const Books = ({ books }) => {
@@ -83,7 +81,7 @@ const Books = ({ books }) => {
           <div className={styles.books__content__intro}>
             <p className={styles.books__content__intro__text}>
               <strong className={styles.books__content__intro__text__strong}>
-                Une envie de lecture?
+                Une envie de lecture?{" "}
               </strong>
               Consultez nos sélections Thématiques
             </p>

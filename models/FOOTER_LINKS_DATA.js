@@ -111,13 +111,13 @@ const FOOTER_LINKS_DATA = [
       {
         id: 1,
         label: "faites un don",
-        url: "/dons",
+        url: "/don",
         isActive: true,
       },
       {
         id: 2,
         label: "devenez ambassadeur de JC Diambilay Ministries",
-        url: "/ambasadeur",
+        url: "/contact",
         isActive: true,
       },
       {
