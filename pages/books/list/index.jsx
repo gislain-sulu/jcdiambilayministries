@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from "react";
 import styles from "./bookslist.module.scss";
 
-import Button from "../../../components/button/button";
-import { IconSearch } from "../../../components/icons/icon";
 import Link from "next/link";
 import CardBlog from "../../../components/cards/blog/cardBlog";
 import MOCK_BLOG from "../../../models/MOCK_BLOG";
@@ -15,10 +13,24 @@ import formatDescription from "../../../utils/formatDescription";
 import Spiner from "../../../components/spinner/spiner";
 import InfiniteScroll from "react-infinite-scroll-component";
 
-const Bookslist = ({ data, total }) => {
+const Bookslist = ({ data, total, booksSearchAll }) => {
   const [books, setBooks] = useState([]);
   const [allBooksLength, setAllBooksLength] = useState(total);
   const [hasMore, setHasMore] = useState(true);
+
+  const [term, setTerm] = useState("");
+  const [filteredBooksSearch, setFilteredBooksSearch] = useState([]);
+
+  useEffect(() => {
+    const booksFilteredSearchTerm = booksSearchAll.filter(({ attributes }) =>
+      attributes.title.includes(term)
+    );
+    setFilteredBooksSearch(booksFilteredSearchTerm);
+  }, [term]);
+
+  const handleChange = (e) => {
+    setTerm(e.target.value);
+  };
 
   const { API_URL } = process.env;
 
@@ -50,6 +62,10 @@ const Bookslist = ({ data, total }) => {
         placeholder="Tapez un titre du livre"
         textHelper="accélératon divine"
         listOriginUrl={<OriginUrl listItem={listLinks} />}
+        termSearchField={term}
+        handleSearchInput={handleChange}
+        datasFilteredSearch={filteredBooksSearch}
+        pathname="/books/list"
       />
 
       <section className={styles.bookslist__content}>
@@ -116,15 +132,19 @@ export const getServerSideProps = async () => {
     const res = await axios.get(
       `${API_URL}/books?pagination[start]=0&pagination[limit]=5&populate=*`
     );
+    const resAllBooks = await axios.get(`${API_URL}/books?populate=*`);
 
     const books = res.data;
+    const allBooks = resAllBooks.data;
 
     const { data, meta } = books;
 
     const { total } = meta.pagination;
 
+    const booksSearchAll = allBooks.data;
+
     return {
-      props: { data, total },
+      props: { data, total, booksSearchAll },
     };
   } catch (err) {
     return { err };

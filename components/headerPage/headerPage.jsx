@@ -17,53 +17,12 @@ const HeaderPage = ({
   datasFilteredSearch,
   pathname,
 }) => {
-  console.log("datasFilter", datasFilteredSearch);
-  // const DATA_MOCK = [
-  //   {
-  //     id: 1,
-  //     title: "je suis entraion d'apprendre la programation",
-  //   },
-  //   {
-  //     id: 2,
-  //     title:
-  //       "un algo est une suite logique pour aboutir à un resultat en programmation",
-  //   },
-  //   {
-  //     id: 3,
-  //     title: "le congo est un pays benit",
-  //   },
-  //   {
-  //     id: 4,
-  //     title: "Rwhanda est un pays qui fait la guerre aux autres pays",
-  //   },
-  //   {
-  //     id: 4,
-  //     title: "la programmation est l'art de manipuler les données",
-  //   },
-  //   {
-  //     id: 5,
-  //     title: "nous avons les memes besoins mais pas les memes valeurs",
-  //   },
-  // ];
   const [term, setTerm] = useState("");
-  const [filteredData, setFilteredData] = useState([]);
-
-  // const dataFiltered = () =>
-  //   DATA_MOCK.filter((data) => data.title.toLowerCase().includes(term));
-
-  // useEffect(() => {
-  //   setFilteredData();
-  // }, [term]);
 
   useEffect(() => {
     setTerm(termSearchField);
   }, [termSearchField]);
 
-  console.log("term", term);
-
-  // const handleChange = (e) => {
-  //   setTerm(e.target.value);
-  // };
   return (
     <section>
       {isWithFieldSearch ? (
@@ -118,8 +77,23 @@ const HeaderPage = ({
                       </li>
                     ))}
 
-                  {/* {term.length >= 2 &&
-                  filtrereddata.map((data) => <li> {data.title}</li>)} */}
+                  {pathname === "/citations/list" &&
+                    datasFilteredSearch.map(({ attributes }) => (
+                      <li>
+                        <Link href={`${attributes.cover.data.attributes.url}`}>
+                          <a target="_blank">{attributes.content}</a>
+                        </Link>
+                      </li>
+                    ))}
+
+                  {pathname === "/books/list" &&
+                    datasFilteredSearch.map(({ attributes }) => (
+                      <li>
+                        <Link href={`/books/${attributes.Slug}`}>
+                          <a>{attributes.title}</a>
+                        </Link>
+                      </li>
+                    ))}
                 </ul>
               )}
             </section>

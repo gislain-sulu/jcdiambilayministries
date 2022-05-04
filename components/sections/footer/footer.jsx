@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import React from "react";
 import Button from "../../button/button";
 import CardSectionsLinksFooter from "../../cards/footer/cardSectionsLinksFooter";
@@ -24,53 +25,51 @@ const Footer = () => {
           <div
             className={styles.footer__sectionsNewsLetterGroup__socialsMedias}
           >
-            <Image
-              src="/assets/images/logos/locgo_jcdiambilay_white_v1.svg"
-              width={469 / 2}
-              height={102 / 2}
-              loading="lazy"
-            />
-            <div
+            <Link href="/">
+              <a>
+                <Image
+                  src="/assets/images/logos/locgo_jcdiambilay_white_v1.svg"
+                  width={469 / 2}
+                  height={102 / 2}
+                  loading="eager"
+                />
+              </a>
+            </Link>
+
+            <ul
               className={
                 styles.footer__sectionsNewsLetterGroup__socialsMediasBox
               }
             >
-              <span
-                className={
-                  styles.footer__sectionsNewsLetterGroup__socialsMediasBox__item
-                }
-              >
-                <Facebook />
-              </span>
-              <span
-                className={
-                  styles.footer__sectionsNewsLetterGroup__socialsMediasBox__item
-                }
-              >
-                <Twitter />
-              </span>
-              <span
-                className={
-                  styles.footer__sectionsNewsLetterGroup__socialsMediasBox__item
-                }
-              >
-                <Instagram />
-              </span>
-              <span
-                className={
-                  styles.footer__sectionsNewsLetterGroup__socialsMediasBox__item
-                }
-              >
-                <Linkedin />
-              </span>
-              <span
-                className={
-                  styles.footer__sectionsNewsLetterGroup__socialsMediasBox__item
-                }
-              >
-                <Youtube />
-              </span>
-            </div>
+              <li>
+                <Link href="https://web.facebook.com/Jcdminist">
+                  <a target="_blank">
+                    <Facebook />
+                  </a>
+                </Link>
+              </li>
+              <li>
+                <Link href="https://mobile.twitter.com/jdiambilay">
+                  <a target="_blank">
+                    <Twitter />
+                  </a>
+                </Link>
+              </li>
+              <li>
+                <Link href="https://www.youtube.com/channel/UC-5MlpGFchNz8sRwiFQrH5w">
+                  <a target="_blank">
+                    <Youtube />
+                  </a>
+                </Link>
+              </li>
+              <li>
+                <Link href="https://www.instagram.com/iam_jcdk/?hl=fr">
+                  <a target="_blank">
+                    <Instagram />
+                  </a>
+                </Link>
+              </li>
+            </ul>
           </div>
           <div className={styles.footer__sectionsNewsLetterGroup__newLetterBox}>
             <span

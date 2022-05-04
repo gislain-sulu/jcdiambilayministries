@@ -46,10 +46,19 @@
 
       display: flex;
       gap: 0.5rem;
+      svg {
+        color: $color-white;
+        width: 35px;
+        height: 35px;
+      }
 
-      &__item {
-        svg {
-          color: $color-white;
+      a {
+        &:hover {
+          svg {
+            color: $color-primary;
+            width: 35px;
+            height: 35px;
+          }
         }
       }
     }

@@ -28,6 +28,10 @@ const Blog = ({ data, total }) => {
     setFilteredMessagesSearch(messagesFilteredSearchTerm);
   }, [term]);
 
+  const handleChange = (e) => {
+    setTerm(e.target.value);
+  };
+
   const [hasMore, setHasMore] = useState(true);
 
   const { API_URL } = process.env;
@@ -59,20 +63,6 @@ const Blog = ({ data, total }) => {
   const formatPathname = pathname.replace("/", "");
 
   const listLinks = ["home", formatPathname];
-
-  const handleChange = (e) => {
-    setTerm(e.target.value);
-  };
-
-  // const filteredMessagesSearch = () => {
-  //   const res = await axios.get(`${API_URL}/messages?populate=*`);
-
-  //   const newMessages = res.data;
-
-  //   const { data } = newMessages;
-
-  //   setmessages((message) => [...message, ...data]);
-  // };
 
   return (
     <div className={styles.blog}>

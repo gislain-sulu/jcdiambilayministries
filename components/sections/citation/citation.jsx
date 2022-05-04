@@ -12,7 +12,7 @@ const SectionCitation = ({ children }) => {
       <div className={`${styles.citation__wrapper} wrapper`}>
         <SectionPage
           titleSection="citations"
-          urlBtn="/citation"
+          urlBtn="/citations"
           classname={styles.citation}
         >
           {children}

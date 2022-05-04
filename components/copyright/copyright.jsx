@@ -1,12 +1,20 @@
+import Link from "next/link";
 import React from "react";
 import styles from "./copyright.module.scss";
 
-const Copyright = ({ classname }) => {
+const Copyright = () => {
   return (
-    <div className={`${classname} styles.copyright`}>
+    <div className={styles.copyright}>
       <p className={styles.copyright__content}>
-        Copyright &copy; 2022 Tous droits réservés | Ce modèle est fait par
-        Qualis Web&Apps
+        <span>
+          Copyright &copy; 2022 Tous droits réservés | Ce modèle est fait par
+        </span>
+        <Link
+          href="mailTo:gislain.sulu@gmail.com"
+          className={styles.copyright__content__link}
+        >
+          <a>Qualis Web&Apps</a>
+        </Link>
       </p>
     </div>
   );

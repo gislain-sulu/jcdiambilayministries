@@ -129,7 +129,7 @@ const Accuiel = () => {
               className={`${styles.home__mobile__slider__textBox__content__btnBox} btnBox`}
             >
               <Button
-                hrefUrl={`/blog/`}
+                hrefUrl={`https://www.amazon.fr/Acc%C3%A9l%C3%A9ration-divine-JCD-Jean-Cl%C3%A9ment-Diambilay/dp/B09WQ4SCKP`}
                 textBtn="passez votre commande"
                 className={
                   styles.home__mobile__slider__textBox__content__btnBox__btn
@@ -189,7 +189,7 @@ const Accuiel = () => {
               className={`${styles.home__mobile__slider__textBox__content__btnBox} btnBox`}
             >
               <Button
-                hrefUrl={`/blog/`}
+                hrefUrl={`https://www.amazon.fr/B%C3%A9n%C3%A9diction-lInd%C3%A9pendance-Financi%C3%A8re-Jean-Cl%C3%A9ment-Diambilay/dp/B09WWFNKHZ/ref=pd_lpo_1?pd_rd_i=B09WWFNKHZ&psc=1`}
                 textBtn="passez votre commande"
                 className={
                   styles.home__mobile__slider__textBox__content__btnBox__btn
@@ -266,7 +266,7 @@ const Accuiel = () => {
                 className={`${styles.home__headerBox__slider__textBox__content__btnBox} btnBox`}
               >
                 <Button
-                  hrefUrl={`/blog/`}
+                  hrefUrl={`https://www.amazon.fr/Acc%C3%A9l%C3%A9ration-divine-JCD-Jean-Cl%C3%A9ment-Diambilay/dp/B09WQ4SCKP`}
                   textBtn="passez votre commande"
                   className={
                     styles.home__headerBox__slider__textBox__content__btnBox__btn
@@ -330,7 +330,7 @@ const Accuiel = () => {
                 className={`${styles.home__headerBox__slider__textBox__content__btnBox} btnBox`}
               >
                 <Button
-                  hrefUrl={`/blog/`}
+                  hrefUrl={`https://www.amazon.fr/B%C3%A9n%C3%A9diction-lInd%C3%A9pendance-Financi%C3%A8re-Jean-Cl%C3%A9ment-Diambilay/dp/B09WWFNKHZ/ref=pd_lpo_1?pd_rd_i=B09WWFNKHZ&psc=1`}
                   textBtn="passez votre commande"
                   className={
                     styles.home__headerBox__slider__textBox__content__btnBox__btn

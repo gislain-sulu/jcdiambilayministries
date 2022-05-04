@@ -12,7 +12,7 @@
     text-transform: lowercase;
 
     @include responsive(sm) {
-      font-weight: 100;
+      font-weight: 100 !important;
     }
   }
 
