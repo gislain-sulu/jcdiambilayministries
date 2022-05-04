@@ -39,12 +39,12 @@ const Contact = () => {
         <div className={styles.contact__intro}>
           <p className={styles.contact__intro__text}>
             <strong className={styles.contact__intro__text__strong}>
-              Ecrivez-nous , appellez-nous ,visitez-nous{" "}
+              Pour en savoir plus sur{" "}
             </strong>
-            pour en savoir plus sur{" "}
             <strong className={styles.contact__intro__text__strong}>
-              jcdiambilayministries.org
+              jcdiambilayministries.org,
             </strong>
+            Écrivez-nous :
           </p>
         </div>
       </div>
@@ -84,12 +84,12 @@ const Contact = () => {
                   id=""
                   cols="30"
                   rows="10"
-                  placeholder="votre message ici..."
+                  placeholder="Votre message ici..."
                 ></textarea>
               </div>
               <div className={styles.contact__form__box}>
                 <Button
-                  textBtn="envoyer"
+                  textBtn="Envoyer"
                   className={styles.contact__form__box__btn}
                   icon={<ArrowNext />}
                   positionIcon="right"
@@ -121,7 +121,7 @@ const Contact = () => {
                           <span>
                             <IconTelephone />
                           </span>
-                          <span>telephones</span>
+                          <span>téléphones </span>
                         </h4>
                       </li>
                       <li>
@@ -156,7 +156,7 @@ const Contact = () => {
                     <span>
                       <IconSocialsMedias />
                     </span>
-                    <span>reseaux sociaux</span>
+                    <span>réseaux sociaux</span>
                   </h4>
                   <div>
                     <ul>

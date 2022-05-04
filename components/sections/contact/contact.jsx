@@ -7,12 +7,12 @@ const Contact = () => {
     <section className={styles.contact}>
       <div className={`${styles.contact__wrapper} wrapper`}>
         <h2 className={styles.contact__title}>
-          AVEZ-VOUS BESOIN DE <strong>CONSEILS</strong> , DE{" "}
+          AVEZ-VOUS BESOIN DE <strong>CONSEILS</strong>, DE{" "}
           <strong>PRIERE</strong> OU DESIREZ-VOUS NOUS FAIRE DES SUGGESTIONS.
         </h2>
 
         <Button
-          hrefUrl={`/blog/`}
+          hrefUrl={`/contact`}
           textBtn="Contactez-nous"
           className={styles.contact__button}
           icon="none"

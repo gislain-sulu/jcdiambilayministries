@@ -69,7 +69,7 @@ const Accuiel = () => {
       <div className={styles.home__mobile__hello__textBox}>
         <div className="wrapper">
           <h1 className={styles.home__mobile__hello__textBox__title}>
-            <span>bienvenu(e) a</span>
+            <span>bienvenu(e) à</span>
             <span>www.jcdiambilayministries.org</span>
           </h1>
         </div>
@@ -207,7 +207,7 @@ const Accuiel = () => {
               <h1 className={`${styles.home__hello__title} h1`}>
                 <span className={styles.home__hello__title__hello}>
                   {" "}
-                  bienvenu(e) a
+                  bienvenu(e) à
                 </span>
                 <span className={styles.home__hello__title__nameSite}>
                   www.jcdiambilayministries.org

@@ -18,7 +18,7 @@ const HEADER_DATA = [
 
   {
     id: 4,
-    textLink: "A propos",
+    textLink: "À propos",
     link: "/about",
   },
   {
@@ -29,7 +29,7 @@ const HEADER_DATA = [
 
   {
     id: 6,
-    textLink: "Prédication",
+    textLink: "Prédications",
     link: "/predications",
   },
 ];

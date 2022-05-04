@@ -9,6 +9,7 @@ import Share from "../../share";
 import axios from "axios";
 import formatDate from "../../../utils/formatDate";
 import Spiner from "../../../components/spinner/spiner";
+import { useRouter } from "next/router";
 
 const BlogItem = ({ messages }) => {
   const [allMessagesDataFiltered, setAllMessagesDataFiltered] = useState([]);

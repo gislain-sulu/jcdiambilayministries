@@ -71,7 +71,7 @@ const Books = ({ books }) => {
   return (
     <div className={styles.books}>
       <HeaderPage
-        title="Books"
+        title="JC Diambilay Books"
         isWithFieldSearch={false}
         listOriginUrl={<OriginUrl listItem={listLinks} />}
       />
@@ -81,9 +81,10 @@ const Books = ({ books }) => {
           <div className={styles.books__content__intro}>
             <p className={styles.books__content__intro__text}>
               <strong className={styles.books__content__intro__text__strong}>
-                Une envie de lecture?{" "}
+                Aspirez-vous à l'excéllence? Désirez-vous accomplir votre
+                destinée en mode accélération divine?{" "}
               </strong>
-              Consultez nos sélections Thématiques
+              Commandez les livres de l'Apôtre Jean-Clément Diambilay
             </p>
           </div>
 

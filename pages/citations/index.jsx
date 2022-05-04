@@ -78,19 +78,19 @@ const Citation = ({ citations }) => {
   const data = [
     {
       id: 1,
-      title: "citations",
+      title: "Citations",
       labelId: "citations",
       icon: <IconQuote />,
     },
     {
       id: 2,
-      title: "citation livres",
+      title: "Citation livres",
       labelId: "citation_livres",
       icon: <IconQuote_2 />,
     },
     {
       id: 3,
-      title: "déclarations prophétique",
+      title: "Déclarations prophétiques",
       labelId: "declarations_prophetique",
       icon: <IconQuote_3 />,
     },
@@ -255,8 +255,6 @@ export const getStaticProps = async () => {
     const datas = res.data;
 
     const { data } = datas;
-
-    // const citations = allcitations.data[0];
 
     return {
       props: { citations: data },
