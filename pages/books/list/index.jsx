@@ -52,9 +52,6 @@ const Bookslist = ({ data, total, booksSearchAll }) => {
 
   const listLinks = ["home", "books", "list"];
 
-  console.log("data", data);
-  console.log("total", total);
-
   return (
     <div className={styles.bookslist}>
       <HeaderPage

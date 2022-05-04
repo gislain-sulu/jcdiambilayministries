@@ -16,6 +16,77 @@
     flex-direction: column;
     gap: 1;
 
+    &__pointsVentes {
+      background: $color-primary;
+      display: flex;
+      flex-direction: column;
+      padding: 3rem 0;
+      gap: 3rem;
+      color: $color-white;
+      border-radius: 1rem;
+
+      @include responsive(sm) {
+        display: none;
+      }
+
+      &__title {
+        align-self: center;
+        color: $color-white;
+        font-size: 3rem;
+        text-transform: uppercase;
+        font-weight: 900;
+        position: relative;
+
+        &:before {
+          content: "";
+          width: 0.5rem;
+          height: 22px;
+          background: $color-secondary;
+          position: absolute;
+          left: -1rem;
+          top: 9px;
+        }
+      }
+      &__table {
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+
+        &__body,
+        &__head {
+          display: flex;
+          flex-direction: column;
+          gap: 1rem;
+
+          tr {
+            display: flex;
+            background: transparentize($color-secondary, 0.8);
+            padding: 1rem 0;
+
+            & > * {
+              flex: 1;
+              vertical-align: middle;
+            }
+          }
+        }
+        &__head {
+          font-weight: 900;
+
+          tr {
+            background: transparentize($color-secondary, 0.5);
+          }
+        }
+        &__body {
+          tr {
+            td {
+              text-align: center;
+              vertical-align: middle;
+            }
+          }
+        }
+      }
+    }
+
     &__list {
       display: flex;
       flex-direction: column;
@@ -58,77 +129,6 @@
     ul {
       display: flex;
       gap: 8rem;
-    }
-  }
-
-  &__pointsVentes {
-    background: $color-primary;
-    display: flex;
-    flex-direction: column;
-    padding: 3rem 0;
-    gap: 3rem;
-    color: $color-white;
-    border-radius: 1rem;
-
-    @include responsive(sm) {
-      display: none;
-    }
-
-    &__title {
-      align-self: center;
-      color: $color-white;
-      font-size: 3rem;
-      text-transform: uppercase;
-      font-weight: 900;
-      position: relative;
-
-      &:before {
-        content: "";
-        width: 0.5rem;
-        height: 22px;
-        background: $color-secondary;
-        position: absolute;
-        left: -1rem;
-        top: 9px;
-      }
-    }
-    &__table {
-      display: flex;
-      flex-direction: column;
-      gap: 2rem;
-
-      &__body,
-      &__head {
-        display: flex;
-        flex-direction: column;
-        gap: 1rem;
-
-        tr {
-          display: flex;
-          background: transparentize($color-secondary, 0.8);
-          padding: 1rem 0;
-
-          & > * {
-            flex: 1;
-            vertical-align: middle;
-          }
-        }
-      }
-      &__head {
-        font-weight: 900;
-
-        tr {
-          background: transparentize($color-secondary, 0.5);
-        }
-      }
-      &__body {
-        tr {
-          td {
-            text-align: center;
-            vertical-align: middle;
-          }
-        }
-      }
     }
   }
 }
