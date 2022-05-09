@@ -35,39 +35,43 @@ const BlogItem = ({ messages }) => {
 
   return (
     <div className={styles.blog}>
-      <HeaderPage
-        title="detail article"
+      {/* <HeaderPage
+        title={allMessagesDataFiltered[0].attributes.title}
         isWithFieldSearch={false}
         listOriginUrl={<OriginUrl listItem={listLinks} />}
-      />
+      /> */}
 
-      <div className={`${styles.blog__article__wrapper} wrapper`}>
-        {allMessagesDataFiltered.map((post) => (
-          <article className={styles.blog__article}>
-            <header className={styles.blog__article__header}>
-              <h1 className={styles.blog__article__title} id="titleArticle">
-                {post.attributes.title}
-              </h1>
+      {allMessagesDataFiltered.map((post) => (
+        <article className={styles.blog__article}>
+          <header className={styles.blog__article__header}>
+            <div className="wrapper">
+              <div className={styles.blog__article__header__box}>
+                <h1 className={styles.blog__article__title} id="titleArticle">
+                  {post.attributes.title}
+                </h1>
 
-              <div className={styles.blog__article__infosBox}>
-                <span className={styles.blog__article__infosBox__icon}>
-                  <IconUser />
-                </span>
-                <span className={styles.blog__article__infosBox__author}>
-                  Jean-Clément Diambilay
-                </span>
-                <span className={styles.blog__article__infosBox__separator}>
-                  |
-                </span>
-                <span className={styles.blog__article__infosBox__icon}>
-                  <IconDate />
-                </span>
-                <span className={styles.blog__article__infosBox__date}>
-                  Publié le:
-                  {formatDate(post.attributes.createAt, "DD/MM/YYYY à HH:MM")}
-                </span>
+                <div className={styles.blog__article__infosBox}>
+                  <span className={styles.blog__article__infosBox__icon}>
+                    <IconUser />
+                  </span>
+                  <span className={styles.blog__article__infosBox__author}>
+                    Apôtre Jean-Clément Diambilay
+                  </span>
+                  <span className={styles.blog__article__infosBox__separator}>
+                    |
+                  </span>
+                  <span className={styles.blog__article__infosBox__icon}>
+                    <IconDate />
+                  </span>
+                  <span className={styles.blog__article__infosBox__date}>
+                    {formatDate(post.attributes.createAt, "DD/MM/YYYY ")}
+                  </span>
+                </div>
               </div>
-            </header>
+            </div>
+          </header>
+
+          <div className="wrapper">
             <main className={styles.blog__article__main}>
               <ReactMarkdown>{post.attributes.content}</ReactMarkdown>
 
@@ -95,9 +99,9 @@ const BlogItem = ({ messages }) => {
                 </div>
               </div>
             </main>
-          </article>
-        ))}
-      </div>
+          </div>
+        </article>
+      ))}
     </div>
   );
 };
