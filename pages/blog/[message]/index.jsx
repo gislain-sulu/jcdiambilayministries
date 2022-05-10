@@ -35,12 +35,6 @@ const BlogItem = ({ messages }) => {
 
   return (
     <div className={styles.blog}>
-      {/* <HeaderPage
-        title={allMessagesDataFiltered[0].attributes.title}
-        isWithFieldSearch={false}
-        listOriginUrl={<OriginUrl listItem={listLinks} />}
-      /> */}
-
       {allMessagesDataFiltered.map((post) => (
         <article className={styles.blog__article}>
           <header className={styles.blog__article__header}>

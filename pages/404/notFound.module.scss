@@ -1,0 +1,69 @@
+@import "../../styles/sass/base/variables.scss";
+@import "../../styles/sass/mixins/_responsive";
+
+.notFound {
+  padding: 5rem 0;
+  display: flex;
+  flex-wrap: wrap;
+
+  @include responsive(sm) {
+    flex-direction: column;
+  }
+
+  &__textBox,
+  &__pictureBox {
+    display: flex;
+    flex: 1;
+  }
+  &__textBox {
+    flex-direction: column;
+
+    &__title {
+      font-size: 3rem;
+    }
+    &__subtitle {
+      font-size: 3rem;
+    }
+
+    &__linksLabel {
+      margin: 2rem 0;
+      font-size: 2rem;
+    }
+    &__LinksBox {
+      display: flex;
+      flex-direction: column;
+      margin-top: 0.5rem;
+      gap: 1.5rem;
+
+      li {
+        width: 150px;
+        margin: auto;
+        a {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          color: $color-white;
+          padding: 0.5rem 1rem;
+          background: $color-gray;
+          border-radius: 25px;
+          text-align: center;
+          line-height: 1;
+          text-transform: uppercase;
+          font-size: 1.7rem;
+          &:hover {
+            color: $color-white !important;
+            background: $color-primary;
+          }
+        }
+      }
+    }
+  }
+  &__pictureBox {
+    img {
+      pointer-events: none;
+    }
+    @include responsive(sm) {
+      order: -1;
+    }
+  }
+}
