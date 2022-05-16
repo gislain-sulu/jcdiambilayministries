@@ -18,10 +18,10 @@ const AccordeonMenu = () => {
         {HEADER_BTN_DATA.map((link) => (
           <li>
             <Button
-              hrefUrl={`/${link}`}
-              textBtn={link}
+              hrefUrl={`/${link.url}`}
+              textBtn={link.content}
               className={styles.accordeonMenu__btn}
-              icon={getLinkIcon(link)}
+              icon={getLinkIcon(link.content)}
             />
           </li>
         ))}

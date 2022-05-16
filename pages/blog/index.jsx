@@ -60,6 +60,8 @@ const Blog = ({ data, total }) => {
 
   const listLinks = ["home", formatPathname];
 
+  console.log(messages);
+
   return (
     <div className={styles.blog}>
       <HeaderPage
@@ -107,8 +109,7 @@ const Blog = ({ data, total }) => {
             >
               <List>
                 {messages.map((blog) => {
-                  const { url } =
-                    blog.attributes.cover.data.attributes.formats.small;
+                  const { url } = blog.attributes.cover.data.attributes;
 
                   return (
                     <li key={blog.attributes.id}>
