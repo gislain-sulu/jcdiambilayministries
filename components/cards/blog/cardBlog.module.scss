@@ -15,10 +15,11 @@
 
   &__header {
     min-height: 250px;
-    background: gray;
+    // background: gray;
     display: flex;
     img {
-      object-fit: fill;
+      object-position: top;
+      object-fit: cover;
     }
   }
 

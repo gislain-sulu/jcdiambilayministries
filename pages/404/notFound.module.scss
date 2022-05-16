@@ -61,6 +61,7 @@
   &__pictureBox {
     img {
       pointer-events: none;
+      background: $color-gray;
     }
     @include responsive(sm) {
       order: -1;

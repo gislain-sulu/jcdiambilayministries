@@ -3,8 +3,6 @@ import Link from "next/link";
 import React from "react";
 import styles from "./notFound.module.scss";
 
-import pageNotFoundPicture from "/public/pageNotFoundJcdiambilayMinistries.jpg";
-
 export default function NotFound() {
   return (
     <div className="wrapper">
@@ -44,10 +42,12 @@ export default function NotFound() {
         </section>
         <section className={styles.notFound__pictureBox}>
           <Image
-            src={pageNotFoundPicture}
+            src="https://res.cloudinary.com/personnal/image/upload/w_1000,ar_1:1,c_fill,g_auto,e_art:hokusai/v1652696866/jcdiambilayministries/pageNotFoundJcdiambilayMinistries_okcv4r.jpg"
             layout="intrinsic"
             width={500}
             height={500}
+            alt="page notFound jcdiambilayministries"
+            loading="lazy"
           />
         </section>
       </div>

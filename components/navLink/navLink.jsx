@@ -13,8 +13,6 @@ const NavLink = ({ tabLinkList /* tabLinkList is a array  */, isIconNext }) => {
   const { activeHambourgerBtn } = context.state;
   const { closeHambourgerBtn } = context.state;
 
-  console.log(activeHambourgerBtn);
-
   const activeLink = (item) => {
     setactive(item);
     closeHambourgerBtn(false);
