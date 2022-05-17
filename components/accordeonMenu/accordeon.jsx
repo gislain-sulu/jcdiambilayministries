@@ -3,7 +3,6 @@ import HEADER_BTN_DATA from "../../models/HEADER_BTN_DATA";
 import HEADER_DATA from "../../models/header_data";
 import getLinkIcon from "../../utils/getLinksIcon";
 import Button from "../button/button";
-import { IconNext } from "../icons/icon";
 import NavLink from "../navLink/navLink";
 import styles from "./accordeon.module.scss";
 

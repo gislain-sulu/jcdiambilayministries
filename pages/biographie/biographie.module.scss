@@ -55,7 +55,7 @@
       flex-direction: column;
 
       @include responsive(md) {
-        padding-left: 0px;
+        padding: 2rem;
       }
       @include responsive(sm) {
         padding: 2rem;
@@ -97,6 +97,7 @@
 
       @include responsive(md) {
         font-size: 1.3rem;
+        padding: 2rem;
       }
 
       @include responsive(sm) {
@@ -110,6 +111,9 @@
       align-self: flex-end;
 
       @include responsive(sm) {
+        padding-right: 2rem;
+      }
+      @include responsive(md) {
         padding-right: 2rem;
       }
 

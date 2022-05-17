@@ -44,6 +44,9 @@
     @include responsive(sm) {
       flex-direction: column;
     }
+    @include responsive(md) {
+      flex-direction: column;
+    }
 
     &__formBox,
     &__addressBox {

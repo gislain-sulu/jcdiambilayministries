@@ -17,7 +17,6 @@
     "react-infinite-scroll-component": "^6.1.0",
     "react-markdown": "^8.0.2",
     "react-moment": "^1.1.2",
-    "react-slick": "^0.29.0",
     "sharethis-reactjs": "^1.6.0",
     "uniqid": "^5.4.0"
   },

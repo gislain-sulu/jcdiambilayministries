@@ -15,7 +15,7 @@ const CardBlog = ({ id, picture, title, author, date, description, slug }) => {
       </div>
       <h4 className={styles.CardBlog__title}>
         <Link href={`/blog/${slug}`}>
-          <a lassName={styles.CardBlog__title__link}> {title}</a>
+          <a className={styles.CardBlog__title__link}> {title}</a>
         </Link>
       </h4>
       <small className={styles.CardBlog__subtitle}>

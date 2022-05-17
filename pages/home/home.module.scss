@@ -11,11 +11,140 @@
     width: 100%;
     overflow: hidden;
   }
+  @include responsive(md) {
+    min-width: 100%;
+    width: 100%;
+    overflow: hidden;
+  }
 
   &__mobile {
     display: none;
 
     @include responsive(sm) {
+      display: block;
+      height: 95vh;
+
+      &__hello {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: url("https://res.cloudinary.com/personnal/image/upload/v1650930360/jcdiambilay_mobile_qxvh70.jpg")
+          no-repeat;
+        background-size: cover;
+
+        &__textBox {
+          display: flex;
+          &__title {
+            display: flex;
+            flex-direction: column;
+            font-size: 3rem;
+            color: $color-white;
+            width: 100vw;
+            gap: 0.1px;
+
+            span:first-of-type {
+              text-transform: uppercase;
+              font-weight: 900;
+              padding: 0.5rem 0 0;
+            }
+            span:last-of-type {
+              font-size: 2rem;
+              background: $color-primary;
+              padding: 1rem;
+              color: $color-white;
+              box-sizing: border-box;
+              align-self: flex-start;
+            }
+          }
+        }
+        &__pictureBox {
+          width: 100%;
+          min-height: 95vh;
+        }
+      }
+
+      &__slider {
+        width: 100%;
+        min-height: 100%;
+        display: grid;
+        grid-template-rows: 95vh;
+        grid-template-columns: 1fr;
+        position: relative;
+
+        &__pictureBox {
+          grid-column-start: 1;
+          grid-column-end: -1;
+          display: flex;
+          z-index: 1;
+          position: relative;
+        }
+        &__textBox {
+          position: absolute;
+          top: 60%;
+
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          z-index: 2;
+
+          &__content {
+            background: transparentize($color-secondary, 0.5);
+            padding: 2rem 1rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.5rem;
+
+            &__title {
+              display: flex;
+              flex-direction: column;
+              line-height: 2.5rem;
+              text-align: center;
+              color: $color-white;
+
+              &__strong:first-of-type {
+                text-transform: uppercase;
+                font-weight: 900 !important;
+              }
+              &__strong:last-of-type {
+                font-size: 1.6rem;
+                color: $color-primary;
+              }
+            }
+            &__subtitle {
+              text-align: center;
+              line-height: 1.5;
+              color: $color-white;
+              span {
+                svg {
+                  font-size: 1rem;
+                }
+              }
+            }
+            &__btnBox {
+              &__btn {
+                background: $color-primary !important;
+                padding: 1rem;
+
+                a {
+                  text-transform: uppercase;
+                  color: $color-white !important;
+                  font-size: 1.5rem;
+                }
+                svg {
+                  color: $color-white;
+                  font-size: 2rem;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+
+    @include responsive(md) {
       display: block;
       height: 95vh;
 
@@ -149,6 +278,9 @@
     position: relative;
 
     @include responsive(sm) {
+      display: none !important;
+    }
+    @include responsive(md) {
       display: none !important;
     }
 
