@@ -67,7 +67,7 @@ const Contact = () => {
                   <input
                     type="email"
                     className={styles.contact__form__box__email}
-                    placeholder="Tapez votre adresse email valide"
+                    placeholder="Email valide..."
                     required={true}
                   />
                 </div>
@@ -75,14 +75,14 @@ const Contact = () => {
                   <input
                     type="tel"
                     className={styles.contact__form__box__telephone}
-                    placeholder="Tapez votre numero télephonique"
+                    placeholder="Numero.."
                     required={true}
                   />
                 </div>
                 <div className={styles.contact__form__box}>
                   <textarea
                     className={styles.contact__form__box__message}
-                    name="message"
+                    name="Message"
                     id=""
                     cols="30"
                     rows="10"
