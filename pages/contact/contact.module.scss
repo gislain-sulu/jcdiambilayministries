@@ -175,6 +175,7 @@
         background: $color-white;
         border: none;
         font-family: "EB Garamond", Montserrat, serif;
+        font-size: 2.5rem;
 
         &:focus {
           outline: none;
@@ -182,7 +183,7 @@
       }
       textarea {
         &::placeholder {
-          font-family: "EB Gabamond", serif;
+          font-family: "EB Gabamond", serif !important;
         }
       }
 

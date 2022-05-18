@@ -59,7 +59,7 @@ const Contact = () => {
                     type="text"
                     className={styles.contact__form__box__name}
                     name="noms"
-                    placeholder="Tapez votre nom"
+                    placeholder="Nom"
                     required={true}
                   />
                 </div>
@@ -67,7 +67,7 @@ const Contact = () => {
                   <input
                     type="email"
                     className={styles.contact__form__box__email}
-                    placeholder="Email valide..."
+                    placeholder="Email valide"
                     required={true}
                   />
                 </div>
@@ -75,7 +75,7 @@ const Contact = () => {
                   <input
                     type="tel"
                     className={styles.contact__form__box__telephone}
-                    placeholder="Numero.."
+                    placeholder="Numero"
                     required={true}
                   />
                 </div>
@@ -86,7 +86,7 @@ const Contact = () => {
                     id=""
                     cols="30"
                     rows="10"
-                    placeholder="Votre message ici..."
+                    placeholder="Message"
                   ></textarea>
                 </div>
                 <div className={styles.contact__form__box}>
@@ -127,8 +127,8 @@ const Contact = () => {
                           </h4>
                         </li>
                         <li>
-                          <a href="tel:+243810674444">(+243) 81 067 44 44</a>
-                          <a href="tel:+243810674444">(+243) 81 067 44 44</a>
+                          <a href="tel:+17049052057"> +1(704) 905-2057</a>
+                          <a href="tel:+243827011111">(+243) 827 011 111</a>
                         </li>
                       </ul>
                     </div>
@@ -145,7 +145,7 @@ const Contact = () => {
                       <span>adresse</span>
                     </h4>
                     <address>
-                      N°289 Olamba , Quartier Mikonga ,Commune Nsele Kinshasa
+                      N°378 Avenue Likasi ,Lubumbashi ,Haut-Katanga, RD Congo
                       RDCongo
                     </address>
                   </li>

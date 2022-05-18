@@ -9,7 +9,7 @@ const MEDIA_DATA = [
     id: 2,
     picture:
       "https://ucarecdn.com/d574bb1d-c814-439f-8c81-2964c22be4b7/-/preview/-/quality/smart/",
-    name: "magasine",
+    name: "magazine",
   },
   {
     id: 3,

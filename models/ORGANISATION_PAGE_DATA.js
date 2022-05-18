@@ -2,12 +2,12 @@ const ORGANISATION_PAGE_DATA = [
   {
     id: 1,
     title: "JC Diambilay Books",
-    text: "S’occupe de la publication, la distribution et la diffusion des livres écrits par l’apôtre Jean-Clément DIAMBILAY à travers le monde. Voulez-vous commander ses livres . Écrivez à books @jcdiambilayministries.Org.",
+    text: "S’occupe de la publication, la distribution et la diffusion des livres écrits par l’apôtre Jean-Clément DIAMBILAY à travers le monde. Voulez-vous commander ses livres . Écrivez à books @jcdiambilayministries.org",
   },
   {
     id: 2,
     title: "JC Diambilay Devotionnel",
-    text: "S’occupe de la diffusion des messages textes d’exhortation ou de méditation quotidienne écrit par l’apôtre Jean-Clément DIAM-BILAY pour votre édification. Vous pouvez vous abonner pour recevoir régulièrement ses messages textes dans votre boîte de messagerie électronique en écrivant à devotionnel@jcdiambilayministries Org.",
+    text: "S’occupe de la diffusion des messages textes d’exhortation ou de méditation quotidienne écrit par l’apôtre Jean-Clément DIAM-BILAY pour votre édification. Vous pouvez vous abonner pour recevoir régulièrement ses messages textes dans votre boîte de messagerie électronique en écrivant à devotionnel@jcdiambilayministries.org",
   },
   {
     id: 3,

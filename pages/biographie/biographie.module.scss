@@ -88,20 +88,20 @@
     }
     &__main {
       line-height: 1.5;
-      text-align: justify;
+
       color: $color-black;
 
       &__p {
-        font-size: 2rem;
+        font-size: 2.5rem;
       }
 
       @include responsive(md) {
-        font-size: 1.3rem;
+        font-size: 2.5rem;
         padding: 2rem;
       }
 
       @include responsive(sm) {
-        font-size: 1.6rem;
+        font-size: 2.5rem;
         padding: 2rem;
       }
     }

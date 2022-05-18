@@ -10,7 +10,7 @@ const CardGalery = ({ picturePrevieuw, albumName, datePublication }) => {
       </div>
       <h4 className={styles.cardGalery__albumName}>{albumName}</h4>
       <div className={styles.cardGalery__datePublication}>
-        <span>poster |</span> <span>{datePublication}</span>
+        <span>Publiées le: |</span> <span>{datePublication}</span>
       </div>
     </div>
   );

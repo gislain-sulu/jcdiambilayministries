@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { useRouter } from "next/router";
 import React from "react";
+import Share from "../../../pages/share";
 import formatDate from "../../../utils/formatDate";
 import Button from "../../button/button";
 import {
@@ -151,9 +152,7 @@ const CardBookDetail = ({
           <div
             className={styles.cardBookDetail__content__socialsMedias__content}
           >
-            <Facebook />
-            <Instagram />
-            <IconWhatsapp />
+            <Share />
           </div>
         </div>
       </div>
