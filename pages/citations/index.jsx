@@ -13,10 +13,10 @@ import SectionPage from "../../components/sections/section";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import HeaderPage from "../../components/headerPage/headerPage";
-import OriginUrl from "../../components/originUrl/originUrl";
 import CardCitationList from "../../components/cards/citations/cardCitationlist";
 import axios from "axios";
 import Spiner from "../../components/spinner/spiner";
+import Breadcrumd from "../../components/breadcrumd/breadcrumd";
 
 const Citation = ({ citations }) => {
   const [citationsData, setCitationsData] = useState([]);
@@ -95,12 +95,24 @@ const Citation = ({ citations }) => {
       icon: <IconQuote_3 />,
     },
   ];
+  const listBreadcrumd = [
+    {
+      id: 1,
+      href: "/",
+      label: "Home",
+    },
+    {
+      id: 2,
+
+      label: "Citations",
+    },
+  ];
 
   return (
     <div className={styles.citation}>
       <HeaderPage
         title="Citations"
-        listOriginUrl={<OriginUrl listItem={listLinks} />}
+        listOriginUrl={<Breadcrumd list={listBreadcrumd} />}
         isWithFieldSearch={false}
       />
       <div className={styles.citation__content}>

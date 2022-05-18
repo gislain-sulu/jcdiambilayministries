@@ -8,24 +8,28 @@ import {
   Twitter,
 } from "../../components/icons/icon";
 import HeaderPage from "../../components/headerPage/headerPage";
-import OriginUrl from "../../components/originUrl/originUrl";
-import { useRouter } from "next/router";
+import Breadcrumd from "../../components/breadcrumd/breadcrumd";
 
 const Biographie = () => {
-  const router = useRouter();
+  const listBreadcrumd = [
+    {
+      id: 1,
+      href: "/",
+      label: "Home",
+    },
+    {
+      id: 2,
 
-  const pathname = router.pathname;
-
-  const formatPathname = pathname.replace("/", "");
-
-  const listLinks = ["home", formatPathname];
+      label: "Biographie",
+    },
+  ];
 
   return (
     <div className={styles.biographie}>
       <HeaderPage
         title="Biographie"
         isWithFieldSearch={false}
-        listOriginUrl={<OriginUrl listItem={listLinks} />}
+        listOriginUrl={<Breadcrumd list={listBreadcrumd} />}
       />
 
       <div className={styles.biographie__content}>

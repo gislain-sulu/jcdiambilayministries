@@ -3,9 +3,8 @@ import styles from "./medias.module.scss";
 import MEDIA_DATA from "../../models/MEDIA_DATA";
 import CardMedia from "../../components/cards/media/cardMedia";
 import HeaderPage from "../../components/headerPage/headerPage";
-import OriginUrl from "../../components/originUrl/originUrl";
-import { useRouter } from "next/router";
 import Spiner from "../../components/spinner/spiner";
+import Breadcrumd from "../../components/breadcrumd/breadcrumd";
 
 const Medias = () => {
   const [mediasData, setMediasData] = useState([]);
@@ -14,20 +13,25 @@ const Medias = () => {
     setMediasData(MEDIA_DATA);
   }, []);
 
-  const router = useRouter();
+  const listBreadcrumd = [
+    {
+      id: 1,
+      href: "/",
+      label: "Home",
+    },
+    {
+      id: 2,
 
-  const pathname = router.pathname;
-
-  const formatPathname = pathname.replace("/", "");
-
-  const listLinks = ["home", formatPathname];
+      label: "Medias",
+    },
+  ];
 
   return (
     <div className={styles.medias}>
       <HeaderPage
         title="Medias"
         isWithFieldSearch={false}
-        listOriginUrl={<OriginUrl listItem={listLinks} />}
+        listOriginUrl={<Breadcrumd list={listBreadcrumd} />}
       />
 
       <div className={styles.medias__content}>

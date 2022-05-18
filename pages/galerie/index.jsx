@@ -4,17 +4,21 @@ import GALERY_DATA from "../../models/GALERY_DATA";
 import CardGalery from "../../components/cards/galery/cardGalery";
 import Link from "next/link";
 import HeaderPage from "../../components/headerPage/headerPage";
-import OriginUrl from "../../components/originUrl/originUrl";
-import { useRouter } from "next/router";
+import Breadcrumd from "../../components/breadcrumd/breadcrumd";
 
 const Galery = () => {
-  const router = useRouter();
+  const listBreadcrumd = [
+    {
+      id: 1,
+      href: "/",
+      label: "Home",
+    },
+    {
+      id: 2,
 
-  const pathname = router.pathname;
-
-  const formatPathname = pathname.replace("/", "");
-
-  const listLinks = ["home", formatPathname];
+      label: "Galerie photos",
+    },
+  ];
 
   const getPicture = (pictureName) => {
     if (pictureName === "") {
@@ -28,7 +32,7 @@ const Galery = () => {
       <HeaderPage
         title="Galerie photos"
         isWithFieldSearch={false}
-        listOriginUrl={<OriginUrl listItem={listLinks} />}
+        listOriginUrl={<Breadcrumd list={listBreadcrumd} />}
       />
 
       <div className={styles.galerie__content}>
@@ -36,7 +40,7 @@ const Galery = () => {
           <ul className={styles.galerie__content__main}>
             {GALERY_DATA.map((data) => (
               <li className={styles.galerie__content__main__item}>
-                <Link href="/">
+                <Link href={data.url}>
                   <a className={styles.galerie__content__main__item__link}>
                     <CardGalery
                       picturePrevieuw={getPicture(data.picturePrevieuwName)}

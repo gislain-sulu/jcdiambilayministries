@@ -1,25 +1,23 @@
 import React, { useState, useEffect } from "react";
 import styles from "./blog.module.scss";
 import { IconDate, IconUser, IconPrev } from "../../../components/icons/icon";
-import OriginUrl from "../../../components/originUrl/originUrl";
 import Button from "../../../components/button/button";
-import HeaderPage from "../../../components/headerPage/headerPage";
 import ReactMarkdown from "react-markdown";
 import Share from "../../share";
 import axios from "axios";
 import formatDate from "../../../utils/formatDate";
 import Spiner from "../../../components/spinner/spiner";
+import Breadcrumd from "../../../components/breadcrumd/breadcrumd";
 import { useRouter } from "next/router";
 
 const BlogItem = ({ messages }) => {
   const [allMessagesDataFiltered, setAllMessagesDataFiltered] = useState([]);
 
   const router = useRouter();
+
   useEffect(() => {
     setAllMessagesDataFiltered(messages);
   }, [router.query.message]);
-
-  const listLinks = ["Home", "blog"];
 
   if (allMessagesDataFiltered.length === 0) {
     return (
@@ -32,6 +30,27 @@ const BlogItem = ({ messages }) => {
       </div>
     );
   }
+
+  const listBreadcrumd = [
+    {
+      id: 1,
+      href: "/",
+      label: "Home",
+    },
+    {
+      id: 2,
+      href: "/blog",
+
+      label: "blog",
+    },
+    {
+      id: 2,
+
+      label:
+        allMessagesDataFiltered.length >= 1 &&
+        allMessagesDataFiltered[0].attributes.title,
+    },
+  ];
 
   return (
     <div className={styles.blog}>
@@ -64,6 +83,12 @@ const BlogItem = ({ messages }) => {
               </div>
             </div>
           </header>
+
+          <div className="wrapper">
+            <div className={styles.blog__article__breadcrumd}>
+              {<Breadcrumd list={listBreadcrumd} />}
+            </div>
+          </div>
 
           <div className="wrapper">
             <main className={styles.blog__article__main}>

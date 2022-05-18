@@ -50,6 +50,14 @@
         text-align: center;
       }
     }
+    &__breadcrumd {
+      padding: 1rem 10rem;
+
+      font-size: 1.7rem;
+
+      font-family: "EB Garamond", sans-serif;
+      line-height: 1.5;
+    }
 
     &__header {
       background: linear-gradient(rgba(97, 56, 24, 0.9), rgba(97, 56, 24, 0.8)),

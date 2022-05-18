@@ -4,12 +4,11 @@ import { IconDonation } from "../../components/icons/icon";
 import SectionPage from "../../components/sections/section";
 import CardBook from "../../components/cards/books/cardBook";
 import HeaderPage from "../../components/headerPage/headerPage";
-import OriginUrl from "../../components/originUrl/originUrl";
-import { useRouter } from "next/router";
 import axios from "axios";
 import formatDescription from "../../utils/formatDescription";
 import Spiner from "../../components/spinner/spiner";
 import List from "../../components/list/list";
+import Breadcrumd from "../../components/breadcrumd/breadcrumd";
 
 const Books = ({ books }) => {
   const [newbooks, setNewBooks] = useState([]);
@@ -60,20 +59,26 @@ const Books = ({ books }) => {
     568: { items: 2 },
     1024: { items: 3 },
   };
-  const router = useRouter();
 
-  const pathname = router.pathname;
+  const listBreadcrumd = [
+    {
+      id: 1,
+      href: "/",
+      label: "Home",
+    },
+    {
+      id: 2,
 
-  const formatPathname = pathname.replace("/", "");
-
-  const listLinks = ["home", formatPathname];
+      label: "Books",
+    },
+  ];
 
   return (
     <div className={styles.books}>
       <HeaderPage
         title="JC Diambilay Books"
         isWithFieldSearch={false}
-        listOriginUrl={<OriginUrl listItem={listLinks} />}
+        listOriginUrl={<Breadcrumd list={listBreadcrumd} />}
       />
 
       <div className={styles.books__content}>

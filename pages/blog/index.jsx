@@ -4,12 +4,12 @@ import styles from "./blog.module.scss";
 import Link from "next/link";
 import CardBlog from "../../components/cards/blog/cardBlog";
 import HeaderPage from "../../components/headerPage/headerPage";
-import OriginUrl from "../../components/originUrl/originUrl";
 import { useRouter } from "next/router";
 import axios from "axios";
 import List from "../../components/list/list";
 import InfiniteScroll from "react-infinite-scroll-component";
 import Spiner from "../../components/spinner/spiner";
+import Breadcrumd from "../../components/breadcrumd/breadcrumd";
 
 const Blog = ({ data, total }) => {
   const [messages, setmessages] = useState([]);
@@ -52,15 +52,18 @@ const Blog = ({ data, total }) => {
     setmessages(data);
   }, [messages]);
 
-  const router = useRouter();
+  const listBreadcrumd = [
+    {
+      id: 1,
+      href: "/",
+      label: "Home",
+    },
+    {
+      id: 2,
 
-  const pathname = router.pathname;
-
-  const formatPathname = pathname.replace("/", "");
-
-  const listLinks = ["home", formatPathname];
-
-  console.log(messages);
+      label: "Blog",
+    },
+  ];
 
   return (
     <div className={styles.blog}>
@@ -68,7 +71,7 @@ const Blog = ({ data, total }) => {
         title="Rechercher un article de l'Apôtre Jean-Clément Diambilay"
         placeholder="Tapez un titre"
         textHelper="garder son coeur pur"
-        listOriginUrl={<OriginUrl listItem={listLinks} />}
+        listOriginUrl={<Breadcrumd list={listBreadcrumd} />}
         classname={styles.blog__title}
         termSearchField={term}
         handleSearchInput={handleChange}
@@ -78,7 +81,7 @@ const Blog = ({ data, total }) => {
 
       <section className={styles.blog__content}>
         <div className={`${styles.blog__content__wrapper} wrapper`}>
-          <div className={styles.blog__content__filterBox}>
+          {/* <div className={styles.blog__content__filterBox}>
             <span className={styles.blog__content__filterBox__label}>
               FILTRE:
             </span>
@@ -90,7 +93,7 @@ const Blog = ({ data, total }) => {
                 <Link href="/">récents </Link>
               </li>
             </ul>
-          </div>
+          </div> */}
           <div className={styles.blog__content__list}>
             <InfiniteScroll
               dataLength={messages.length}

@@ -2,12 +2,12 @@ import React, { useState, useEffect } from "react";
 import styles from "./citationlist.module.scss";
 import Link from "next/link";
 import HeaderPage from "../../../components/headerPage/headerPage";
-import OriginUrl from "../../../components/originUrl/originUrl";
 import CardCitationList from "../../../components/cards/citations/cardCitationlist";
 import List from "../../../components/list/list";
 import axios from "axios";
 import InfiniteScroll from "react-infinite-scroll-component";
 import Spiner from "../../../components/spinner/spiner";
+import Breadcrumd from "../../../components/breadcrumd/breadcrumd";
 
 const Citationlist = ({ data, total, citationsSearchAll }) => {
   const [citations, setCitations] = useState([]);
@@ -46,7 +46,23 @@ const Citationlist = ({ data, total, citationsSearchAll }) => {
     setHasMore(allCitationsLength > citations.length ? true : false);
   }, [citations]);
 
-  const listLinks = ["home", "citations", "list"];
+  const listBreadcrumd = [
+    {
+      id: 1,
+      href: "/",
+      label: "Home",
+    },
+    {
+      id: 2,
+      href: "/citations",
+
+      label: "Citations",
+    },
+    {
+      id: 3,
+      label: "List",
+    },
+  ];
 
   return (
     <div className={styles.citationlist}>
@@ -54,7 +70,7 @@ const Citationlist = ({ data, total, citationsSearchAll }) => {
         title="Rechercher une citation de l'Apôtre Jean-Clément Diambilay"
         placeholder="Tapez un mot"
         textHelper="Dieu"
-        listOriginUrl={<OriginUrl listItem={listLinks} />}
+        listOriginUrl={<Breadcrumd list={listBreadcrumd} />}
         classname={styles.blog__title}
         termSearchField={term}
         handleSearchInput={handleChange}

@@ -1,22 +1,12 @@
 import React from "react";
 import CardAbout from "../../components/cards/about/cardAbout";
 import styles from "./about.module.scss";
-
 import { IconDonation } from "../../components/icons/icon";
 import MEANSOFACTION_DATA from "../../models/MEANSOFACTION_DATA";
 import HeaderPage from "../../components/headerPage/headerPage";
-import { useRouter } from "next/router";
-import OriginUrl from "../../components/originUrl/originUrl";
+import Breadcrumd from "../../components/breadcrumd/breadcrumd";
 
 const About = () => {
-  const router = useRouter();
-
-  const pathname = router.pathname;
-
-  const formatPathname = pathname.replace("/", "");
-
-  const listLinks = ["home", formatPathname];
-
   const data = [
     {
       id: 1,
@@ -56,13 +46,26 @@ const About = () => {
 
   let numerotation = 1;
 
+  const listBreadcrumd = [
+    {
+      id: 1,
+      href: "/",
+      label: "Home",
+    },
+    {
+      id: 2,
+
+      label: "About",
+    },
+  ];
+
   return (
     <div className="container">
       <div className={styles.aboutMe}>
         <HeaderPage
           title="A propos de nous"
           isWithFieldSearch={false}
-          listOriginUrl={<OriginUrl listItem={listLinks} />}
+          listOriginUrl={<Breadcrumd list={listBreadcrumd} />}
         />
 
         <div className={styles.aboutMe__content}>

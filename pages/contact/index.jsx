@@ -1,15 +1,10 @@
 import React from "react";
 import styles from "./contact.module.scss";
-import Image from "next/image";
 import HeaderPage from "../../components/headerPage/headerPage";
-import OriginUrl from "../../components/originUrl/originUrl";
-import { useRouter } from "next/router";
 import Button from "../../components/button/button";
 import {
   ArrowNext,
   Facebook,
-  IconContact,
-  IconNext,
   IconPlace,
   IconSocialsMedias,
   IconTelephone,
@@ -18,22 +13,28 @@ import {
   Youtube,
 } from "../../components/icons/icon";
 import Link from "next/link";
+import Breadcrumd from "../../components/breadcrumd/breadcrumd";
 
 const Contact = () => {
-  const router = useRouter();
+  const listBreadcrumd = [
+    {
+      id: 1,
+      href: "/",
+      label: "Home",
+    },
+    {
+      id: 2,
 
-  const pathname = router.pathname;
-
-  const formatPathname = pathname.replace("/", "");
-
-  const listLinks = ["home", formatPathname];
+      label: "Contact",
+    },
+  ];
 
   return (
     <div className={styles.contact}>
       <HeaderPage
         title="Contact"
         isWithFieldSearch={false}
-        listOriginUrl={<OriginUrl listItem={listLinks} />}
+        listOriginUrl={<Breadcrumd list={listBreadcrumd} />}
       />
       <div className={`${styles.contact__wrapper} wrapper`}>
         <div className={styles.contact__intro}>

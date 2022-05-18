@@ -2,23 +2,27 @@ import React from "react";
 import styles from "./confession.module.scss";
 import Image from "next/image";
 import HeaderPage from "../../components/headerPage/headerPage";
-import OriginUrl from "../../components/originUrl/originUrl";
-import { useRouter } from "next/router";
+import Breadcrumd from "../../components/breadcrumd/breadcrumd";
 
 const Confession = () => {
-  const router = useRouter();
+  const listBreadcrumd = [
+    {
+      id: 1,
+      href: "/",
+      label: "Home",
+    },
+    {
+      id: 2,
 
-  const pathname = router.pathname;
-
-  const formatPathname = pathname.replace("/", "");
-
-  const listLinks = ["home", formatPathname];
+      label: "confession de foi",
+    },
+  ];
   return (
     <div className={styles.confession}>
       <HeaderPage
         title="Confession de foi"
         isWithFieldSearch={false}
-        listOriginUrl={<OriginUrl listItem={listLinks} />}
+        listOriginUrl={<Breadcrumd list={listBreadcrumd} />}
       />
 
       <div className={styles.confession__content}>

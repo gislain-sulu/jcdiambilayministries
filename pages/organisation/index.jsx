@@ -3,24 +3,28 @@ import styles from "./organisation.module.scss";
 import CardOrganisation from "../../components/cards/organisation/cardOrganisation";
 import ORGANISATION_PAGE_DATA from "../../models/ORGANISATION_PAGE_DATA";
 import HeaderPage from "../../components/headerPage/headerPage";
-import OriginUrl from "../../components/originUrl/originUrl";
-import { useRouter } from "next/router";
+import Breadcrumd from "../../components/breadcrumd/breadcrumd";
 
 const Organisation = () => {
-  const router = useRouter();
+  const listBreadcrumd = [
+    {
+      id: 1,
+      href: "/",
+      label: "Home",
+    },
+    {
+      id: 2,
 
-  const pathname = router.pathname;
-
-  const formatPathname = pathname.replace("/", "");
-
-  const listLinks = ["home", formatPathname];
+      label: "Organisation",
+    },
+  ];
 
   return (
     <div className={styles.organisation}>
       <HeaderPage
         title="Notre Organisation"
         isWithFieldSearch={false}
-        listOriginUrl={<OriginUrl listItem={listLinks} />}
+        listOriginUrl={<Breadcrumd list={listBreadcrumd} />}
       />
 
       <div className={styles.organisation__content}>
