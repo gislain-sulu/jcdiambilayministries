@@ -4,12 +4,12 @@ import styles from "./bookslist.module.scss";
 import Link from "next/link";
 import CardBook from "../../../components/cards/books/cardBook";
 import HeaderPage from "../../../components/headerPage/headerPage";
-import OriginUrl from "../../../components/originUrl/originUrl";
 import List from "../../../components/list/list";
 import axios from "axios";
 import formatDescription from "../../../utils/formatDescription";
 import Spiner from "../../../components/spinner/spiner";
 import InfiniteScroll from "react-infinite-scroll-component";
+import Breadcrumd from "../../../components/breadcrumd/breadcrumd";
 
 const Bookslist = ({ data, total, booksSearchAll }) => {
   const [books, setBooks] = useState([]);
@@ -48,7 +48,23 @@ const Bookslist = ({ data, total, booksSearchAll }) => {
     setHasMore(allBooksLength > books.length ? true : false);
   }, [books]);
 
-  const listLinks = ["home", "books", "list"];
+  const listBreadcrumd = [
+    {
+      id: 1,
+      href: "/",
+      label: "Home",
+    },
+    {
+      id: 2,
+      href: "/books",
+      label: "Books",
+    },
+    {
+      id: 2,
+
+      label: "List",
+    },
+  ];
 
   return (
     <div className={styles.bookslist}>
@@ -56,7 +72,7 @@ const Bookslist = ({ data, total, booksSearchAll }) => {
         title="Rechercher un livre de l'Apôtre Jean Clément Diambilay"
         placeholder="Tapez un titre du livre"
         textHelper="accélératon divine"
-        listOriginUrl={<OriginUrl listItem={listLinks} />}
+        listOriginUrl={<Breadcrumd list={listBreadcrumd} />}
         termSearchField={term}
         handleSearchInput={handleChange}
         datasFilteredSearch={filteredBooksSearch}

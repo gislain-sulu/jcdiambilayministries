@@ -9,7 +9,7 @@ const CardBook = ({
   picture,
   alt,
   title,
-  author = "Jean-clément Diambilay",
+  author = "Jean-Clément Diambilay",
   description,
   slug,
   onClick,

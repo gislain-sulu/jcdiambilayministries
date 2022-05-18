@@ -2,8 +2,6 @@ import React, { useState, useEffect } from "react";
 import styles from "./bookDetail.module.scss";
 import CardBookDetail from "../../../components/cards/bookDetail/cardBookDetail";
 import SectionPage from "../../../components/sections/section";
-import CardBook_1 from "../../../components/cards/books/cardBook_1";
-import { ArrowNext, IconHome } from "../../../components/icons/icon";
 import Link from "next/link";
 import HeaderPage from "../../../components/headerPage/headerPage";
 import OriginUrl from "../../../components/originUrl/originUrl";
@@ -13,6 +11,7 @@ import formatDescription from "../../../utils/formatDescription";
 import Spiner from "../../../components/spinner/spiner";
 import { useRouter } from "next/router";
 import List from "../../../components/list/list";
+import Breadcrumd from "../../../components/breadcrumd/breadcrumd";
 
 const BookDetail = ({ books, newBooksDataFiltered }) => {
   const [book, setBook] = useState([]);
@@ -43,12 +42,30 @@ const BookDetail = ({ books, newBooksDataFiltered }) => {
   }, [router.query.book]);
 
   const listLinks = ["home", `${router.query.book}`];
+
+  const listBreadcrumd = [
+    {
+      id: 1,
+      href: "/",
+      label: "Home",
+    },
+    {
+      id: 2,
+      href: "/books",
+      label: "Books",
+    },
+    {
+      id: 3,
+      label: books.length >= 1 && books[0].attributes.title,
+    },
+  ];
+
   return (
     <div className={styles.bookDetail}>
       <HeaderPage
         title="detail livre"
         isWithFieldSearch={false}
-        listOriginUrl={<OriginUrl listItem={listLinks} />}
+        listOriginUrl={<Breadcrumd list={listBreadcrumd} />}
       />
       <div className="wrapper">
         <ul className={styles.bookDetail__content}>

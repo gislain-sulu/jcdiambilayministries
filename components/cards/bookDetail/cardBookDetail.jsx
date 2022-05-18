@@ -14,7 +14,7 @@ import styles from "./cardBookDetail.module.scss";
 const CardBookDetail = ({
   src,
   title,
-  author = "Jean-clément diambilay",
+  author = "Jean-Clément Diambilay",
   price,
   linkAmazone,
   description,
