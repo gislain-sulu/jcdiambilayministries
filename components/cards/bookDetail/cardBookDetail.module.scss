@@ -120,12 +120,16 @@
       }
     }
     &__description {
+      margin: 2rem 0;
       background-color: transparentize($color-gray, 0.9);
       box-sizing: border-box;
       line-height: 1.9rem;
       padding: 1rem;
       line-height: 1.3;
       font-family: "EB Garamond", "Montserrat", sans-serif !important;
+      @include responsive(sm) {
+        font-size: 2rem;
+      }
     }
     &__socialsMedias {
       display: flex;
