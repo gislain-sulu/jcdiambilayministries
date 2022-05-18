@@ -32,6 +32,7 @@ const Footer = () => {
                   width={469 / 2}
                   height={102 / 2}
                   loading="eager"
+                  alt="logo jcdiambilayministries"
                 />
               </a>
             </Link>
@@ -43,28 +44,28 @@ const Footer = () => {
             >
               <li>
                 <Link href="https://web.facebook.com/Jcdminist">
-                  <a target="_blank">
+                  <a target="_blank" title="visiter notre page Facebook">
                     <Facebook />
                   </a>
                 </Link>
               </li>
               <li>
                 <Link href="https://mobile.twitter.com/jdiambilay">
-                  <a target="_blank">
+                  <a target="_blank" title="visiter notre page Twiter">
                     <Twitter />
                   </a>
                 </Link>
               </li>
               <li>
                 <Link href="https://www.youtube.com/channel/UC-5MlpGFchNz8sRwiFQrH5w">
-                  <a target="_blank">
+                  <a target="_blank" title="visiter notre chaine Youtube">
                     <Youtube />
                   </a>
                 </Link>
               </li>
               <li>
                 <Link href="https://www.instagram.com/iam_jcdk/?hl=fr">
-                  <a target="_blank">
+                  <a target="_blank" title="visiter notre page Intsagram">
                     <Instagram />
                   </a>
                 </Link>
@@ -87,12 +88,19 @@ const Footer = () => {
               }
             >
               <form>
-                <input type="email" placeholder="votre email..." />
+                <label htmlFor="Email">votre email</label>
+                <input
+                  id="Email"
+                  type="email"
+                  placeholder="votre email..."
+                  name="Email"
+                />
                 <Button
                   textBtn="S'abonner"
                   icon={<IconSuscribe />}
                   type="submit"
                   className={styles.footer__button}
+                  title="button s'abonner"
                 />
               </form>
             </div>

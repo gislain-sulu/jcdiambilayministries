@@ -278,6 +278,7 @@ const Accuiel = () => {
         <Image
           src="https://res.cloudinary.com/personnal/image/upload/v1650932594/slide__acceleration_divine_web_emm92z.jpg"
           quality="full"
+          alt="cover book/livre accéleration divine"
           loading="lazy"
           className={styles.home__headerBox__slider__image__picture}
           layout="fill"
@@ -326,6 +327,7 @@ const Accuiel = () => {
                 <Button
                   hrefUrl={`https://www.amazon.fr/B%C3%A9n%C3%A9diction-lInd%C3%A9pendance-Financi%C3%A8re-Jean-Cl%C3%A9ment-Diambilay/dp/B09WWFNKHZ/ref=pd_lpo_1?pd_rd_i=B09WWFNKHZ&psc=1`}
                   textBtn="passez votre commande"
+                  alt="cover book/livre bénédiction de l'indépendance financière"
                   className={
                     styles.home__headerBox__slider__textBox__content__btnBox__btn
                   }
@@ -343,6 +345,7 @@ const Accuiel = () => {
         <Image
           src="https://res.cloudinary.com/personnal/image/upload/v1650932793/slide__benediction_independance_financiere_web_i6qqvc.jpg"
           quality="full"
+          alt="cover book/livre bénédiction de l'indépendance financière"
           loading="lazy"
           className={styles.home__headerBox__slider__image__picture}
           layout="fill"
