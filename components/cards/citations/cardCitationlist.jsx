@@ -1,5 +1,6 @@
 import Image from "next/image";
 import React from "react";
+import Share from "../../../pages/share";
 import {
   Facebook,
   IconQuote_4,
@@ -45,9 +46,7 @@ const CardCitationList = ({ pictureUrl, pictureAlt, text }) => {
           <div
             className={styles.cardCitationlist__modal__socialsMedias__content}
           >
-            <Facebook />
-            <Instagram />
-            <IconWhatsapp />
+            <Share />
           </div>
         </div>
       </blockquote>

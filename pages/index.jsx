@@ -31,9 +31,18 @@ export default function Home({ posts }) {
           property="og:title"
           content="site personnel de l'Apôtre Jean-Clément Diambilay de l'Eglise Nouvelle Cité De David en RD Congo"
         />
-        <meta property="og:image" content="/logobig.jpg" />
-        <meta property="og:image:url" content="/logobig.jpg" />
-        <meta property="og:image:secure_url" content="/logobig.jpg" />
+        <meta
+          property="og:image"
+          content="https://res.cloudinary.com/personnal/image/upload/v1652879529/jcdiambilayministries/logobig_wiv9w2.jpg"
+        />
+        <meta
+          property="og:image:url"
+          content="https://res.cloudinary.com/personnal/image/upload/v1652879529/jcdiambilayministries/logobig_wiv9w2.jpg"
+        />
+        <meta
+          property="og:image:secure_url"
+          content="https://res.cloudinary.com/personnal/image/upload/v1652879529/jcdiambilayministries/logobig_wiv9w2.jpg"
+        />
         <meta property="og:image:type" content="image/jpg" />
         <meta name="MobileOptimized" content="width" />
         <meta

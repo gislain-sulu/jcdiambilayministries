@@ -100,7 +100,7 @@ const BlogItem = ({ messages }) => {
                 </span>
                 <span className={styles.blog__article__socialsMedias__content}>
                   <Share
-                    url="https://www.sharethis.com"
+                    url="www.google.fr"
                     // title={message.attributes.title}
                     // description={message.attributes.description}
                   />

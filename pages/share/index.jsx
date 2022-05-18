@@ -4,7 +4,7 @@ import { InlineShareButtons } from "sharethis-reactjs";
 import { StickyShareButtons } from "sharethis-reactjs";
 import { InlineFollowButtons } from "sharethis-reactjs";
 
-const Share = () => {
+const Share = ({ url, image, description, title }) => {
   return (
     <div className="App">
       <div>
@@ -21,9 +21,7 @@ const Share = () => {
               // which networks to include (see SHARING NETWORKS)
               "whatsapp",
               "facebook",
-              "twitter",
               "messenger",
-              "linkedin",
             ],
             padding: 12, // padding within buttons (INTEGER)
             radius: 4, // the corner radius on each button (INTEGER)
@@ -31,10 +29,11 @@ const Share = () => {
             size: 40, // the size of each button (INTEGER)
 
             // OPTIONAL PARAMETERS
-            url: "jcdiambilay.com", // (defaults to current url)
-            image: "https://bit.ly/2CMhCMC", // (defaults to og:image or twitter:image)
-            description: "custom text", // (defaults to og:description or twitter:description)
-            title: "custom title", // (defaults to og:title or twitter:title)
+            url: "https://jcdiambilayministries.org/", // (defaults to current url) "jcdiambilay.com"
+            image:
+              "https://res.cloudinary.com/personnal/image/upload/v1652879529/jcdiambilayministries/logobig_wiv9w2.jpg", // (defaults to og:image or twitter:image) "https://bit.ly/2CMhCMC"
+            description: "Evangélisation,Discipolat, Mission", // (defaults to og:description or twitter:description) "custom text"
+            title: { title }, // (defaults to og:title or twitter:title) "custom title"
             message: "custom email text", // (only for email sharing)
             subject: "custom email subject", // (only for email sharing)
             username: "custom twitter handle", // (only for twitter sharing)
