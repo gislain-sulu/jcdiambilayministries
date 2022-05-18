@@ -127,6 +127,7 @@
       padding: 1rem;
       line-height: 1.3;
       font-family: "EB Garamond", "Montserrat", sans-serif !important;
+      text-overflow: ellipsis;
       @include responsive(sm) {
         font-size: 2rem;
       }

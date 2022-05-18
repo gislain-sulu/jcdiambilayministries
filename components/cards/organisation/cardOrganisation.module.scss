@@ -3,13 +3,14 @@
 .cardOrganisation {
   display: flex;
   flex-direction: column;
-  gap: 3rem;
+  gap: 1rem;
   position: relative;
   overflow: hidden;
+  padding: 5rem;
 
   &__title {
     font-weight: 600;
-    font-size: 2rem;
+    font-size: 3rem;
     position: relative;
 
     &:after {

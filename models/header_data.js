@@ -7,7 +7,7 @@ const HEADER_DATA = [
 
   {
     id: 2,
-    textLink: "Messages textes",
+    textLink: "Blog",
     link: "/blog",
   },
   {

@@ -121,6 +121,10 @@
         color: $color-black;
         gap: 0.5rem;
       }
+
+      &__list {
+        display: flex;
+      }
     }
   }
 }

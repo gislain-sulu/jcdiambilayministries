@@ -14,7 +14,7 @@ const Bapteme = () => {
           Sauveur ?
         </p>
         <Button
-          hrefUrl={`/blog/`}
+          hrefUrl={`/bapteme`}
           textBtn="Comment recevoir Jésus"
           className={styles.bapteme__button}
           icon="none"

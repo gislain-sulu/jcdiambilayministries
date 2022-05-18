@@ -6,9 +6,11 @@ import {
   Instagram,
   Linkedin,
   Twitter,
+  Youtube,
 } from "../../components/icons/icon";
 import HeaderPage from "../../components/headerPage/headerPage";
 import Breadcrumd from "../../components/breadcrumd/breadcrumd";
+import Link from "next/link";
 
 const Biographie = () => {
   const listBreadcrumd = [
@@ -89,10 +91,37 @@ const Biographie = () => {
             </p>
           </main>
           <div className={styles.biographie__content__socialsMedias}>
-            <Facebook />
-            <Twitter />
-            <Instagram />
-            <Linkedin />
+            <ul className={styles.biographie__content__socialsMedias__list}>
+              <li>
+                <Link href="https://web.facebook.com/Jcdminist">
+                  <a target="_blank" title="visiter notre page Facebook">
+                    <Facebook />
+                  </a>
+                </Link>
+              </li>
+              <li>
+                <Link href="https://mobile.twitter.com/jdiambilay">
+                  <a target="_blank" title="visiter notre page Twiter">
+                    <Twitter />
+                  </a>
+                </Link>
+              </li>
+              <li>
+                <Link href="https://www.youtube.com/channel/UC-5MlpGFchNz8sRwiFQrH5w">
+                  <a target="_blank" title="visiter notre chaine Youtube">
+                    <Youtube />
+                  </a>
+                </Link>
+              </li>
+              {Youtube}
+              <li>
+                <Link href="https://www.instagram.com/iam_jcdk/?hl=fr">
+                  <a target="_blank" title="visiter notre page Intsagram">
+                    <Instagram />
+                  </a>
+                </Link>
+              </li>
+            </ul>
           </div>
         </div>
       </div>

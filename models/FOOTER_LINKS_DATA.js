@@ -6,7 +6,7 @@ const FOOTER_LINKS_DATA = [
       {
         id: 1,
         label: "enoncé de vision",
-        url: "/enonce-de-vision",
+        url: "/about",
         isActive: true,
       },
       {
