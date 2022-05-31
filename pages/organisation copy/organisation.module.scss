@@ -4,14 +4,14 @@
 .organisation {
   display: flex;
   flex-direction: column;
-  gap: 7rem;
+  padding: 5rem 0;
 
   @include responsive(sm) {
     gap: 2rem;
   }
 
   &__content {
-    margin-bottom: 3rem;
+    padding: 5rem 0;
 
     &__wrapper {
       display: flex;

@@ -1,0 +1,79 @@
+@import "../../styles/sass/base/variables.scss";
+@import "../../styles/sass/mixins/_responsive";
+
+.don {
+  display: flex;
+  flex-direction: column;
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+
+    padding: 5rem 0;
+    gap: 1rem;
+
+    &__box {
+      padding: 10rem 0;
+      background: url("https://res.cloudinary.com/personnal/image/upload/v1653998485/277256356_5008659165893028_2515850079375893189_n_gusgok.jpg")
+        no-repeat;
+      background-clip: border-box;
+      background-position: top center;
+    }
+
+    &__mission {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 0.5rem;
+
+      &__title,
+      &__subtitle,
+      &__p {
+        text-align: center;
+        font-size: 2rem;
+      }
+      &__title {
+        font-size: 2.5rem;
+        font-weight: 900;
+        color: $color-primary;
+        padding-top: 2rem;
+      }
+      &__subtitle {
+        font-weight: 900;
+        padding-bottom: 2rem;
+      }
+    }
+
+    &__box {
+      &__card {
+        background: $color-primary;
+        padding: 1rem;
+        width: 50%;
+        box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
+        @include responsive(sm) {
+          width: 70%;
+        }
+        &__title {
+          font-size: 2rem;
+        }
+        &__description {
+          font-size: 2rem;
+        }
+        &__em {
+          font-size: 2rem;
+        }
+        &__pricesBox {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 1rem;
+        }
+      }
+    }
+  }
+  &__button {
+    background: $color-white;
+    a {
+      color: $color-black;
+    }
+  }
+}

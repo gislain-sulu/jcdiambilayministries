@@ -1,0 +1,45 @@
+@import "../../styles/sass/base/variables.scss";
+@import "../../styles/sass/mixins/_responsive";
+
+.bapteme {
+  display: flex;
+  flex-direction: column;
+
+  h3 {
+    font-size: 2rem;
+  }
+  p {
+    font-size: 2rem;
+  }
+
+  &__content {
+    padding: 5rem 0;
+
+    &__wrapper {
+      display: flex;
+      flex-direction: column;
+      gap: 5rem;
+
+      @include responsive(sm) {
+        gap: 2rem;
+      }
+    }
+    &__p2 {
+      &__content {
+        color: $color-primary;
+        width: 90%;
+        margin: 0 auto;
+      }
+    }
+    &__p3 {
+      &__content {
+        width: 90%;
+        margin: 0 auto;
+        li {
+          list-style-type: disc !important;
+          padding-bottom: 1rem;
+        }
+      }
+    }
+  }
+}
